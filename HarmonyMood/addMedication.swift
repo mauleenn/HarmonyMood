@@ -79,7 +79,7 @@ struct addMedication: View {
                        }
                    }
                    
-                // "Enter" button
+                // "Save" button
                 Section {
                     Button("Save") {
                         self.enterButtonPress = true
