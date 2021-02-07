@@ -24,6 +24,7 @@ import SwiftUI
 
 struct infoPage: View {
     
+    // Application version number
     @State private var versionNumber: Double = 1.0
     
     var body: some View {
@@ -58,12 +59,8 @@ struct infoPage: View {
                     .font(.subheadline)
             }
 
-            
-        
          // Title of page
         }.navigationBarTitle("Welcome to Harmony Mood!", displayMode: .inline)
-        
-        
 }
 }
 
