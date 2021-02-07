@@ -28,6 +28,7 @@ struct medicationList: View {
     var body: some View {
         NavigationView {
             List {
+                // Example medication
                 Text("Tylenol 300mg")
                 
                 // Link to "Add Medication" Page
