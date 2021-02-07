@@ -104,7 +104,7 @@ struct trackingPoints: View {
                                 self.irritabilityMood = String(value)
                             }
                         }
-                       
+            
                         // Enter button
                         Button("Enter") {
                             self.enterButtonPress = true
@@ -135,5 +135,4 @@ struct trackingPoints: View {
                 trackingPoints()
         }
     }
-
 }
