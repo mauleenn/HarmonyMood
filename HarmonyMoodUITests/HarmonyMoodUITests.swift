@@ -174,7 +174,7 @@ class HarmonyMoodUITests: XCTestCase {
         XCTAssertTrue(app.navigationBars.staticTexts["Medications List"].exists)
     }
     
-    // Test that the Nav Bar title named "Welcome to Harmony Mood!" exists (US4:1)
+    // Test that the Nav Bar title named "Welcome to Harmony Mood!" exists for US4:1
     func testInfoPageNavigation() {
         let app = XCUIApplication()
         app.launch()
