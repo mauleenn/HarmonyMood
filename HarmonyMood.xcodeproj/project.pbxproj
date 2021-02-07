@@ -1,0 +1,757 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2B017C552537C1A4001A7918 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B017C542537C1A4001A7918 /* Assets.xcassets */; };
+		2B017C582537C1A4001A7918 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B017C572537C1A4001A7918 /* Preview Assets.xcassets */; };
+		2B017C632537C1A4001A7918 /* HarmonyMoodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B017C622537C1A4001A7918 /* HarmonyMoodTests.swift */; };
+		2B017C6E2537C1A4001A7918 /* HarmonyMoodUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B017C6D2537C1A4001A7918 /* HarmonyMoodUITests.swift */; };
+		2B3E5B4525CBD81D00F123DD /* trackingPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E5B4425CBD81D00F123DD /* trackingPoints.swift */; };
+		2B3E5B5425CBDD5100F123DD /* addMedication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E5B5325CBDD5100F123DD /* addMedication.swift */; };
+		2B3E5B5925CBDD9200F123DD /* medicationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E5B5825CBDD9200F123DD /* medicationList.swift */; };
+		2B3E5B7725CBEA9300F123DD /* infoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E5B7625CBEA9300F123DD /* infoPage.swift */; };
+		2BA9037425CC2F3900EEB8C7 /* HarmonyMoodApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA9037325CC2F3900EEB8C7 /* HarmonyMoodApp.swift */; };
+		2BC97D2525B0A95D0057F6AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BC97D2425B0A95D0057F6AE /* GoogleService-Info.plist */; };
+		2BC97D2625B0A95D0057F6AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BC97D2425B0A95D0057F6AE /* GoogleService-Info.plist */; };
+		2BC97D2725B0A95D0057F6AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BC97D2425B0A95D0057F6AE /* GoogleService-Info.plist */; };
+		4676F811634E0182F8D180A2 /* Pods_HarmonyMoodTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BCC17DA2A6CF40D77FB62B /* Pods_HarmonyMoodTests.framework */; };
+		5B0D50EAF4A28F6497D1A8EF /* Pods_HarmonyMood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDDA7E0656D4BF65A0498CC /* Pods_HarmonyMood.framework */; };
+		99C2E2A5A6795B365D45E5AC /* Pods_HarmonyMood_HarmonyMoodUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D720E29A03B4E89A64AF4C98 /* Pods_HarmonyMood_HarmonyMoodUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2B017C5F2537C1A4001A7918 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B017C452537C1A2001A7918 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B017C4C2537C1A2001A7918;
+			remoteInfo = HarmonyMood;
+		};
+		2B017C6A2537C1A4001A7918 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B017C452537C1A2001A7918 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B017C4C2537C1A2001A7918;
+			remoteInfo = HarmonyMood;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0CD6D0DF2ABE90E468CDD1C2 /* Pods-HarmonyMood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarmonyMood.debug.xcconfig"; path = "Target Support Files/Pods-HarmonyMood/Pods-HarmonyMood.debug.xcconfig"; sourceTree = "<group>"; };
+		2B017C4D2537C1A2001A7918 /* HarmonyMood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HarmonyMood.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B017C542537C1A4001A7918 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2B017C572537C1A4001A7918 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2B017C592537C1A4001A7918 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B017C5E2537C1A4001A7918 /* HarmonyMoodTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarmonyMoodTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B017C622537C1A4001A7918 /* HarmonyMoodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonyMoodTests.swift; sourceTree = "<group>"; };
+		2B017C642537C1A4001A7918 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B017C692537C1A4001A7918 /* HarmonyMoodUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarmonyMoodUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B017C6D2537C1A4001A7918 /* HarmonyMoodUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonyMoodUITests.swift; sourceTree = "<group>"; };
+		2B017C6F2537C1A4001A7918 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B3E5B4425CBD81D00F123DD /* trackingPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trackingPoints.swift; sourceTree = "<group>"; };
+		2B3E5B5325CBDD5100F123DD /* addMedication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addMedication.swift; sourceTree = "<group>"; };
+		2B3E5B5825CBDD9200F123DD /* medicationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = medicationList.swift; sourceTree = "<group>"; };
+		2B3E5B7625CBEA9300F123DD /* infoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoPage.swift; sourceTree = "<group>"; };
+		2BA9037325CC2F3900EEB8C7 /* HarmonyMoodApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonyMoodApp.swift; sourceTree = "<group>"; };
+		2BC97D2425B0A95D0057F6AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		34BCC17DA2A6CF40D77FB62B /* Pods_HarmonyMoodTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HarmonyMoodTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5101C4E54F4D59BE6B387AED /* Pods-HarmonyMood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarmonyMood.release.xcconfig"; path = "Target Support Files/Pods-HarmonyMood/Pods-HarmonyMood.release.xcconfig"; sourceTree = "<group>"; };
+		7A2B7DB6B8C531464EF742F1 /* Pods-HarmonyMood-HarmonyMoodUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarmonyMood-HarmonyMoodUITests.release.xcconfig"; path = "Target Support Files/Pods-HarmonyMood-HarmonyMoodUITests/Pods-HarmonyMood-HarmonyMoodUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9202FC0CE30561CA3D5BC533 /* Pods-HarmonyMoodTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarmonyMoodTests.release.xcconfig"; path = "Target Support Files/Pods-HarmonyMoodTests/Pods-HarmonyMoodTests.release.xcconfig"; sourceTree = "<group>"; };
+		BB1D72BDF851BF98367DB692 /* Pods-HarmonyMoodTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarmonyMoodTests.debug.xcconfig"; path = "Target Support Files/Pods-HarmonyMoodTests/Pods-HarmonyMoodTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BCDDA7E0656D4BF65A0498CC /* Pods_HarmonyMood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HarmonyMood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D720E29A03B4E89A64AF4C98 /* Pods_HarmonyMood_HarmonyMoodUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HarmonyMood_HarmonyMoodUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBB8E977D8A23E332E2CDA6C /* Pods-HarmonyMood-HarmonyMoodUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarmonyMood-HarmonyMoodUITests.debug.xcconfig"; path = "Target Support Files/Pods-HarmonyMood-HarmonyMoodUITests/Pods-HarmonyMood-HarmonyMoodUITests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2B017C4A2537C1A2001A7918 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B0D50EAF4A28F6497D1A8EF /* Pods_HarmonyMood.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B017C5B2537C1A4001A7918 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4676F811634E0182F8D180A2 /* Pods_HarmonyMoodTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B017C662537C1A4001A7918 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99C2E2A5A6795B365D45E5AC /* Pods_HarmonyMood_HarmonyMoodUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		153933FA186BD19EB48199E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BCDDA7E0656D4BF65A0498CC /* Pods_HarmonyMood.framework */,
+				D720E29A03B4E89A64AF4C98 /* Pods_HarmonyMood_HarmonyMoodUITests.framework */,
+				34BCC17DA2A6CF40D77FB62B /* Pods_HarmonyMoodTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2B017C442537C1A2001A7918 = {
+			isa = PBXGroup;
+			children = (
+				2B017C4F2537C1A2001A7918 /* HarmonyMood */,
+				2B017C612537C1A4001A7918 /* HarmonyMoodTests */,
+				2B017C6C2537C1A4001A7918 /* HarmonyMoodUITests */,
+				2B017C4E2537C1A2001A7918 /* Products */,
+				94FEA7A4A97C3E1901777091 /* Pods */,
+				153933FA186BD19EB48199E9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2B017C4E2537C1A2001A7918 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B017C4D2537C1A2001A7918 /* HarmonyMood.app */,
+				2B017C5E2537C1A4001A7918 /* HarmonyMoodTests.xctest */,
+				2B017C692537C1A4001A7918 /* HarmonyMoodUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2B017C4F2537C1A2001A7918 /* HarmonyMood */ = {
+			isa = PBXGroup;
+			children = (
+				2BA9037325CC2F3900EEB8C7 /* HarmonyMoodApp.swift */,
+				2B3E5B4425CBD81D00F123DD /* trackingPoints.swift */,
+				2B3E5B5325CBDD5100F123DD /* addMedication.swift */,
+				2B3E5B7625CBEA9300F123DD /* infoPage.swift */,
+				2B3E5B5825CBDD9200F123DD /* medicationList.swift */,
+				2B017C542537C1A4001A7918 /* Assets.xcassets */,
+				2B017C592537C1A4001A7918 /* Info.plist */,
+				2BC97D2425B0A95D0057F6AE /* GoogleService-Info.plist */,
+			);
+			path = HarmonyMood;
+			sourceTree = "<group>";
+		};
+		2B017C562537C1A4001A7918 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2B017C572537C1A4001A7918 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2B017C612537C1A4001A7918 /* HarmonyMoodTests */ = {
+			isa = PBXGroup;
+			children = (
+				2B017C562537C1A4001A7918 /* Preview Content */,
+				2B017C622537C1A4001A7918 /* HarmonyMoodTests.swift */,
+				2B017C642537C1A4001A7918 /* Info.plist */,
+			);
+			path = HarmonyMoodTests;
+			sourceTree = "<group>";
+		};
+		2B017C6C2537C1A4001A7918 /* HarmonyMoodUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2B017C6D2537C1A4001A7918 /* HarmonyMoodUITests.swift */,
+				2B017C6F2537C1A4001A7918 /* Info.plist */,
+			);
+			path = HarmonyMoodUITests;
+			sourceTree = "<group>";
+		};
+		94FEA7A4A97C3E1901777091 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0CD6D0DF2ABE90E468CDD1C2 /* Pods-HarmonyMood.debug.xcconfig */,
+				5101C4E54F4D59BE6B387AED /* Pods-HarmonyMood.release.xcconfig */,
+				EBB8E977D8A23E332E2CDA6C /* Pods-HarmonyMood-HarmonyMoodUITests.debug.xcconfig */,
+				7A2B7DB6B8C531464EF742F1 /* Pods-HarmonyMood-HarmonyMoodUITests.release.xcconfig */,
+				BB1D72BDF851BF98367DB692 /* Pods-HarmonyMoodTests.debug.xcconfig */,
+				9202FC0CE30561CA3D5BC533 /* Pods-HarmonyMoodTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2B017C4C2537C1A2001A7918 /* HarmonyMood */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B017C722537C1A4001A7918 /* Build configuration list for PBXNativeTarget "HarmonyMood" */;
+			buildPhases = (
+				4520973CC40C54D2408D0403 /* [CP] Check Pods Manifest.lock */,
+				2B017C492537C1A2001A7918 /* Sources */,
+				2B017C4A2537C1A2001A7918 /* Frameworks */,
+				2B017C4B2537C1A2001A7918 /* Resources */,
+				DBBF2F8A1D707FEC6FCF6A7C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HarmonyMood;
+			productName = HarmonyMood;
+			productReference = 2B017C4D2537C1A2001A7918 /* HarmonyMood.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2B017C5D2537C1A4001A7918 /* HarmonyMoodTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B017C752537C1A4001A7918 /* Build configuration list for PBXNativeTarget "HarmonyMoodTests" */;
+			buildPhases = (
+				877C386CF11660A4308DA9E3 /* [CP] Check Pods Manifest.lock */,
+				2B017C5A2537C1A4001A7918 /* Sources */,
+				2B017C5B2537C1A4001A7918 /* Frameworks */,
+				2B017C5C2537C1A4001A7918 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B017C602537C1A4001A7918 /* PBXTargetDependency */,
+			);
+			name = HarmonyMoodTests;
+			productName = HarmonyMoodTests;
+			productReference = 2B017C5E2537C1A4001A7918 /* HarmonyMoodTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2B017C682537C1A4001A7918 /* HarmonyMoodUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B017C782537C1A4001A7918 /* Build configuration list for PBXNativeTarget "HarmonyMoodUITests" */;
+			buildPhases = (
+				B0D9DE147EBCE58DE4433B7A /* [CP] Check Pods Manifest.lock */,
+				2B017C652537C1A4001A7918 /* Sources */,
+				2B017C662537C1A4001A7918 /* Frameworks */,
+				2B017C672537C1A4001A7918 /* Resources */,
+				8F6F5C7E9C76D5EF994A94FB /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B017C6B2537C1A4001A7918 /* PBXTargetDependency */,
+			);
+			name = HarmonyMoodUITests;
+			productName = HarmonyMoodUITests;
+			productReference = 2B017C692537C1A4001A7918 /* HarmonyMoodUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2B017C452537C1A2001A7918 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					2B017C4C2537C1A2001A7918 = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
+					2B017C5D2537C1A4001A7918 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = 2B017C4C2537C1A2001A7918;
+					};
+					2B017C682537C1A4001A7918 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = 2B017C4C2537C1A2001A7918;
+					};
+				};
+			};
+			buildConfigurationList = 2B017C482537C1A2001A7918 /* Build configuration list for PBXProject "HarmonyMood" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2B017C442537C1A2001A7918;
+			productRefGroup = 2B017C4E2537C1A2001A7918 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2B017C4C2537C1A2001A7918 /* HarmonyMood */,
+				2B017C5D2537C1A4001A7918 /* HarmonyMoodTests */,
+				2B017C682537C1A4001A7918 /* HarmonyMoodUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2B017C4B2537C1A2001A7918 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B017C582537C1A4001A7918 /* Preview Assets.xcassets in Resources */,
+				2B017C552537C1A4001A7918 /* Assets.xcassets in Resources */,
+				2BC97D2525B0A95D0057F6AE /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B017C5C2537C1A4001A7918 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BC97D2625B0A95D0057F6AE /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B017C672537C1A4001A7918 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BC97D2725B0A95D0057F6AE /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4520973CC40C54D2408D0403 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HarmonyMood-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		877C386CF11660A4308DA9E3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HarmonyMoodTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F6F5C7E9C76D5EF994A94FB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HarmonyMood-HarmonyMoodUITests/Pods-HarmonyMood-HarmonyMoodUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HarmonyMood-HarmonyMoodUITests/Pods-HarmonyMood-HarmonyMoodUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HarmonyMood-HarmonyMoodUITests/Pods-HarmonyMood-HarmonyMoodUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0D9DE147EBCE58DE4433B7A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HarmonyMood-HarmonyMoodUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DBBF2F8A1D707FEC6FCF6A7C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HarmonyMood/Pods-HarmonyMood-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HarmonyMood/Pods-HarmonyMood-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HarmonyMood/Pods-HarmonyMood-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2B017C492537C1A2001A7918 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BA9037425CC2F3900EEB8C7 /* HarmonyMoodApp.swift in Sources */,
+				2B3E5B7725CBEA9300F123DD /* infoPage.swift in Sources */,
+				2B3E5B5425CBDD5100F123DD /* addMedication.swift in Sources */,
+				2B3E5B4525CBD81D00F123DD /* trackingPoints.swift in Sources */,
+				2B3E5B5925CBDD9200F123DD /* medicationList.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B017C5A2537C1A4001A7918 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B017C632537C1A4001A7918 /* HarmonyMoodTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B017C652537C1A4001A7918 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B017C6E2537C1A4001A7918 /* HarmonyMoodUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2B017C602537C1A4001A7918 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B017C4C2537C1A2001A7918 /* HarmonyMood */;
+			targetProxy = 2B017C5F2537C1A4001A7918 /* PBXContainerItemProxy */;
+		};
+		2B017C6B2537C1A4001A7918 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B017C4C2537C1A2001A7918 /* HarmonyMood */;
+			targetProxy = 2B017C6A2537C1A4001A7918 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2B017C702537C1A4001A7918 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2B017C712537C1A4001A7918 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2B017C732537C1A4001A7918 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CD6D0DF2ABE90E468CDD1C2 /* Pods-HarmonyMood.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S39Q8Y9UX3;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = HarmonyMood/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mauleen.ndlovu.HarmonyMood;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2B017C742537C1A4001A7918 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5101C4E54F4D59BE6B387AED /* Pods-HarmonyMood.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S39Q8Y9UX3;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = HarmonyMood/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mauleen.ndlovu.HarmonyMood;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2B017C762537C1A4001A7918 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB1D72BDF851BF98367DB692 /* Pods-HarmonyMoodTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S39Q8Y9UX3;
+				INFOPLIST_FILE = HarmonyMoodTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mauleen.ndlovu.HarmonyMoodTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HarmonyMood.app/HarmonyMood";
+			};
+			name = Debug;
+		};
+		2B017C772537C1A4001A7918 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9202FC0CE30561CA3D5BC533 /* Pods-HarmonyMoodTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S39Q8Y9UX3;
+				INFOPLIST_FILE = HarmonyMoodTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mauleen.ndlovu.HarmonyMoodTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HarmonyMood.app/HarmonyMood";
+			};
+			name = Release;
+		};
+		2B017C792537C1A4001A7918 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBB8E977D8A23E332E2CDA6C /* Pods-HarmonyMood-HarmonyMoodUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S39Q8Y9UX3;
+				INFOPLIST_FILE = HarmonyMoodUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mauleen.ndlovu.HarmonyMoodUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HarmonyMood;
+			};
+			name = Debug;
+		};
+		2B017C7A2537C1A4001A7918 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A2B7DB6B8C531464EF742F1 /* Pods-HarmonyMood-HarmonyMoodUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S39Q8Y9UX3;
+				INFOPLIST_FILE = HarmonyMoodUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mauleen.ndlovu.HarmonyMoodUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HarmonyMood;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2B017C482537C1A2001A7918 /* Build configuration list for PBXProject "HarmonyMood" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B017C702537C1A4001A7918 /* Debug */,
+				2B017C712537C1A4001A7918 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B017C722537C1A4001A7918 /* Build configuration list for PBXNativeTarget "HarmonyMood" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B017C732537C1A4001A7918 /* Debug */,
+				2B017C742537C1A4001A7918 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B017C752537C1A4001A7918 /* Build configuration list for PBXNativeTarget "HarmonyMoodTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B017C762537C1A4001A7918 /* Debug */,
+				2B017C772537C1A4001A7918 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B017C782537C1A4001A7918 /* Build configuration list for PBXNativeTarget "HarmonyMoodUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B017C792537C1A4001A7918 /* Debug */,
+				2B017C7A2537C1A4001A7918 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2B017C452537C1A2001A7918 /* Project object */;
+}
