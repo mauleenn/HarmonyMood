@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,7 +12,6 @@
 		2B017C632537C1A4001A7918 /* HarmonyMoodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B017C622537C1A4001A7918 /* HarmonyMoodTests.swift */; };
 		2B017C6E2537C1A4001A7918 /* HarmonyMoodUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B017C6D2537C1A4001A7918 /* HarmonyMoodUITests.swift */; };
 		2B3E5B4525CBD81D00F123DD /* trackingPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E5B4425CBD81D00F123DD /* trackingPoints.swift */; };
-		2B3E5B5425CBDD5100F123DD /* addMedication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E5B5325CBDD5100F123DD /* addMedication.swift */; };
 		2B3E5B5925CBDD9200F123DD /* medicationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E5B5825CBDD9200F123DD /* medicationList.swift */; };
 		2B3E5B7725CBEA9300F123DD /* infoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E5B7625CBEA9300F123DD /* infoPage.swift */; };
 		2BA9037425CC2F3900EEB8C7 /* HarmonyMoodApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA9037325CC2F3900EEB8C7 /* HarmonyMoodApp.swift */; };
@@ -54,7 +53,6 @@
 		2B017C6D2537C1A4001A7918 /* HarmonyMoodUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonyMoodUITests.swift; sourceTree = "<group>"; };
 		2B017C6F2537C1A4001A7918 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B3E5B4425CBD81D00F123DD /* trackingPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trackingPoints.swift; sourceTree = "<group>"; };
-		2B3E5B5325CBDD5100F123DD /* addMedication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addMedication.swift; sourceTree = "<group>"; };
 		2B3E5B5825CBDD9200F123DD /* medicationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = medicationList.swift; sourceTree = "<group>"; };
 		2B3E5B7625CBEA9300F123DD /* infoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoPage.swift; sourceTree = "<group>"; };
 		2BA9037325CC2F3900EEB8C7 /* HarmonyMoodApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonyMoodApp.swift; sourceTree = "<group>"; };
@@ -132,11 +130,7 @@
 		2B017C4F2537C1A2001A7918 /* HarmonyMood */ = {
 			isa = PBXGroup;
 			children = (
-				2BA9037325CC2F3900EEB8C7 /* HarmonyMoodApp.swift */,
-				2B3E5B4425CBD81D00F123DD /* trackingPoints.swift */,
-				2B3E5B5325CBDD5100F123DD /* addMedication.swift */,
-				2B3E5B7625CBEA9300F123DD /* infoPage.swift */,
-				2B3E5B5825CBDD9200F123DD /* medicationList.swift */,
+				2BB7303025D0600D007AC23E /* Views */,
 				2B017C542537C1A4001A7918 /* Assets.xcassets */,
 				2B017C592537C1A4001A7918 /* Info.plist */,
 				2BC97D2425B0A95D0057F6AE /* GoogleService-Info.plist */,
@@ -169,6 +163,17 @@
 				2B017C6F2537C1A4001A7918 /* Info.plist */,
 			);
 			path = HarmonyMoodUITests;
+			sourceTree = "<group>";
+		};
+		2BB7303025D0600D007AC23E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2BA9037325CC2F3900EEB8C7 /* HarmonyMoodApp.swift */,
+				2B3E5B4425CBD81D00F123DD /* trackingPoints.swift */,
+				2B3E5B7625CBEA9300F123DD /* infoPage.swift */,
+				2B3E5B5825CBDD9200F123DD /* medicationList.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		94FEA7A4A97C3E1901777091 /* Pods */ = {
@@ -426,7 +431,6 @@
 			files = (
 				2BA9037425CC2F3900EEB8C7 /* HarmonyMoodApp.swift in Sources */,
 				2B3E5B7725CBEA9300F123DD /* infoPage.swift in Sources */,
-				2B3E5B5425CBDD5100F123DD /* addMedication.swift in Sources */,
 				2B3E5B4525CBD81D00F123DD /* trackingPoints.swift in Sources */,
 				2B3E5B5925CBDD9200F123DD /* medicationList.swift in Sources */,
 			);
