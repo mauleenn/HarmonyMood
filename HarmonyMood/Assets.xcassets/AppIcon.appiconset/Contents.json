@@ -26,18 +26,18 @@
       "size" : "40x40"
     },
     {
+      "filename" : "HarmonyMood120.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "Screen_Shot_2020-11-16_at_3.22.15_PM_120x120.png",
+      "filename" : "HarmonyMood120-1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "Screen_Shot_2020-11-16_at_3.22.15_PM_1_180x180.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
@@ -78,6 +78,7 @@
       "size" : "76x76"
     },
     {
+      "filename" : "HarmonyMoodLogo.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
@@ -88,7 +89,7 @@
       "size" : "83.5x83.5"
     },
     {
-      "filename" : "screen-shot-2020-11-16-at-3-22.png",
+      "filename" : "HarmonyMoodLogoIphone.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
