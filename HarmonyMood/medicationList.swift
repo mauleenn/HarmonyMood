@@ -24,6 +24,7 @@ import SwiftUI
 import Combine
 
 struct Medications: Hashable {
+
     let name: String
     let dosage: String
 }
@@ -52,33 +53,39 @@ struct medicationList: View {
                     NavigationView {
                         List {
                             ForEach(listMedications, id: \.self) { medication in
-                                Text(medication.name);
-                                Text(medication.dosage);
+                                Section(header: Text("")) {
+                                    Text(medication.name);
+                                    Text(medication.dosage);
+                                }
                             }
                             .onDelete(perform: delete)
                         }
                         .listStyle(InsetGroupedListStyle())
                         .navigationBarTitle(Text("Medications List"))
-                        .navigationBarItems(trailing:
+                        .navigationBarItems(leading:
                                                 HStack {
                                                     Button(action: {
                                                     self.addMedicationButton.toggle()
                                                 }, label: {
-                                                    Image(systemName: "plus.circle").font(.title)
+                                                    Text("➕")
+                                                        .font(.title)
                                                 })
                                                     // Button that allows user to delete an exisiting medication
                                                     Button(action: {
                                                         EditButton()
                                                     }) {
-                                                        Image(systemName: "minus.circle").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                                                        Text("➖")
+                                                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                                                     }
-                                                    
+                                                },
+                                            trailing:
                                                     // Link to get to the "Welcome to HarmonyMood" Page
                                                     NavigationLink(destination: infoPage()) {
-                                                        Image(systemName: "info.circle").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                                                        Text("ℹ️")
+                                                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                                                     }
                                                     
-                                                })
+                                                )
                     }.sheet(isPresented: $addMedicationButton) {
                         Form {
                             // Medication name
