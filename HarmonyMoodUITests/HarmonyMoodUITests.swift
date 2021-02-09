@@ -139,27 +139,7 @@ class HarmonyMoodUITests: XCTestCase {
         XCTAssertEqual(irritabilityTxt, "10")
     }
     
-    
-    // Test that the Nav Bar title named "Add Medication" exists
-    func testAddMedicationNavigation() {
-        let app = XCUIApplication()
-        app.launch()
-        
-        // By pressing this button I will get to the second view
-        let medicationsListLink = app.tables.buttons["Medications List"]
-        XCTAssert(medicationsListLink.exists)
-        medicationsListLink.tap()
-         
-        // By pressing this button I will get to the third view, which
-        // is the view that I am testing
-        let addMedicationLink = app.tables.buttons["Add Medication"]
-        XCTAssert(addMedicationLink.exists)
-        addMedicationLink.tap()
-        
-        XCTAssertTrue(app.navigationBars.staticTexts["Add New Medication"].exists)
-    }
-    
-    
+     
     // Test that the Nav Bar title named "Medication List" exists
     func testMedicationListNavigation() {
         let app = XCUIApplication()
@@ -174,7 +154,7 @@ class HarmonyMoodUITests: XCTestCase {
         XCTAssertTrue(app.navigationBars.staticTexts["Medications List"].exists)
     }
     
-    // Test that the Nav Bar title named "Welcome to Harmony Mood!" exists for US4:1
+    // Test that the Nav Bar title named "Medications List" exists
     func testInfoPageNavigation() {
         let app = XCUIApplication()
         app.launch()
@@ -183,20 +163,8 @@ class HarmonyMoodUITests: XCTestCase {
         let medicationsListLink = app.tables/*@START_MENU_TOKEN@*/.buttons["Medications List"]/*[[".cells[\"Add Medication\"].buttons[\"Add Medication\"]",".buttons[\"Add Medication\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         XCTAssert(medicationsListLink.exists)
         medicationsListLink.tap()
-         
-        // By pressing this button I will get to the third page
-        let addMedicationLink = app.tables.buttons["Add Medication"]
-        XCTAssert(addMedicationLink.exists)
-        addMedicationLink.tap()
-       
-        
-        // By pressing this button I will get to the third page
-        // which is the page I am testing
-        let infoPageLink = app.tables.buttons["Welcome to Harmony Mood!"]
-        XCTAssert(infoPageLink.exists)
-        infoPageLink.tap()
-        
-        XCTAssertTrue(app.navigationBars.staticTexts["Welcome to Harmony Mood!"].exists)
+
+        XCTAssertTrue(app.navigationBars.staticTexts["Medications List"].exists)
     }
     
     // Test "Dosage" Text Field
@@ -208,68 +176,30 @@ class HarmonyMoodUITests: XCTestCase {
         let medicationsListLink = app.tables/*@START_MENU_TOKEN@*/.buttons["Medications List"]/*[[".cells[\"Add Medication\"].buttons[\"Add Medication\"]",".buttons[\"Add Medication\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         XCTAssert(medicationsListLink.exists)
         medicationsListLink.tap()
-         
-        // By pressing this button I will get to the third view, which
-        // is the view that I am testing
-        let addMedicationLink = app.tables.buttons["Add Medication"]
-        XCTAssert(addMedicationLink.exists)
-        addMedicationLink.tap()
-       
-        let medDosage = app.tables.textFields["Dosage"]
         
-        // Test if "medDosage" element exists
-        XCTAssert(medDosage.exists)
+        let medicationsListNavigationBar = app.navigationBars["Medications List"]
         
-        // Test: User types in "100" into text field,
-        // test to check that value entered is = "100" and not "50".
-        medDosage.tap()
-        medDosage.typeText("100")
-        let medDosageTxt = medDosage.value as? String
-        XCTAssertNotEqual(medDosageTxt, "50")
-        XCTAssertEqual(medDosageTxt, "100")
-    }
-    
-    
-    // Test "Medication Name" Text Field
-    func testAddMedication() {
-        let app = XCUIApplication()
-        app.launch()
+        // Test if "medicationsListNavigationBar" exists
+        XCTAssert(medicationsListNavigationBar.exists)
         
-        // By pressing this button I will get to the second view
-        let medicationsListLink = app.tables/*@START_MENU_TOKEN@*/.buttons["Medications List"]/*[[".cells[\"Add Medication\"].buttons[\"Add Medication\"]",".buttons[\"Add Medication\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        XCTAssert(medicationsListLink.exists)
-        medicationsListLink.tap()
-         
-        // By pressing this button I will get to the third view, which
-        // is the view that I am testing
-        let addMedicationLink = app.tables.buttons["Add Medication"]
-        XCTAssert(addMedicationLink.exists)
-        addMedicationLink.tap()
-        
-        let addNewMed = app.tables/*@START_MENU_TOKEN@*/.textFields["Medication Name"]/*[[".cells[\"Medication Name\"].textFields[\"Medication Name\"]",".textFields[\"Medication Name\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        
-        // Test if "addNewMed" element exists
-        XCTAssert(addNewMed.exists)
-        
-        // Test: User types in "Seroquel" into text field,
-        // test to check that value entered is = "Seroquel" and not "Lamictal".
-        addNewMed.tap()
-        addNewMed.typeText("Seroquel")
-        let addNewMedTxt = addNewMed.value as? String
-        XCTAssertNotEqual(addNewMedTxt, "Lamictal")
-        XCTAssertEqual(addNewMedTxt, "Seroquel")
+        // Test to see if the add button exists, after we check
+        // we will press on it and then go to the add medication
+        // form
+        let addButton = medicationsListNavigationBar.buttons["➕"]
+        XCTAssert(addButton.exists)
+        addButton.tap()
 
-        // After user enters in the medication, they need to press
-        // the 'return' button on the keyboard and then the 'Save'
-        // button. They will receive a "Successfully Added💊"
-        // message once everything has been properly added.
-        app/*@START_MENU_TOKEN@*/.buttons["Return"]/*[[".keyboards",".buttons[\"return\"]",".buttons[\"Return\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app.buttons["Save"].tap()
-        app.alerts["Successfully Added💊"].buttons["OK"].tap()
+        // Test that types "100" into the "Medication Dosage"
+        // text field. After we type the dosage we will check
+        // if we actually did this correctly.
+        let medDosageTxtField = app.tables.cells["Dosage: "]
+        medDosageTxtField.tap()
+        medDosageTxtField.typeText("100")
+        
     }
     
-    
-    func testMedicationUnit() {
+    // Testing "Info" button exists on the "Medications List" page
+    func testInfoButton() {
         let app = XCUIApplication()
         app.launch()
         
@@ -277,32 +207,217 @@ class HarmonyMoodUITests: XCTestCase {
         let medicationsListLink = app.tables/*@START_MENU_TOKEN@*/.buttons["Medications List"]/*[[".cells[\"Add Medication\"].buttons[\"Add Medication\"]",".buttons[\"Add Medication\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         XCTAssert(medicationsListLink.exists)
         medicationsListLink.tap()
+       
+        let medicationsListNavigationBar = app.navigationBars["Medications List"]
+        
+        // Test if "medicationsListNavigationBar" exists
+        XCTAssert(medicationsListNavigationBar.exists)
+        
+        let infoButton = medicationsListNavigationBar.buttons["ℹ️"]
+        XCTAssert(infoButton.exists)
+    }
+    
+    // Testing "Welcome to Harmony Mood" info page exists
+    func testInfoPage() {
+    let app = XCUIApplication()
+    app.launch()
+    
+    // By pressing this button I will get to the second view
+    let medicationsListLink = app.tables/*@START_MENU_TOKEN@*/.buttons["Medications List"]/*[[".cells[\"Add Medication\"].buttons[\"Add Medication\"]",".buttons[\"Add Medication\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+    XCTAssert(medicationsListLink.exists)
+    medicationsListLink.tap()
+    
+    
+    let medicationsListNavigationBar = app.navigationBars["Medications List"]
+    
+    // Test if "medicationsListNavigationBar" exists
+    XCTAssert(medicationsListNavigationBar.exists)
+    
+    // Test if "infoPageButton" exists
+    let infoPageButton = medicationsListNavigationBar.buttons["ℹ️"]
+    XCTAssert(infoPageButton.exists)
+    
+    // Test if "Welcome to Harmony Mood!" info page exists
+    infoPageButton.tap()
+    XCTAssertTrue(app.navigationBars.staticTexts["Welcome to Harmony Mood!"].exists)
+    }
+    
+    // Testing "Add" button exists on the "Medications List" page
+    func testAddButton() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        // By pressing this button I will get to the second view
+        let medicationsListLink = app.tables/*@START_MENU_TOKEN@*/.buttons["Medications List"]/*[[".cells[\"Add Medication\"].buttons[\"Add Medication\"]",".buttons[\"Add Medication\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        XCTAssert(medicationsListLink.exists)
+        medicationsListLink.tap()
+        
+        let medicationsListNavigationBar = app.navigationBars["Medications List"]
+        
+        // Test if "medicationsListNavigationBar" exists
+        XCTAssert(medicationsListNavigationBar.exists)
+        
+        let addButton = medicationsListNavigationBar.buttons["➕"]
+        XCTAssert(addButton.exists)
+    }
+    
+    // Testing adding a new medication on the "Medications List" page
+    func testAddingNewMedication() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        // By pressing this button I will get to the second view
+        let medicationsListLink = app.tables/*@START_MENU_TOKEN@*/.buttons["Medications List"]/*[[".cells[\"Add Medication\"].buttons[\"Add Medication\"]",".buttons[\"Add Medication\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        XCTAssert(medicationsListLink.exists)
+        medicationsListLink.tap()
+        
+        let medicationsListNavigationBar = app.navigationBars["Medications List"]
+        
+        // Test if "medicationsListNavigationBar" exists
+        XCTAssert(medicationsListNavigationBar.exists)
+        
+        // Test to see if the add button exists, after we check
+        // we will press on it and then go to the add medication
+        // form
+        let addButton = medicationsListNavigationBar.buttons["➕"]
+        XCTAssert(addButton.exists)
+        addButton.tap()
+        
+        // Test that types "Seroquel" into the "Medication Name"
+        // text field. After we type the medication we will check
+        // if we actually did this correctly.
+        let medNameTxtField = app.tables.cells["Medication Name: "]
+        medNameTxtField.tap()
+        medNameTxtField.typeText("Seroquel")
+        XCTAssert(medNameTxtField.exists)
+        
+        
+        app/*@START_MENU_TOKEN@*/.buttons["Return"]/*[[".keyboards",".buttons[\"return\"]",".buttons[\"Return\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        // Test that types "100" into the "Medication Dosage"
+        // text field. After we type the dosage we will check
+        // if we actually did this correctly.
+        let medDosageTxtField = app.tables.cells["Dosage: "]
+        medDosageTxtField.tap()
+        medDosageTxtField.typeText("100")
+        
+        // Click on "Units" button which is automatically set to mg.
+        // Click on "🌞 AM" as time of day.
+        app/*@START_MENU_TOKEN@*/.buttons["Return"]/*[[".keyboards",".buttons[\"return\"]",".buttons[\"Return\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.buttons["Units"].tap()
+        app.buttons["🌞 AM"].tap()
+        
+        // Test to select today's date as starting date
+        // After this we check if we did this correctly.
+        let datePicker =  app.tables.datePickers.containing(.other, identifier:"Date Picker").element
+        XCTAssertTrue(datePicker.exists)
+        datePicker.tap()
+        
+        // After user enters in the medication, they need to press
+        // the 'Add' button.
+         app.buttons["Add"].tap()
+ }
+    
+    // Testing to see if we added the correct medication
+    func testAddingCorrectMedication() {
+    let app = XCUIApplication()
+    app.launch()
+    
+    // By pressing this button I will get to the second view
+    let medicationsListLink = app.tables/*@START_MENU_TOKEN@*/.buttons["Medications List"]/*[[".cells[\"Add Medication\"].buttons[\"Add Medication\"]",".buttons[\"Add Medication\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+    XCTAssert(medicationsListLink.exists)
+    medicationsListLink.tap()
+    
+    let medicationsListNavigationBar = app.navigationBars["Medications List"]
+    
+    // Test if "medicationsListNavigationBar" exists
+    XCTAssert(medicationsListNavigationBar.exists)
+    
+    // Test to see if the add button exists, after we check
+    // we will press on it and then go to the add medication
+    // form
+    let addButton = medicationsListNavigationBar.buttons["➕"]
+    XCTAssert(addButton.exists)
+    addButton.tap()
+    
+    // Test that types "Seroquel" into the "Medication Name"
+    // text field.
+    let medNameTxtField = app.tables.cells["Medication Name: "]
+    medNameTxtField.tap()
+    medNameTxtField.typeText("Seroquel")
+    app/*@START_MENU_TOKEN@*/.buttons["Return"]/*[[".keyboards",".buttons[\"return\"]",".buttons[\"Return\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+    
+    // Test that what we entered is not equal to "Lamictal"
+    let addNewMedTxt = medNameTxtField.value as? String
+    XCTAssertNotEqual(addNewMedTxt, "Lamictal")
+    }
+    
+    // Testing "Delete" button exists on the "Medications List" page
+    func testDeleteButton() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        // By pressing this button I will get to the second view
+        let medicationsListLink = app.tables/*@START_MENU_TOKEN@*/.buttons["Medications List"]/*[[".cells[\"Add Medication\"].buttons[\"Add Medication\"]",".buttons[\"Add Medication\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        XCTAssert(medicationsListLink.exists)
+        medicationsListLink.tap()
+       
+        let medicationsListNavigationBar = app.navigationBars["Medications List"]
+        
+        // Test if "medicationsListNavigationBar" exists
+        XCTAssert(medicationsListNavigationBar.exists)
+        
+        let deleteButton = medicationsListNavigationBar.buttons["➖"]
+        XCTAssert(deleteButton.exists)
+    }
+    
+  // Test "Units" button
+    func testMedicationUnit() {
+         let app = XCUIApplication()
+         app.launch()
          
-        // By pressing this button I will get to the third view, which
-        // is the view that I am testing
-        let addMedicationLink = app.tables.buttons["Add Medication"]
-        XCTAssert(addMedicationLink.exists)
-        addMedicationLink.tap()
+         // By pressing this button I will get to the second view
+         let medicationsListLink = app.tables/*@START_MENU_TOKEN@*/.buttons["Medications List"]/*[[".cells[\"Add Medication\"].buttons[\"Add Medication\"]",".buttons[\"Add Medication\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+         XCTAssert(medicationsListLink.exists)
+         medicationsListLink.tap()
+         
+         let medicationsListNavigationBar = app.navigationBars["Medications List"]
+         
+         // Test if "medicationsListNavigationBar" exists
+         XCTAssert(medicationsListNavigationBar.exists)
+         
+         // Test to see if the add button exists, after we check
+         // we will press on it and then go to the add medication
+         // form
+         let addButton = medicationsListNavigationBar.buttons["➕"]
+         XCTAssert(addButton.exists)
+         addButton.tap()
         
         app.buttons["Units"].tap()
     }
     
-    
+   
     // Test "Starting Date"
     func testDatePicker() {
-        let app = XCUIApplication()
-        app.launch()
-        
-        // By pressing this button I will get to the second view
-        let medicationsListLink = app.tables/*@START_MENU_TOKEN@*/.buttons["Medications List"]/*[[".cells[\"Add Medication\"].buttons[\"Add Medication\"]",".buttons[\"Add Medication\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        XCTAssert(medicationsListLink.exists)
-        medicationsListLink.tap()
-         
-        // By pressing this button I will get to the third view, which
-        // is the view that I am testing
-        let addMedicationLink = app.tables.buttons["Add Medication"]
-        XCTAssert(addMedicationLink.exists)
-        addMedicationLink.tap()
+         let app = XCUIApplication()
+         app.launch()
+      
+         // By pressing this button I will get to the second view
+         let medicationsListLink = app.tables/*@START_MENU_TOKEN@*/.buttons["Medications List"]/*[[".cells[\"Add Medication\"].buttons[\"Add Medication\"]",".buttons[\"Add Medication\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+         XCTAssert(medicationsListLink.exists)
+         medicationsListLink.tap()
+      
+         let medicationsListNavigationBar = app.navigationBars["Medications List"]
+      
+         // Test if "medicationsListNavigationBar" exists
+         XCTAssert(medicationsListNavigationBar.exists)
+      
+         // Test to see if the add button exists, after we check
+         // we will press on it and then go to the add medication
+         // form
+         let addButton = medicationsListNavigationBar.buttons["➕"]
+         XCTAssert(addButton.exists)
+         addButton.tap()
         
         let datePicker =  app.tables.datePickers.containing(.other, identifier:"Date Picker").element
         XCTAssertTrue(datePicker.exists)
@@ -314,24 +429,30 @@ class HarmonyMoodUITests: XCTestCase {
     func testTimeofDayButtons() {
         let app = XCUIApplication()
         app.launch()
-        
+     
         // By pressing this button I will get to the second view
         let medicationsListLink = app.tables/*@START_MENU_TOKEN@*/.buttons["Medications List"]/*[[".cells[\"Add Medication\"].buttons[\"Add Medication\"]",".buttons[\"Add Medication\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         XCTAssert(medicationsListLink.exists)
         medicationsListLink.tap()
-         
-        // By pressing this button I will get to the third view, which
-        // is the view that I am testing
-        let addMedicationLink = app.tables.buttons["Add Medication"]
-        XCTAssert(addMedicationLink.exists)
-        addMedicationLink.tap()
+     
+        let medicationsListNavigationBar = app.navigationBars["Medications List"]
+     
+        // Test if "medicationsListNavigationBar" exists
+        XCTAssert(medicationsListNavigationBar.exists)
+     
+        // Test to see if the add button exists, after we check
+        // we will press on it and then go to the add medication
+        // form
+        let addButton = medicationsListNavigationBar.buttons["➕"]
+        XCTAssert(addButton.exists)
+        addButton.tap()
 
         app.buttons["🌞 AM"].tap()
         app.buttons["🌙 PM"].tap()
         app.buttons["🌓 Both"].tap()
         
-        app.buttons["Save"].tap()
-        app.alerts["Successfully Added💊"].buttons["OK"].tap()
+        app.buttons["Add"].tap()
     }
+ 
 }
  
