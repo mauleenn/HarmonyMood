@@ -31,7 +31,7 @@ struct trackingPoints: View {
     @State private var elevatedMood = ""
     @State private var anxietyMood = ""
     @State private var irritabilityMood = ""
-    
+
    
     // Var for "Enter" button
     @State private var enterButtonPress = false
@@ -111,19 +111,31 @@ struct trackingPoints: View {
                         }
                         .alert(isPresented: $enterButtonPress) {
                             Alert(title: Text("Success!"), dismissButton: .default(Text("OK")))
-                        }
-                        
-                        // Link to get to the "Medications List" Page
-                        NavigationLink(destination: medicationList()) {
-                                          Text("Medications List")
-                        }
+                        }                       
                     } // End of Form
                 
                 //Title of the page
                 .navigationBarTitle("Tracking Points", displayMode: .inline)
                 .padding()
+                .navigationBarItems(
+                                        trailing:
+                                            HStack {
+                                                // Link to get to the "Medications List" Page
+                                                NavigationLink(destination: medicationList()) {
+                                                    Text("💊")
+                                                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                                                }
+                                                
+                                                // Link to get to the "Welcome to HarmonyMood" Page
+                                                NavigationLink(destination: infoPage()) {
+                                                    Text("ℹ️")
+                                                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                                                }
+                                            }
+                                            )
                 
-            } // End of NavigationView
+            }
+            // End of NavigationView
     
         } // End of Vstack
         
