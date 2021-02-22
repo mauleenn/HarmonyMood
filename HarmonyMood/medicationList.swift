@@ -1,3 +1,4 @@
+
 /*
  Copyright 2020 Mauleen Ndlovu
  
@@ -19,7 +20,6 @@
 //
 //  Created by Mauleen Ndlovu on 2/4/21.
 //
-
 import SwiftUI
 import Combine
 
@@ -27,6 +27,7 @@ struct Medications: Hashable {
 
     let name: String
     let dosage: String
+    
 }
 
 struct medicationList: View {
@@ -54,8 +55,13 @@ struct medicationList: View {
                         List {
                             ForEach(listMedications, id: \.self) { medication in
                                 Section(header: Text("")) {
-                                    Text(medication.name);
-                                    Text(medication.dosage);
+                                    
+                                    HStack {
+                                        VStack(alignment: .leading) {
+                                            Text(medication.name);
+                                            Text(medication.dosage).font(.subheadline).foregroundColor(.gray)
+                                        }
+                                    }
                                 }
                             }
                             .onDelete(perform: delete)
@@ -93,12 +99,14 @@ struct medicationList: View {
                             HStack {
                                 Text("Medication Name: ")
                                 TextField("", text: self.$medicationName)
+                                
                             }
                               
                             // Medication dosage
                             HStack {
                                 Text("Dosage: ")
                                 TextField("", text: self.$medicationDosage)
+                                    .keyboardType(.numberPad)
                             }
                             
                             // Medication unit is mg
@@ -138,7 +146,7 @@ struct medicationList: View {
                             })
                             }
                     } // End of Form
-            }
+            } // End of .sheet
                     
         }
             
