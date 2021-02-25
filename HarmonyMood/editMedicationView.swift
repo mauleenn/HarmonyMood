@@ -1,4 +1,19 @@
-//
+/*
+ Copyright 2021 Mauleen Ndlovu
+ 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ */
+
 //  editMedicationView.swift
 //  HarmonyMood
 //  SQLite_Database
@@ -30,7 +45,7 @@ struct editMedicationView: View {
             .padding()
             .padding()
         
-           // create name field
+           // Create medication name field
            TextField("Medication Name: ", text: $name)
                .padding(10)
                .background(Color(.systemGray6))
@@ -38,7 +53,7 @@ struct editMedicationView: View {
                .disableAutocorrection(true)
             
           
-           // create age field, number pad
+           // Create dosage field, numberpad
            TextField("Dosage: ", text: $dosage)
                .padding(10)
                .background(Color(.systemGray6))
@@ -46,9 +61,9 @@ struct editMedicationView: View {
                .keyboardType(.numberPad)
                .disableAutocorrection(true)
             
-           // button to update user
+           // Button to update medication
            Button(action: {
-               // call function to update row in sqlite database
+               // Call function to update row in sqlite DB
                DB_Manager().updateMedication(idValue: self.id, nameValue: self.name, dosageValue: Int64(self.dosage) ?? 0)
 
                // go back to home page
@@ -60,23 +75,23 @@ struct editMedicationView: View {
                .padding(.top, 10)
                .padding(.bottom, 10)
        } // End of VStack
-       // populate user's data in fields when view loaded
+       // Populate medications's data in fields when view loaded
        .onAppear(perform: {
         
-           // get data from database
+           // Get data from DB
            let medicationModels: medicationModel = DB_Manager().getMedication(idValue: self.id)
             
-           // populate in text fields
+           // Populate in text fields
            self.name = medicationModels.name
            self.dosage = String(medicationModels.dosage)
        })
-    } // End of NavigationView
+    } .navigationBarTitle("Edit Medication", displayMode: .inline) // End of NavigationView
    } // End of View
 }
 
 struct editMedicationView_Previews: PreviewProvider {
     
-   // when using @Binding, do this in preview provider
+   // When using @Binding, do this in preview provider
    @State static var medID: Int64 = 0
     
    static var previews: some View {
