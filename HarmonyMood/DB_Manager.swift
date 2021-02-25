@@ -27,7 +27,7 @@ private var dosage: Expression<Int64>!
     
 init () {
     do {
-        // path of document directory
+        // Path of document directory
         let path: String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first ?? ""
         
         // Creating DB connection
@@ -124,7 +124,7 @@ public func getMeds() -> [medicationModel] {
             // get row
             try med.forEach({ (rowValue) in
      
-                // set values in model
+                // Set values in model
                 medicationModels.medID = try rowValue.get(medID)
                 medicationModels.name = try rowValue.get(name)
                 medicationModels.dosage = try rowValue.get(dosage)
