@@ -96,7 +96,7 @@ public func getMeds() -> [medicationModel] {
     // Create empty array
     var medicationsModel: [medicationModel] = []
      
-    // Get all meds in descending order
+    // Get all meds in ascending order
     meds = meds.order(medID.asc)
      
         // Exception handling
