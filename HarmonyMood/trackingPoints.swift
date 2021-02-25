@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Mauleen Ndlovu
+ Copyright 2021 Mauleen Ndlovu
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -108,6 +108,12 @@ struct trackingPoints: View {
                         // Enter button
                         Button("Enter") {
                             self.enterButtonPress = true
+                            
+                            // Values reset after user presses 'Enter'
+                            self.depressedMood = ""
+                            self.elevatedMood = ""
+                            self.anxietyMood = ""
+                            self.irritabilityMood = ""
                         }
                         .alert(isPresented: $enterButtonPress) {
                             Alert(title: Text("Success!"), dismissButton: .default(Text("OK")))
