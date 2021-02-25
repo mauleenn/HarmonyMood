@@ -1,4 +1,19 @@
-//
+/*
+ Copyright 2021 Mauleen Ndlovu
+ 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ */
+
 //  DB_Manager.swift
 //  HarmonyMood
 //  SQLite_Database
@@ -11,7 +26,7 @@ import SQLite
 
 class DB_Manager {
     
-//SQLite instance
+// SQLite instance
 private var db: Connection!
 
 // Table instance
@@ -51,77 +66,77 @@ init () {
                 t.column(dosage)
 
         })
-        // set the value to true, so it will not attempt to create the table again
+        // Set the value to true, so it will not attempt to create the table again
         UserDefaults.standard.set(true, forKey: "is_db_created")
     }
      
 }
 
 catch {
-    // show error message if any
+    // Show error message (if any)
     print(error.localizedDescription)
 }
  
-} // end of init
+} // End of init
     
 public func addMedication(nameValue: String, unitsValue: String, dosageValue: Int64) {
     do {
         try db.run(meds.insert(name <- nameValue, dosage <- dosageValue))
         
     }
-    catch {
+        catch {
             print(error.localizedDescription)
         }
     }
     
     
-    // return array of user models
+    // Return array of medication models
 public func getMeds() -> [medicationModel] {
          
-        // create empty array
+    // Create empty array
     var medicationsModel: [medicationModel] = []
      
-        // get all users in descending order
-        meds = meds.order(medID.desc)
+    // Get all meds in descending order
+    meds = meds.order(medID.asc)
      
-        // exception handling
-        do {
-     
-            // loop through all users
-            for meds in try db.prepare(meds) {
-     
-                // create new model in each loop iteration
+        // Exception handling
+    do {
+    
+        // Loop through all medications
+        for meds in try db.prepare(meds) {
+            
+                // Create new model in each loop iteration
                 let medicationModels: medicationModel = medicationModel()
      
-                // set values in model from database
+                // Set values in model from DB
                 medicationModels.medID = meds[medID]
                 medicationModels.name = meds[name]
                 medicationModels.dosage = meds[dosage]
      
-                // append in new array
+                // Append in new array
                 medicationsModel.append(medicationModels)
-            }
+        }
         } catch {
             print(error.localizedDescription)
         }
      
-        // return array
+        // Return array
         return medicationsModel
     }
     
-    // get single user data
+    // Get single medication data
     public func getMedication(idValue: Int64) -> medicationModel {
      
-        // create an empty object
+        // Create an empty object
         let medicationModels: medicationModel = medicationModel()
          
-        // exception handling
+        // Exception handling
         do {
      
-            // get user using ID
+            // Get med using ID
             let med: AnySequence<Row> = try db.prepare(meds.filter(medID == idValue))
      
-            // get row
+            // Get row
             try med.forEach({ (rowValue) in
      
                 // Set values in model
@@ -129,34 +144,35 @@ public func getMeds() -> [medicationModel] {
                 medicationModels.name = try rowValue.get(name)
                 medicationModels.dosage = try rowValue.get(dosage)
             })
-        } catch {
+        }
+            catch {
             print(error.localizedDescription)
         }
      
-        // return model
+        // Return model
         return medicationModels
     }
 
-    // function to update medication
+    // Function to update medication
     public func updateMedication(idValue: Int64, nameValue: String, dosageValue: Int64) {
         do {
-            // get user using ID
+            // Get medication using ID
             let med: Table = meds.filter(medID == idValue)
              
-            // run the update query
+            // Run the update query
             try db.run(med.update(name <- nameValue, dosage <- dosageValue))
         } catch {
             print(error.localizedDescription)
         }
     }
     
-    // function to delete user
+    // Function to delete medication
     public func deleteMedication(idValue: Int64) {
         do {
-            // get user using ID
+            // Get medication using ID
             let med: Table = meds.filter(medID == idValue)
              
-            // run the delete query
+            // Run the delete query
             try db.run(med.delete())
         } catch {
             print(error.localizedDescription)
