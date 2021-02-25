@@ -1,6 +1,5 @@
-
 /*
- Copyright 2020 Mauleen Ndlovu
+ Copyright 2021 Mauleen Ndlovu
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -15,6 +14,7 @@
  limitations under the License.
  */
 
+
 //  medicationList.swift
 //  HarmonyMood
 //
@@ -22,15 +22,6 @@
 //
 import SwiftUI
 import Combine
-
-/*
-struct Medications: Hashable {
-
-    let name: String
-    let dosage: String
-    
-}
-*/
 
 struct medicationList: View {
     
@@ -57,7 +48,7 @@ struct medicationList: View {
     @State var units: String = ""
     @State var dosage: String = ""
      
-    // to go back on the home screen when the user is added
+    // To go back on the home screen when the user is added
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
      
     
@@ -167,14 +158,12 @@ struct medicationList: View {
                             Section {
                                 Button(action: {
                                 
-                                    // call function to add row in sqlite database
+                                    // Call function to add row in sqlite DB
                                     DB_Manager().addMedication(nameValue: self.name, unitsValue: self.units, dosageValue: Int64(self.dosage) ?? 0)
                                      
                                    // self.listMedications.append(Medications(name: self.name, dosage: self.dosage))
                                     self.addMedicationButton.toggle()
-                                    
-                                 //   print(self.listMedications)
-                                    
+                                
                                     // Reset Values
                                      self.name = ""
                                     self.dosage = ""
