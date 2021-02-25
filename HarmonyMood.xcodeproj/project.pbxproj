@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,16 +11,25 @@
 		2B017C582537C1A4001A7918 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B017C572537C1A4001A7918 /* Preview Assets.xcassets */; };
 		2B017C632537C1A4001A7918 /* HarmonyMoodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B017C622537C1A4001A7918 /* HarmonyMoodTests.swift */; };
 		2B017C6E2537C1A4001A7918 /* HarmonyMoodUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B017C6D2537C1A4001A7918 /* HarmonyMoodUITests.swift */; };
+		2B3B799B25E6BE73005A5A8D /* Cycle5US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B799A25E6BE73005A5A8D /* Cycle5US.swift */; };
+		2B3B799C25E6BE73005A5A8D /* Cycle5US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B799A25E6BE73005A5A8D /* Cycle5US.swift */; };
+		2B3B79A125E6C0B4005A5A8D /* Cycle3US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B79A025E6C0B4005A5A8D /* Cycle3US.swift */; };
+		2B3B79A225E6C0B4005A5A8D /* Cycle3US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B79A025E6C0B4005A5A8D /* Cycle3US.swift */; };
+		2B3B79A725E6C1D0005A5A8D /* Cycle1US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B79A625E6C1D0005A5A8D /* Cycle1US.swift */; };
+		2B3B79A825E6C1D0005A5A8D /* Cycle1US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B79A625E6C1D0005A5A8D /* Cycle1US.swift */; };
 		2B3E5B4525CBD81D00F123DD /* trackingPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E5B4425CBD81D00F123DD /* trackingPoints.swift */; };
 		2B3E5B5925CBDD9200F123DD /* medicationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E5B5825CBDD9200F123DD /* medicationList.swift */; };
 		2B3E5B7725CBEA9300F123DD /* infoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E5B7625CBEA9300F123DD /* infoPage.swift */; };
 		2B47F3EB25E425AA0045328D /* medicationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B47F3EA25E425AA0045328D /* medicationModel.swift */; };
 		2B47F3F125E426B40045328D /* DB_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B47F3F025E426B40045328D /* DB_Manager.swift */; };
+		2B95F75D25E6B7A7000FBF87 /* Cycle6US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B95F75C25E6B7A7000FBF87 /* Cycle6US.swift */; };
+		2B95F75E25E6B7A7000FBF87 /* Cycle6US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B95F75C25E6B7A7000FBF87 /* Cycle6US.swift */; };
 		2B9A62AF25E541F200EEA19E /* editMedicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9A62AE25E541F200EEA19E /* editMedicationView.swift */; };
 		2BA9037425CC2F3900EEB8C7 /* HarmonyMoodApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA9037325CC2F3900EEB8C7 /* HarmonyMoodApp.swift */; };
 		2BC97D2525B0A95D0057F6AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BC97D2425B0A95D0057F6AE /* GoogleService-Info.plist */; };
 		2BC97D2625B0A95D0057F6AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BC97D2425B0A95D0057F6AE /* GoogleService-Info.plist */; };
 		2BC97D2725B0A95D0057F6AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BC97D2425B0A95D0057F6AE /* GoogleService-Info.plist */; };
+		2BFB652425E6CDA2006843D1 /* SwiftUIFormHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 2BFB652325E6CDA2006843D1 /* SwiftUIFormHelper */; };
 		4676F811634E0182F8D180A2 /* Pods_HarmonyMoodTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BCC17DA2A6CF40D77FB62B /* Pods_HarmonyMoodTests.framework */; };
 		5B0D50EAF4A28F6497D1A8EF /* Pods_HarmonyMood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDDA7E0656D4BF65A0498CC /* Pods_HarmonyMood.framework */; };
 		99C2E2A5A6795B365D45E5AC /* Pods_HarmonyMood_HarmonyMoodUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D720E29A03B4E89A64AF4C98 /* Pods_HarmonyMood_HarmonyMoodUITests.framework */; };
@@ -55,6 +64,9 @@
 		2B017C692537C1A4001A7918 /* HarmonyMoodUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarmonyMoodUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B017C6D2537C1A4001A7918 /* HarmonyMoodUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonyMoodUITests.swift; sourceTree = "<group>"; };
 		2B017C6F2537C1A4001A7918 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B3B799A25E6BE73005A5A8D /* Cycle5US.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cycle5US.swift; sourceTree = "<group>"; };
+		2B3B79A025E6C0B4005A5A8D /* Cycle3US.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cycle3US.swift; sourceTree = "<group>"; };
+		2B3B79A625E6C1D0005A5A8D /* Cycle1US.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cycle1US.swift; sourceTree = "<group>"; };
 		2B3E5B4425CBD81D00F123DD /* trackingPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trackingPoints.swift; sourceTree = "<group>"; };
 		2B3E5B5825CBDD9200F123DD /* medicationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = medicationList.swift; sourceTree = "<group>"; };
 		2B3E5B7625CBEA9300F123DD /* infoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoPage.swift; sourceTree = "<group>"; };
@@ -62,6 +74,7 @@
 		2B47F3F025E426B40045328D /* DB_Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB_Manager.swift; sourceTree = "<group>"; };
 		2B4DA8B325DF7E0A00C5B91E /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4DA8BD25DF7ED000C5B91E /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B95F75C25E6B7A7000FBF87 /* Cycle6US.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cycle6US.swift; sourceTree = "<group>"; };
 		2B9A62AE25E541F200EEA19E /* editMedicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editMedicationView.swift; sourceTree = "<group>"; };
 		2BA9037325CC2F3900EEB8C7 /* HarmonyMoodApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonyMoodApp.swift; sourceTree = "<group>"; };
 		2BC97D2425B0A95D0057F6AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -80,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BFB652425E6CDA2006843D1 /* SwiftUIFormHelper in Frameworks */,
 				5B0D50EAF4A28F6497D1A8EF /* Pods_HarmonyMood.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,6 +185,10 @@
 		2B017C6C2537C1A4001A7918 /* HarmonyMoodUITests */ = {
 			isa = PBXGroup;
 			children = (
+				2B3B79A625E6C1D0005A5A8D /* Cycle1US.swift */,
+				2B3B79A025E6C0B4005A5A8D /* Cycle3US.swift */,
+				2B3B799A25E6BE73005A5A8D /* Cycle5US.swift */,
+				2B95F75C25E6B7A7000FBF87 /* Cycle6US.swift */,
 				2B017C6D2537C1A4001A7918 /* HarmonyMoodUITests.swift */,
 				2B017C6F2537C1A4001A7918 /* Info.plist */,
 			);
@@ -236,6 +254,9 @@
 			dependencies = (
 			);
 			name = HarmonyMood;
+			packageProductDependencies = (
+				2BFB652325E6CDA2006843D1 /* SwiftUIFormHelper */,
+			);
 			productName = HarmonyMood;
 			productReference = 2B017C4D2537C1A2001A7918 /* HarmonyMood.app */;
 			productType = "com.apple.product-type.application";
@@ -310,6 +331,9 @@
 				Base,
 			);
 			mainGroup = 2B017C442537C1A2001A7918;
+			packageReferences = (
+				2BFB652225E6CDA2006843D1 /* XCRemoteSwiftPackageReference "SwiftUIFormHelper" */,
+			);
 			productRefGroup = 2B017C4E2537C1A2001A7918 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -472,7 +496,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B3B79A125E6C0B4005A5A8D /* Cycle3US.swift in Sources */,
 				2B017C632537C1A4001A7918 /* HarmonyMoodTests.swift in Sources */,
+				2B95F75D25E6B7A7000FBF87 /* Cycle6US.swift in Sources */,
+				2B3B799B25E6BE73005A5A8D /* Cycle5US.swift in Sources */,
+				2B3B79A725E6C1D0005A5A8D /* Cycle1US.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,7 +508,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B3B79A225E6C0B4005A5A8D /* Cycle3US.swift in Sources */,
 				2B017C6E2537C1A4001A7918 /* HarmonyMoodUITests.swift in Sources */,
+				2B95F75E25E6B7A7000FBF87 /* Cycle6US.swift in Sources */,
+				2B3B799C25E6BE73005A5A8D /* Cycle5US.swift in Sources */,
+				2B3B79A825E6C1D0005A5A8D /* Cycle1US.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,6 +820,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2BFB652225E6CDA2006843D1 /* XCRemoteSwiftPackageReference "SwiftUIFormHelper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jeroenzonneveld/SwiftUIFormHelper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2BFB652325E6CDA2006843D1 /* SwiftUIFormHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2BFB652225E6CDA2006843D1 /* XCRemoteSwiftPackageReference "SwiftUIFormHelper" */;
+			productName = SwiftUIFormHelper;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2B017C452537C1A2001A7918 /* Project object */;
 }

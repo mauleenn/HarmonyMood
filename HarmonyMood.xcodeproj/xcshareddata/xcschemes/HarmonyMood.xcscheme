@@ -32,21 +32,16 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2B017C5D2537C1A4001A7918"
-               BuildableName = "HarmonyMoodTests.xctest"
-               BlueprintName = "HarmonyMoodTests"
-               ReferencedContainer = "container:HarmonyMood.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "2B017C682537C1A4001A7918"
                BuildableName = "HarmonyMoodUITests.xctest"
                BlueprintName = "HarmonyMoodUITests"
                ReferencedContainer = "container:HarmonyMood.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "HarmonyMoodUITests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>
