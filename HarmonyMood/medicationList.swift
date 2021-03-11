@@ -14,7 +14,6 @@
  limitations under the License.
  */
 
-
 //  medicationList.swift
 //  HarmonyMood
 //
@@ -25,8 +24,6 @@ import Combine
 
 struct medicationList: View {
     
- //   @State private var listMedications = [Medications]()
-    
     // Array of medication models
     @State var medicationModels: [medicationModel] = []
     
@@ -36,19 +33,13 @@ struct medicationList: View {
     // id of selected medication to edit or delete
     @State var selectedMedID: Int64 = 0
 
-
-    @State private var medicationStartingDate = Date()
-    @State private var medicationTimeofDay: Int = 0
-
-    private var timeOfDayOptions = ["🌞 AM", "🌙 PM", "🌓 Both"]
- 
     @State private var addMedicationButton = false
     
     @State var name: String = ""
     @State var units: String = ""
     @State var dosage: String = ""
      
-    // To go back on the home screen when the user is added
+    // To go back on the home screen when the medication is added
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
      
     
@@ -56,18 +47,20 @@ struct medicationList: View {
         ZStack() {
                 VStack {
                     VStack {
-                        // navigation link to go to edit user view
+                        // Navigation link to go to edit user view
                         NavigationLink (destination: editMedicationView(id: self.$selectedMedID), isActive: self.$selectedMed) {
                             EmptyView()
                         }
                     }
+                    
                     NavigationView {
                         List (self.medicationModels) { (meds) in
                             Section(header: Text("")) {
                             HStack {
                                 VStack (alignment: .leading) {
                                 Text(meds.name)
-                                    Text("\(meds.dosage) mg").font(.subheadline).foregroundColor(.gray)
+                                Text("\(meds.dosage) mg").font(.subheadline).foregroundColor(.gray)
+                                    
                                 }
                                 
                                 // Button to edit medication
@@ -87,10 +80,10 @@ struct medicationList: View {
                                 // Button that allows user to delete an exisiting medication
                                 Button(action: {
                                     
-                                    // create db manager instance
+                                    // Create db manager instance
                                     let dbManager: DB_Manager = DB_Manager()
                                     
-                                    // call delete function
+                                    // Call delete function
                                     dbManager.deleteMedication(idValue: meds.medID)
                                     self.medicationModels = dbManager.getMeds()
                                     
@@ -101,7 +94,7 @@ struct medicationList: View {
                                 }.buttonStyle(PlainButtonStyle())
                             }
                             }
-                        }
+                        } // End of List
                         .listStyle(InsetGroupedListStyle())
                         .navigationBarTitle(Text("Medications List"))
                         .navigationBarItems(leading:
@@ -139,21 +132,7 @@ struct medicationList: View {
                                 TextField("", text: self.$dosage)
                                     .keyboardType(.numberPad)
                             }
-                            
-                            // Medication can be taken in the morning, evening, or both
-                            Picker("Time of Day", selection: $medicationTimeofDay) {
-                                ForEach(0..<timeOfDayOptions.count) {
-                                    Text(self.timeOfDayOptions[$0])
-                                }
-                               }.pickerStyle( SegmentedPickerStyle())
                             }
-                            
-                            // Starting date of medication
-                           Section(header: Text("Starting Date")) {
-                               DatePicker(selection: $medicationStartingDate, in: ...Date(), displayedComponents: .date) {
-                                   Text("Date: ")
-                               }
-                           }
                             // "Add" button
                             Section {
                                 Button(action: {
@@ -170,6 +149,8 @@ struct medicationList: View {
                                 }, label: {
                                     Text("Add")
                                 })
+                                // If any of the textfields are empty, the add button will be disabled and not work
+                                .disabled(name.isEmpty || dosage.isEmpty)
                             }
                             .onAppear(perform: {
                                 self.medicationModels = DB_Manager().getMeds()
