@@ -31,6 +31,9 @@ struct trackingPoints: View {
     @State private var elevatedMood = ""
     @State private var anxietyMood = ""
     @State private var irritabilityMood = ""
+    
+    // Current days notes (if any, optional field)
+    @State private var notes = ""
 
    
     // Var for "Enter" button
