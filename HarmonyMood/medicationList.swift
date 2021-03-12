@@ -27,14 +27,12 @@ struct medicationList: View {
     // Array of medication models
     @State var medicationModels: [medicationModel] = []
     
-    // check if medication is selected for edit
+    // Check if medication is selected for edit
     @State var selectedMed: Bool = false
      
-    // id of selected medication to edit or delete
+    // Id of selected medication to edit or delete
     @State var selectedMedID: Int64 = 0
 
-    @State private var addMedicationButton = false
-    
     @State var name: String = ""
     @State var units: String = ""
     @State var dosage: String = ""
