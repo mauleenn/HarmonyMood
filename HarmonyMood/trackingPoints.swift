@@ -25,7 +25,7 @@ import Combine
 
 struct trackingPoints: View {
     
-    // Private vars for tracking points
+    // Private vars for tracking points (not optional)
     @State private var hoursSlept = 0;
     @State private var depressedMood = ""
     @State private var elevatedMood = ""
@@ -35,9 +35,11 @@ struct trackingPoints: View {
     // Current days notes (if any, optional field)
     @State private var notes = ""
 
-   
-    // Var for "Enter" button
-    @State private var enterButtonPress = false
+    // Var for "Add" button
+    @State private var addButtonPress = false
+    
+    // To go back on the home screen after submission
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
   
     var body: some View {
         VStack {
@@ -47,6 +49,7 @@ struct trackingPoints: View {
                         Section(header: Text("Hours Slept Last Night")) {
                         Stepper(value: $hoursSlept, in: 0...24, label: {
                             Text("Hours Slept: \(self.hoursSlept)")
+                                .cornerRadius(2)
                                 .font(.system(size: 16.5))
                             
                         })
@@ -55,6 +58,7 @@ struct trackingPoints: View {
                         // Depression 0-10
                         Section(header: Text("Depression")) {
                         TextField("Depression 0-10", text: $depressedMood)
+                            .cornerRadius(2)
                             .keyboardType(.numberPad)
                             .onReceive(Just(depressedMood)) {
                                 guard let value = Int($0), 0...10 ~= value
@@ -69,7 +73,8 @@ struct trackingPoints: View {
                         // Elevation 0-10
                         Section(header: Text("Elevation")) {
                         TextField("Elevation 0-10", text: $elevatedMood)
-                            .keyboardType(.phonePad)
+                            .cornerRadius(2)
+                            .keyboardType(.numberPad)
                             .onReceive(Just(elevatedMood)) {
                                 guard let value = Int($0), 0...10 ~= value
                                 else {
@@ -83,6 +88,7 @@ struct trackingPoints: View {
                         // Anxiety 0-10
                         Section(header: Text("Anxiety")) {
                         TextField("Anxiety 0-10", text: $anxietyMood)
+                            .cornerRadius(2)
                             .keyboardType(.numberPad)
                             .onReceive(Just(anxietyMood)) {
                                 guard let value = Int($0), 0...10 ~= value
@@ -97,6 +103,7 @@ struct trackingPoints: View {
                         // Irritability 0-10
                         Section(header: Text("Irritability")) {
                         TextField("Irritability 0-10", text: $irritabilityMood)
+                            .cornerRadius(2)
                             .keyboardType(.numberPad)
                             .onReceive(Just(irritabilityMood)) {
                                 guard let value = Int($0), 0...10 ~= value
@@ -107,21 +114,38 @@ struct trackingPoints: View {
                                 self.irritabilityMood = String(value)
                             }
                         }
+                        
+                        // Today's note (if any, optional field)
+                        Section(header: Text("Today's Notes")) {
+                        TextField("Today I feel…", text: $notes)
+                            .font(.system(size: 15, weight: .semibold))
+                            .multilineTextAlignment(.center)
+                            .frame(height: 56)
+                            .background(
+                                Rectangle()
+                                    .foregroundColor(Color.gray.opacity(0.1))
+                                    .clipped()
+                            )
+                            .cornerRadius(2)
+                        }
             
-                        // Enter button
-                        Button("Enter") {
-                            self.enterButtonPress = true
+                        // Add button
+                        Button("Add") {
+                            self.addButtonPress = true
                             
                             // Values reset after user presses 'Enter'
                             self.depressedMood = ""
                             self.elevatedMood = ""
                             self.anxietyMood = ""
                             self.irritabilityMood = ""
+                            self.notes = ""
                         }
-                        .alert(isPresented: $enterButtonPress) {
+                        // If any of the textfields are empty, the add button will be disabled and not work
+                        .disabled(depressedMood.isEmpty || elevatedMood.isEmpty || anxietyMood.isEmpty || irritabilityMood.isEmpty ||  irritabilityMood.isEmpty)
+                        .alert(isPresented: $addButtonPress) {
                             Alert(title: Text("Success!"), dismissButton: .default(Text("OK")))
                         }                       
-                    } // End of Form
+                    }.background(Image("pattern"))// End of Form
                 
                 //Title of the page
                 .navigationBarTitle("Tracking Points", displayMode: .inline)
