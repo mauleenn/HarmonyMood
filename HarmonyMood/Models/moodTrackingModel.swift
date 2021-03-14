@@ -24,7 +24,9 @@
 import Foundation
 
 class moodTrackingModel: Identifiable {
+    
     public var trackingID: Int64 = 0
+    public var hoursSlept: Int = 0
     public var depression: String = ""
     public var elevation: String = ""
     public var anxiety: String = ""
