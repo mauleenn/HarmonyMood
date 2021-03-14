@@ -45,6 +45,7 @@ private var userName: Expression<String>!
     
 // Columns instances of tracking points table
 private var trackingID: Expression<Int64>!
+private var hoursSlept: Expression<Int>!
 private var depression: Expression<String>!
 private var elevation: Expression<String>!
 private var anxiety: Expression<String>!
@@ -59,28 +60,43 @@ private var notes: Expression<String>!
             // Creating DB connection
             db = try Connection("/Users/mauleenndlovu/Desktop/HarmonyMood/harmonyMoodDB.sqlite3")
             
-            // Creating table object
+            // Creating table objects
             meds = Table("medications")
+            trackingPoints = Table("moods")
             
-            // Create instances of each column
+            // Instances for medications table
             medID = Expression<Int64>("id")
             name = Expression<String>("name")
             dosage = Expression<Int64>("dosage")
-
             
-            if (!UserDefaults.standard.bool(forKey: "is_db_created")) {
-                
-                // If not, then create the table
-                try db.run(meds.create { (t) in
+            // Instances for moods table
+            trackingID = Expression<Int64>("trackingID")
+            hoursSlept = Expression<Int>("hoursSlept")
+            depression = Expression<String>("depression")
+            elevation = Expression<String>("dosage")
+            anxiety = Expression<String>("anxiety")
+            irritability = Expression<String>("irritability")
+            notes = Expression<String>("notes")
+
+        
+                // Creating the meds table (if it doesn't already exist)
+                try db.run(meds.create(ifNotExists: true) { (t) in
                     t.column(medID, primaryKey: true)
                     t.column(name)
                     t.column(dosage)
 
+                })
+
+                // Creating the moods table (if it doesn't already exist)
+                try db.run(trackingPoints.create(ifNotExists: true) { (t) in
+                    t.column(trackingID, primaryKey: true)
+                    t.column(hoursSlept)
+                    t.column(depression)
+                    t.column(elevation)
+                    t.column(anxiety)
+                    t.column(irritability)
+                    t.column(notes)
             })
-            // Set the value to true, so it will not attempt to create the table again
-            UserDefaults.standard.set(true, forKey: "is_db_created")
-        }
-         
     }
 
     catch {
@@ -90,7 +106,7 @@ private var notes: Expression<String>!
      
     } // End of init
     
-        
+    // Function to add medication
     public func addMedication(nameValue: String, unitsValue: String, dosageValue: Int64) {
         do {
             try db.run(meds.insert(name <- nameValue, dosage <- dosageValue))
@@ -190,6 +206,51 @@ private var notes: Expression<String>!
             }
         }
 
+    // Function to add moods
+    public func addMood(hoursSleptValue: Int, depressionValue: String, anxietyValue: String, elevationValue: String, irritabilityValue: String, notesValue: String) {
+    do{
+        try db.run(trackingPoints.insert(hoursSlept <- hoursSleptValue, depression <- depressionValue, elevation <- elevationValue, anxiety <- anxietyValue, irritability <- irritabilityValue, notes <- notesValue))
+    }
+catch {
+    print(error.localizedDescription)
+        }
+    }
+    
+    // Function to get mood
+    public func getMood() -> [moodTrackingModel] {
         
+        var moodModels: [moodTrackingModel] = []
+        
+        // List the most recent history first
+        trackingPoints = trackingPoints.order(trackingID.desc)
+        
+           // Exception handling
+           do {
+        
+               // Loop through all moods
+               for mood in try db.prepare(trackingPoints) {
+        
+                   // create new model in each loop iteration
+                   let moodModel: moodTrackingModel = moodTrackingModel()
+        
+                   // set values in model from DB
+                moodModel.trackingID = mood[trackingID]
+                moodModel.hoursSlept = mood[hoursSlept]
+                moodModel.depression = mood[depression]
+                moodModel.anxiety = mood[anxiety]
+                moodModel.elevation = mood[elevation]
+                moodModel.irritability = mood[irritability]
+                moodModel.notes = mood[notes]
+        
+                   // Append in new array
+                   moodModels.append(moodModel)
+               }
+           } catch {
+               print(error.localizedDescription)
+           }
+        
+           // Return array
+           return moodModels
+       }
         
     }
