@@ -141,18 +141,25 @@ struct trackingPoints: View {
                             self.notes = ""
                         }
                         // If any of the textfields are empty, the add button will be disabled and not work
-                        .disabled(depressedMood.isEmpty || elevatedMood.isEmpty || anxietyMood.isEmpty || irritabilityMood.isEmpty ||  irritabilityMood.isEmpty)
+                        .disabled($hoursSlept == nil || depressedMood.isEmpty || elevatedMood.isEmpty || anxietyMood.isEmpty || irritabilityMood.isEmpty ||  irritabilityMood.isEmpty)
+                        
                         .alert(isPresented: $addButtonPress) {
                             Alert(title: Text("Success!"), dismissButton: .default(Text("OK")))
                         }                       
                     }.background(Image("pattern"))// End of Form
                 
-                //Title of the page
+                // Title of the page
                 .navigationBarTitle("Tracking Points", displayMode: .inline)
                 .padding()
                 .navigationBarItems(
                                         trailing:
                                             HStack {
+                                                
+                                                // Link to get to the "History" page
+                                                NavigationLink (destination: moodHistoryView(), label: {
+                                                    Text("📅")
+                                                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                                                })
                                                 // Link to get to the "Medications List" Page
                                                 NavigationLink(destination: medicationList()) {
                                                     Text("💊")
@@ -164,11 +171,10 @@ struct trackingPoints: View {
                                                     Text("ℹ️")
                                                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                                                 }
-                                            }
-                                            )
+                                            } // End of HStack
+                                    )
                 
-            }
-            // End of NavigationView
+                } // End of NavigationView
     
         } // End of Vstack
         
