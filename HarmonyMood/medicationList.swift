@@ -36,13 +36,14 @@ struct medicationList: View {
     @State var name: String = ""
     @State var units: String = ""
     @State var dosage: String = ""
+   
+    // Button to add medication
+    @State private var addMedicationButton = false
      
     // To go back on the home screen when the medication is added
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-     
     
     var body: some View {
-        ZStack() {
                 VStack {
                     VStack {
                         // Navigation link to go to edit user view
@@ -50,15 +51,12 @@ struct medicationList: View {
                             EmptyView()
                         }
                     }
-                    
                     NavigationView {
                         List (self.medicationModels) { (meds) in
-                            Section(header: Text("")) {
                             HStack {
                                 VStack (alignment: .leading) {
                                 Text(meds.name)
                                 Text("\(meds.dosage) mg").font(.subheadline).foregroundColor(.gray)
-                                    
                                 }
                                 
                                 // Button to edit medication
@@ -67,13 +65,14 @@ struct medicationList: View {
                                    self.selectedMedID = meds.medID
                                     self.selectedMed = true
                                     
-                                }, label: {
+                                },
+                                label: {
                                     Image(systemName: "pencil")
                                         .foregroundColor(.black)
                                         .font(.system(size: 33.0))
                                     
-                                }).buttonStyle(PlainButtonStyle())
-                                
+                                })
+                                .buttonStyle(PlainButtonStyle())
                             
                                 // Button that allows user to delete an exisiting medication
                                 Button(action: {
@@ -84,15 +83,17 @@ struct medicationList: View {
                                     // Call delete function
                                     dbManager.deleteMedication(idValue: meds.medID)
                                     self.medicationModels = dbManager.getMeds()
-                                    
-                                    
-                                }) {
+                                })
+                                {
                                     Text("➖")
                                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                                }.buttonStyle(PlainButtonStyle())
-                            }
-                            }
+                                }
+                                .buttonStyle(PlainButtonStyle())
+                            } // End of HStack
                         } // End of List
+                        .onAppear(perform: {
+                            self.medicationModels = DB_Manager().getMeds()
+                        })
                         .listStyle(InsetGroupedListStyle())
                         .navigationBarTitle(Text("Medications List"))
                         .navigationBarItems(leading:
@@ -111,17 +112,14 @@ struct medicationList: View {
                                                             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                                                     })
                     }
-                    .onAppear(perform: {
-                        self.medicationModels = DB_Manager().getMeds()
-                    })
                     .sheet(isPresented: $addMedicationButton) {
                         Form {
+                            
                             // Medication name
                             Section(header: Text("Information")) {
                             HStack {
                                 Text("Medication Name: ")
                                 TextField("", text: self.$name)
-                                
                             }
                               
                             // Medication dosage
@@ -138,29 +136,27 @@ struct medicationList: View {
                                     // Call function to add row in sqlite DB
                                     DB_Manager().addMedication(nameValue: self.name, unitsValue: self.units, dosageValue: Int64(self.dosage) ?? 0)
                                      
-                                   // self.listMedications.append(Medications(name: self.name, dosage: self.dosage))
                                     self.addMedicationButton.toggle()
                                 
                                     // Reset Values
                                      self.name = ""
                                     self.dosage = ""
-                                }, label: {
+                                }
+                                , label: {
                                     Text("Add")
                                 })
                                 // If any of the textfields are empty, the add button will be disabled and not work
                                 .disabled(name.isEmpty || dosage.isEmpty)
                             }
-                            .onAppear(perform: {
-                                self.medicationModels = DB_Manager().getMeds()
-                            })
                     } // End of Form
+                    .onDisappear(perform: {
+                        self.medicationModels = DB_Manager().getMeds()
+                    })
             } // End of .sheet
                     
-        }
-            
+        } // End of VStack
+
     }
-        
-}
     
 struct medicationList_Previews: PreviewProvider {
     static var previews: some View {
