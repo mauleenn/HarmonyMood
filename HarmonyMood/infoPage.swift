@@ -43,13 +43,13 @@ struct infoPage: View {
             
             // Medication
             Section(header: Text("Medication").foregroundColor(.red)) {
-                Text("Adding a new medication is quite simple on Harmony Mood. All you need to do is to add the name, dosage, unit, time of day the medication is taken, and the starting date. Once your new medication is added, it will be added to the list of exisiting ones. You can also delete and modify any medication on the list.").font(.system(size: 13, weight: .light, design: .rounded))
+                Text("Adding a new medication is quite simple on Harmony Mood. All you need to do is to add the name and the dosage. Once your new medication is added, it will be added to the list of exisiting ones. You can also delete and modify any medication on the list.").font(.system(size: 13, weight: .light, design: .rounded))
                     .font(.subheadline)
             }
             
             // Tracking Mood
             Section(header: Text("Tracking Mood").foregroundColor(.red)) {
-                Text("To get started, simply start entering your daily moods. You can enter how many hours you slept last night, and your depression, elevation, anxiety, and irritability on a scale from 0-10.").font(.system(size: 13, weight: .light, design: .rounded))
+                Text("To get started, simply start entering your daily moods. You can enter how many hours you slept last night, your depression, elevation, anxiety, and irritability on a scale from 0-10, and any notes for the day.").font(.system(size: 13, weight: .light, design: .rounded))
                     .font(.subheadline)
             }
             
