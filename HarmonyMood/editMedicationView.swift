@@ -77,7 +77,6 @@ struct editMedicationView: View {
        } // End of VStack
        // Populate medications's data in fields when view loaded
        .onAppear(perform: {
-        
            // Get data from DB
            let medicationModels: medicationModel = DB_Manager().getMedication(idValue: self.id)
             
