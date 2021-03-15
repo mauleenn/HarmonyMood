@@ -26,7 +26,7 @@ import Combine
 struct trackingPoints: View {
     
     // Private vars for tracking points (not optional)
-    @State private var hoursSlept = 0;
+    @State private var hoursSlept = 0
     @State private var depressedMood = ""
     @State private var elevatedMood = ""
     @State private var anxietyMood = ""
@@ -51,7 +51,6 @@ struct trackingPoints: View {
                             Text("Hours Slept: \(self.hoursSlept)")
                                 .cornerRadius(2)
                                 .font(.system(size: 16.5))
-                            
                         })
                         }
                         
@@ -117,10 +116,10 @@ struct trackingPoints: View {
                         
                         // Today's note (if any, optional field)
                         Section(header: Text("Today's Notes")) {
-                        TextField("Today I feel…", text: $notes)
+                        TextEditor(text: $notes)
                             .font(.system(size: 15, weight: .semibold))
-                            .multilineTextAlignment(.center)
-                            .frame(height: 56)
+                            .multilineTextAlignment(.leading)
+                            .frame(height: 100)
                             .background(
                                 Rectangle()
                                     .foregroundColor(Color.gray.opacity(0.1))
@@ -130,16 +129,25 @@ struct trackingPoints: View {
                         }
             
                         // Add button
-                        Button("Add") {
-                            self.addButtonPress = true
+                        Button(action: {
                             
-                            // Values reset after user presses 'Enter'
+                            // Call function to add row in sqlite DB
+                            DB_Manager().addMood(hoursSleptValue: self.hoursSlept, depressionValue: self.depressedMood, anxietyValue: self.anxietyMood, elevationValue: self.elevatedMood, irritabilityValue: self.irritabilityMood, notesValue: self.notes)
+
+                            self.addButtonPress = true
+                    
+                            // Values reset after user presses 'Add'
+                            self.hoursSlept = 0
                             self.depressedMood = ""
                             self.elevatedMood = ""
                             self.anxietyMood = ""
                             self.irritabilityMood = ""
                             self.notes = ""
-                        }
+                        },
+                        label: {
+                            Text("Add")
+                        })
+                        
                         // If any of the textfields are empty, the add button will be disabled and not work
                         .disabled($hoursSlept == nil || depressedMood.isEmpty || elevatedMood.isEmpty || anxietyMood.isEmpty || irritabilityMood.isEmpty ||  irritabilityMood.isEmpty)
                         
