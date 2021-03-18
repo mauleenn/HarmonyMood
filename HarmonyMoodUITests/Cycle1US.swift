@@ -8,33 +8,22 @@
 import XCTest
 
 class Cycle1US: XCTestCase {
-
     
-    //Cycle 1: Tests that the Nav Bar title named "Tracking Points" exists
-    func testNavBar() {
-        let app = XCUIApplication()
-        app.launch()
-        
-        let trackingPointsNavBar = app.navigationBars.staticTexts["Tracking Points"]
-        XCTAssertTrue(trackingPointsNavBar.exists)
-    }
-    
-    
-    //Cycle 1: Test "Hours Slept" Stepper
-    func testHoursSleptStepper() {
+    //US1:1 - Test "Hours Slept" Stepper
+    func US1TestHoursSleptStepper() {
         let app = XCUIApplication()
         app.launch()
         
         let hoursSleptStepper = app.otherElements["Hours Slept: 0"]
         hoursSleptStepper.tap(withNumberOfTaps: 3, numberOfTouches: 3) // Should be 3
 
-        app.buttons["Enter"].tap()
+        // Test has been deprecated due to US7:2
+        app.buttons["Add"].tap()
         app.alerts["Success!"].buttons["OK"].tap()
     }
     
-    
-    //Cycle 1: Test "Depression" Text Field
-    func testDepressionTxtField() {
+    // US1:2 - Test "Depression" Text Field
+    func US2TestDepressionTxtField() {
         let app = XCUIApplication()
         app.launch()
         
@@ -53,8 +42,8 @@ class Cycle1US: XCTestCase {
     }
     
     
-    //Cycle 1: Test "Elevation" Text Field
-    func testElevationTxtField() {
+    // US1:2 - Test "Elevation" Text Field
+    func US2TestElevationTxtField() {
         let app = XCUIApplication()
         app.launch()
         
@@ -73,8 +62,8 @@ class Cycle1US: XCTestCase {
     }
     
     
-    //Cycle 1: Test "Anxiety" Text Field
-    func testAnxietyTxtField() {
+    // US1:2 - Test "Anxiety" Text Field
+    func US2TestAnxietyTxtField() {
         let app = XCUIApplication()
         app.launch()
     
@@ -93,8 +82,8 @@ class Cycle1US: XCTestCase {
     }
     
     
-    //Cycle 1: Test "Irritability" Text Field
-    func testIrritabilityTxtField() {
+    // US1:2 - Test "Irritability" Text Field
+    func US2TestIrritabilityTxtField() {
         let app = XCUIApplication()
         app.launch()
         
@@ -111,5 +100,13 @@ class Cycle1US: XCTestCase {
         XCTAssertNotEqual(irritabilityTxt, "6")
         XCTAssertEqual(irritabilityTxt, "10")
     }
-
+    
+    // US1:2 - Tests that the Nav Bar title named "Tracking Points" exists
+    func US2TestNavBar() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        let trackingPointsNavBar = app.navigationBars.staticTexts["Tracking Points"]
+        XCTAssertTrue(trackingPointsNavBar.exists)
+    }
 }

@@ -9,8 +9,8 @@ import XCTest
 
 class Cycle3US: XCTestCase {
 
-    //Cycle 3: Test that the Nav Bar title named "Medications List" exists
-    func testInfoPageNavigation() {
+    // US3:3 - Test that the Nav Bar title named "Medications List" exists
+    func US3TestInfoPageNavigation() {
         let app = XCUIApplication()
         app.launch()
         
@@ -23,8 +23,8 @@ class Cycle3US: XCTestCase {
         XCTAssertTrue(app.navigationBars.staticTexts["Medications List"].exists)
     }
     
-    //Cycle 3: Test that the Nav Bar title named "Medication List" exists
-    func testMedicationListNavigation() {
+    // US3:3 - Test that the Nav Bar title named "Medication List" exists
+    func US3TestMedicationListNavigation() {
         let app = XCUIApplication()
         app.launch()
         
