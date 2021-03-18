@@ -46,7 +46,7 @@ struct editMedicationView: View {
             .padding()
         
            // Create medication name field
-           TextField("Medication Name: ", text: $name)
+           TextField("Medication Name:", text: $name)
                .padding(10)
                .background(Color(.systemGray6))
                .cornerRadius(5)
@@ -54,7 +54,7 @@ struct editMedicationView: View {
             
           
            // Create dosage field, numberpad
-           TextField("Dosage: ", text: $dosage)
+           TextField("Dosage:", text: $dosage)
                .padding(10)
                .background(Color(.systemGray6))
                .cornerRadius(5)
@@ -74,6 +74,9 @@ struct editMedicationView: View {
            .foregroundColor(.green)
                .padding(.top, 10)
                .padding(.bottom, 10)
+           
+           // If any of the textfields are empty, the add button will be disabled and not work
+           .disabled(name.isEmpty || dosage.isEmpty)
        } // End of VStack
        // Populate medications's data in fields when view loaded
        .onAppear(perform: {
