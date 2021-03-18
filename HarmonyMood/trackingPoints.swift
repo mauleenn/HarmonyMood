@@ -34,9 +34,11 @@ struct trackingPoints: View {
     
     // Current days notes (if any, optional field)
     @State private var notes = ""
+    
+    
 
     // Var for "Add" button
-    @State private var addButtonPress = false
+    @State private var addEntryButton = false
     
     // To go back on the home screen after submission
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
@@ -117,6 +119,7 @@ struct trackingPoints: View {
                         // Today's note (if any, optional field)
                         Section(header: Text("Today's Notes")) {
                         TextEditor(text: $notes)
+                            .accessibility(identifier: "notes")
                             .font(.system(size: 15, weight: .semibold))
                             .multilineTextAlignment(.leading)
                             .frame(height: 100)
@@ -128,13 +131,11 @@ struct trackingPoints: View {
                             .cornerRadius(2)
                         }
             
-                        // Add button
+                        // "Add" button
                         Button(action: {
                             
                             // Call function to add row in sqlite DB
                             DB_Manager().addMood(hoursSleptValue: self.hoursSlept, depressionValue: self.depressedMood, anxietyValue: self.anxietyMood, elevationValue: self.elevatedMood, irritabilityValue: self.irritabilityMood, notesValue: self.notes)
-
-                            self.addButtonPress = true
                     
                             // Values reset after user presses 'Add'
                             self.hoursSlept = 0
@@ -147,14 +148,11 @@ struct trackingPoints: View {
                         label: {
                             Text("Add")
                         })
-                        
                         // If any of the textfields are empty, the add button will be disabled and not work
                         .disabled($hoursSlept == nil || depressedMood.isEmpty || elevatedMood.isEmpty || anxietyMood.isEmpty || irritabilityMood.isEmpty ||  irritabilityMood.isEmpty)
-                        
-                        .alert(isPresented: $addButtonPress) {
-                            Alert(title: Text("Success!"), dismissButton: .default(Text("OK")))
-                        }                       
-                    }.background(Image("pattern"))// End of Form
+                      
+                    }
+                   // End of Form
                 
                 // Title of the page
                 .navigationBarTitle("Tracking Points", displayMode: .inline)
