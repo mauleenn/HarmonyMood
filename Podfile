@@ -15,6 +15,8 @@ pod 'Firebase/AppDistribution'
 pod 'Firebase/Firestore'
 pod 'FirebaseFirestoreSwift', '~> 7.0-beta'
 pod 'SQLite.swift', '~> 0.12.0'
+pod "SwiftUIRefresh"
+pod 'FSCalendar'
 
 # add pods for any other desired Firebase products
 # https://firebase.google.com/docs/ios/setup#available-pods
