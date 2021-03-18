@@ -11,7 +11,7 @@ class Cycle5US: XCTestCase {
 
     // US5:1 - Testing "Info" button exists and that
     // users can access it.
-    func US1TestInfoButton() {
+    func testInfoButton() {
         let app = XCUIApplication()
         app.launch()
         
@@ -30,7 +30,7 @@ class Cycle5US: XCTestCase {
     }
     
     // US5:2 - Test "Dosage" Text Field
-    func US2TestMedDosage() {
+    func testMedDosage() {
         let app = XCUIApplication()
         app.launch()
         
@@ -60,7 +60,7 @@ class Cycle5US: XCTestCase {
         
     }
     // US5:2 - Testing to see if we added the correct medication
-    func US2TestAddingCorrectMedication() {
+    func testestAddingCorrectMedication() {
     let app = XCUIApplication()
     app.launch()
     
@@ -90,7 +90,7 @@ class Cycle5US: XCTestCase {
     }
     
     // US5:2 - Testing adding a new medication on the "Medications List" page
-    func US2TestAddingNewMedication() {
+    func testAddingNewMedication() {
         let app = XCUIApplication()
         app.launch()
         
@@ -128,7 +128,7 @@ class Cycle5US: XCTestCase {
  }
 
     // US5:4 - Test to delete a medication
-    func US4TestDeleteButton() {
+    func testDeleteButton() {
         let app = XCUIApplication()
         app.launch()
         

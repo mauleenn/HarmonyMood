@@ -28,7 +28,7 @@ class Cycle6US: XCTestCase {
     // Cycle 6 US:1 - Testing user can navigate to "MedicationsList" page
     // from the "Tracking Points" page (first page of the app) by
     // pressing on the 💊 emoji.
-   func US1TestnavigationToMedicationListView() {
+   func testnavigationToMedicationListView() {
         let app = XCUIApplication()
         app.launch()
      
@@ -40,7 +40,7 @@ class Cycle6US: XCTestCase {
     // Cycle 6 US:2 - Testing user can navigate to "Info" page
     // from the "Tracking Points" page (first page of the app) by
     // pressing on the 💊 emoji.
-   func US2TestnavigationToInfoPageView() {
+   func testnavigationToInfoPageView() {
         let app = XCUIApplication()
         app.launch()
      

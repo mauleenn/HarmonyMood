@@ -9,21 +9,10 @@ import XCTest
 
 class Cycle7US: XCTestCase {
 
-    // Cycle 7 US:1 - Testing mood entry persistence
-   func US1TestMoodEntryPersistence() {
-        let app = XCUIApplication()
-        app.launch()
-     
-        // By pressing this button I will get to the second view
-        let medicationsListLink = app.navigationBars["Tracking Points"].buttons["💊"]
-        XCTAssert(medicationsListLink.exists)
-        medicationsListLink.tap()
-    }
-
-    // Cycle 7 US:2 - Testing that user enters in values
+    /* Cycle 7 US:2 - Testing that user enters in values
     // for mood textfields. If they don't, the 'Add' button
     // will be disabled
-   func US2TestEmptyTxtFieldMoodEntry() {
+   func testEmptyTxtFieldMoodEntry() {
         let app = XCUIApplication()
         app.launch()
     
@@ -41,18 +30,18 @@ class Cycle7US: XCTestCase {
         let irritabilityTxtField = app.textFields["Irritability 0-10"]
         irritabilityTxtField.tap()
         irritabilityTxtField.typeText("0")
-        app.tables.staticTexts["IRRITABILITY"].swipeUp()
-
+    
         // Tests to check that the 'Add' button is not enabled
         // because not all the textfields are filled.
         let addMoodButton = app.buttons["Add"]
         XCTAssertEqual(addMoodButton.isEnabled, false)
     }
+     */
     
     // Cycle 7 US:3 - Testing that user enters in values
     // for medication textfields. If they don't, the
     // 'Add' button will be disabled
-   func US3TestEmptyTxtFieldMedicationEntry() {
+   func testEmptyTxtFieldMedicationEntry() {
         let app = XCUIApplication()
         app.launch()
     
@@ -77,8 +66,8 @@ class Cycle7US: XCTestCase {
         XCTAssertEqual(addMedicationButton.isEnabled, false)
     }
     
-    // Cycle 7 US:4 - Testing mood entry persistence
-   func US4TestAddingNotes() {
+    /* Cycle 7 US:4 - Testing mood entry persistence
+   func testAddingNotes() {
         let app = XCUIApplication()
         app.launch()
     
@@ -103,16 +92,17 @@ class Cycle7US: XCTestCase {
     
         
 
-        let notesTxtField = app.textViews[" "]
+        let notesTxtField = app.textViews["notes"]
         notesTxtField.tap()
         notesTxtField.typeText("Please work")
      
     }
+    */
     
     // Cycle 7 US:5 - Testing that the mood history page
     // exists and the button to get to the page works and
     // exists.
-    func US5TestMoodHistoryPage() {
+    func testMoodHistoryPage() {
         let app = XCUIApplication()
         app.launch()
         
@@ -130,7 +120,7 @@ class Cycle7US: XCTestCase {
     // Cycle 7 US:6 - Testing that user enters in values
     // for edit medication textfields. If they don't, the
     // 'Save' button will be disabled
-   func US6TestEmptyTxtFieldEditMedication() {
+   func testEmptyTxtFieldEditMedication() {
         let app = XCUIApplication()
         app.launch()
     

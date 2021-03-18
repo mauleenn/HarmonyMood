@@ -10,7 +10,8 @@ import XCTest
 class Cycle1US: XCTestCase {
     
     //US1:1 - Test "Hours Slept" Stepper
-    func US1TestHoursSleptStepper() {
+    /* Test has been deprecated due to Cycle 7
+    func testHoursSleptStepper() {
         let app = XCUIApplication()
         app.launch()
         
@@ -19,11 +20,11 @@ class Cycle1US: XCTestCase {
 
         // Test has been deprecated due to US7:2
         app.buttons["Add"].tap()
-        app.alerts["Success!"].buttons["OK"].tap()
     }
+     */
     
     // US1:2 - Test "Depression" Text Field
-    func US2TestDepressionTxtField() {
+    func testDepressionTxtField() {
         let app = XCUIApplication()
         app.launch()
         
@@ -43,7 +44,7 @@ class Cycle1US: XCTestCase {
     
     
     // US1:2 - Test "Elevation" Text Field
-    func US2TestElevationTxtField() {
+    func testElevationTxtField() {
         let app = XCUIApplication()
         app.launch()
         
@@ -63,7 +64,7 @@ class Cycle1US: XCTestCase {
     
     
     // US1:2 - Test "Anxiety" Text Field
-    func US2TestAnxietyTxtField() {
+    func testAnxietyTxtField() {
         let app = XCUIApplication()
         app.launch()
     
@@ -83,7 +84,7 @@ class Cycle1US: XCTestCase {
     
     
     // US1:2 - Test "Irritability" Text Field
-    func US2TestIrritabilityTxtField() {
+    func testIrritabilityTxtField() {
         let app = XCUIApplication()
         app.launch()
         
@@ -102,7 +103,7 @@ class Cycle1US: XCTestCase {
     }
     
     // US1:2 - Tests that the Nav Bar title named "Tracking Points" exists
-    func US2TestNavBar() {
+    func testNavBar() {
         let app = XCUIApplication()
         app.launch()
         

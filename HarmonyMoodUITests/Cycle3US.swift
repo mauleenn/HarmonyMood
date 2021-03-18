@@ -10,7 +10,7 @@ import XCTest
 class Cycle3US: XCTestCase {
 
     // US3:3 - Test that the Nav Bar title named "Medications List" exists
-    func US3TestInfoPageNavigation() {
+    func testInfoPageNavigation() {
         let app = XCUIApplication()
         app.launch()
         
@@ -24,7 +24,7 @@ class Cycle3US: XCTestCase {
     }
     
     // US3:3 - Test that the Nav Bar title named "Medication List" exists
-    func US3TestMedicationListNavigation() {
+    func testMedicationListNavigation() {
         let app = XCUIApplication()
         app.launch()
         
