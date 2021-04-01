@@ -14,16 +14,18 @@
  limitations under the License.
  */
 
-//  HarmonyMoodUITests.swift
-//  HarmonyMoodUITests
+//  userModel.swift
+//  SQLite_Database
+//  HarmonyMood
 //
-//  Created by Mauleen Ndlovu on 10/14/20.
+//  Created by Mauleen Ndlovu on 2/26/21.
+//
 
-import XCTest
+import Foundation
 
-class HarmonyMoodUITests: XCTestCase {
-
- 
+class userModel: Identifiable {
+    public var userID: Int64 = 0
+    public var userName: String = ""
+    public var passcode: Int64 = 0
+    public var enableNotifications: Bool = false
 }
- 
-
