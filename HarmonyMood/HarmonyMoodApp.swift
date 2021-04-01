@@ -24,7 +24,7 @@ import SwiftUI
 struct HarmonyMoodApp: App {
     var body: some Scene {
         WindowGroup {
-            trackingPoints()
+            trackingPointsView()
             }
     }
 }

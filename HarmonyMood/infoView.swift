@@ -22,7 +22,7 @@
 
 import SwiftUI
 
-struct infoPage: View {
+struct infoView: View {
     
     // Application version number
     @State private var versionNumber: Double = 1.0
@@ -61,11 +61,22 @@ struct infoPage: View {
 
          // Title of page
         }.navigationBarTitle("Welcome to Harmony Mood!", displayMode: .inline)
+        .navigationBarItems(
+                            trailing:
+                                HStack {
+                            
+                                    // Link to get to the "Settings" Page
+                                    NavigationLink(destination: settingsView()) {
+                                        Image(systemName: "gearshape.fill").foregroundColor(.black)
+                                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                                    }
+                                } // End of HStack
+                            )
 }
 }
 
 struct infoPage_Previews: PreviewProvider {
     static var previews: some View {
-        infoPage()
+        infoView()
     }
 }

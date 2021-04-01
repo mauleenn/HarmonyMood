@@ -23,7 +23,7 @@
 import SwiftUI
 import Combine
 
-struct trackingPoints: View {
+struct trackingPointsView: View {
     
     // Private vars for tracking points (not optional)
     @State private var hoursSlept = 0
@@ -35,8 +35,6 @@ struct trackingPoints: View {
     // Current days notes (if any, optional field)
     @State private var notes = ""
     
-    
-
     // Var for "Add" button
     @State private var addEntryButton = false
     
@@ -167,14 +165,20 @@ struct trackingPoints: View {
                                                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                                                 })
                                                 // Link to get to the "Medications List" Page
-                                                NavigationLink(destination: medicationList()) {
+                                                NavigationLink(destination: medicationListView()) {
                                                     Text("💊")
                                                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                                                 }
                                                 
                                                 // Link to get to the "Welcome to HarmonyMood" Page
-                                                NavigationLink(destination: infoPage()) {
+                                                NavigationLink(destination: infoView()) {
                                                     Text("ℹ️")
+                                                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                                                }
+                                                
+                                                // Link to get to the "Settings" Page
+                                                NavigationLink(destination: settingsView()) {
+                                                    Image(systemName: "gearshape.fill").foregroundColor(.black)
                                                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                                                 }
                                             } // End of HStack
@@ -189,7 +193,7 @@ struct trackingPoints: View {
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
-                trackingPoints()
+                trackingPointsView()
         }
     }
 }

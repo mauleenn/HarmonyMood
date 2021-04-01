@@ -16,7 +16,6 @@
 
 //  editMedicationView.swift
 //  HarmonyMood
-//  SQLite_Database
 //
 //  Created by Mauleen Ndlovu on 2/23/21.
 //
