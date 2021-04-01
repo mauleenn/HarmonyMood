@@ -29,8 +29,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2B017C682537C1A4001A7918"
@@ -38,17 +37,6 @@
                BlueprintName = "HarmonyMoodUITests"
                ReferencedContainer = "container:HarmonyMood.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "Cycle1US/testHoursSleptStepper()">
-               </Test>
-               <Test
-                  Identifier = "HarmonyMoodUITests">
-               </Test>
-               <Test
-                  Identifier = "SQLiteDBTests">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>
