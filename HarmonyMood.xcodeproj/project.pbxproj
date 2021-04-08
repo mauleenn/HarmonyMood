@@ -34,9 +34,10 @@
 		2BC97D2625B0A95D0057F6AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BC97D2425B0A95D0057F6AE /* GoogleService-Info.plist */; };
 		2BC97D2725B0A95D0057F6AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BC97D2425B0A95D0057F6AE /* GoogleService-Info.plist */; };
 		2BD587A325FC81580081A0E2 /* moodHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD587A225FC81580081A0E2 /* moodHistoryView.swift */; };
-		2BE8175B25E9818A00AE73C3 /* contentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE8175A25E9818A00AE73C3 /* contentView.swift */; };
+		2BE8175B25E9818A00AE73C3 /* homePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE8175A25E9818A00AE73C3 /* homePageView.swift */; };
 		2BE8176325E9A6C900AE73C3 /* userModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE8176225E9A6C900AE73C3 /* userModel.swift */; };
 		2BF08B472614EBB0005CDE7A /* Cycle8US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF08B462614EBB0005CDE7A /* Cycle8US.swift */; };
+		2BF08B682617D250005CDE7A /* TextFieldManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF08B672617D250005CDE7A /* TextFieldManager.swift */; };
 		2BFB652425E6CDA2006843D1 /* SwiftUIFormHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 2BFB652325E6CDA2006843D1 /* SwiftUIFormHelper */; };
 		4676F811634E0182F8D180A2 /* Pods_HarmonyMoodTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BCC17DA2A6CF40D77FB62B /* Pods_HarmonyMoodTests.framework */; };
 		5B0D50EAF4A28F6497D1A8EF /* Pods_HarmonyMood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDDA7E0656D4BF65A0498CC /* Pods_HarmonyMood.framework */; };
@@ -90,9 +91,10 @@
 		2BA9037325CC2F3900EEB8C7 /* HarmonyMoodApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonyMoodApp.swift; sourceTree = "<group>"; };
 		2BC97D2425B0A95D0057F6AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2BD587A225FC81580081A0E2 /* moodHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moodHistoryView.swift; sourceTree = "<group>"; };
-		2BE8175A25E9818A00AE73C3 /* contentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = contentView.swift; path = HarmonyMood/contentView.swift; sourceTree = SOURCE_ROOT; };
+		2BE8175A25E9818A00AE73C3 /* homePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = homePageView.swift; path = HarmonyMood/homePageView.swift; sourceTree = SOURCE_ROOT; };
 		2BE8176225E9A6C900AE73C3 /* userModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userModel.swift; sourceTree = "<group>"; };
 		2BF08B462614EBB0005CDE7A /* Cycle8US.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cycle8US.swift; sourceTree = "<group>"; };
+		2BF08B672617D250005CDE7A /* TextFieldManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldManager.swift; sourceTree = "<group>"; };
 		34BCC17DA2A6CF40D77FB62B /* Pods_HarmonyMoodTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HarmonyMoodTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5101C4E54F4D59BE6B387AED /* Pods-HarmonyMood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarmonyMood.release.xcconfig"; path = "Target Support Files/Pods-HarmonyMood/Pods-HarmonyMood.release.xcconfig"; sourceTree = "<group>"; };
 		7A2B7DB6B8C531464EF742F1 /* Pods-HarmonyMood-HarmonyMoodUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarmonyMood-HarmonyMoodUITests.release.xcconfig"; path = "Target Support Files/Pods-HarmonyMood-HarmonyMoodUITests/Pods-HarmonyMood-HarmonyMoodUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 		2B017C4F2537C1A2001A7918 /* HarmonyMood */ = {
 			isa = PBXGroup;
 			children = (
+				2BF08B662617D169005CDE7A /* Helpers */,
 				2B47F3EF25E426A30045328D /* Database */,
 				2B47F3E925E4257C0045328D /* Models */,
 				2BB7303025D0600D007AC23E /* Views */,
@@ -244,7 +247,7 @@
 				2BA9037325CC2F3900EEB8C7 /* HarmonyMoodApp.swift */,
 				2B2319D025FFF93B003B554F /* trackingPointsView.swift */,
 				2BD587A225FC81580081A0E2 /* moodHistoryView.swift */,
-				2BE8175A25E9818A00AE73C3 /* contentView.swift */,
+				2BE8175A25E9818A00AE73C3 /* homePageView.swift */,
 				2B3D653226093D0800F33990 /* settingsView.swift */,
 				2B3E5B7625CBEA9300F123DD /* infoView.swift */,
 				2B0F4E6D26067B9B00E029D5 /* graphsView.swift */,
@@ -252,6 +255,14 @@
 				2B9A62AE25E541F200EEA19E /* editMedicationView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		2BF08B662617D169005CDE7A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2BF08B672617D250005CDE7A /* TextFieldManager.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		94FEA7A4A97C3E1901777091 /* Pods */ = {
@@ -518,12 +529,13 @@
 				2BD587A325FC81580081A0E2 /* moodHistoryView.swift in Sources */,
 				2BA9037425CC2F3900EEB8C7 /* HarmonyMoodApp.swift in Sources */,
 				2B9A62AF25E541F200EEA19E /* editMedicationView.swift in Sources */,
+				2BF08B682617D250005CDE7A /* TextFieldManager.swift in Sources */,
 				2BE8176325E9A6C900AE73C3 /* userModel.swift in Sources */,
 				2B0F4E6E26067B9B00E029D5 /* graphsView.swift in Sources */,
 				2B47F3EB25E425AA0045328D /* medicationModel.swift in Sources */,
 				2B3E5B7725CBEA9300F123DD /* infoView.swift in Sources */,
 				2B47F3F125E426B40045328D /* DB_Manager.swift in Sources */,
-				2BE8175B25E9818A00AE73C3 /* contentView.swift in Sources */,
+				2BE8175B25E9818A00AE73C3 /* homePageView.swift in Sources */,
 				2B3D653326093D0900F33990 /* settingsView.swift in Sources */,
 				2B16F48825E7E793008EA353 /* moodTrackingModel.swift in Sources */,
 				2B3E5B5925CBDD9200F123DD /* medicationListView.swift in Sources */,
