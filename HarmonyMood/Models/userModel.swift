@@ -24,6 +24,7 @@
 import Foundation
 
 class userModel: Identifiable {
+    
     public var userID: Int64 = 0
     public var userName: String = ""
     public var passcode: Int64 = 0
