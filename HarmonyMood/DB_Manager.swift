@@ -53,6 +53,7 @@ class DB_Manager {
     private var anxiety: Expression<String>!
     private var irritability: Expression<String>!
     private var notes: Expression<String>!
+    private var entryDate: Expression<Date>!
     
     init () {
         do {
@@ -80,6 +81,7 @@ class DB_Manager {
             anxiety = Expression<String>("anxiety")
             irritability = Expression<String>("irritability")
             notes = Expression<String>("notes")
+            entryDate = Expression<Date>("entryDate")
             
             userID = Expression<Int64>("userID")
             userName = Expression<String>("userName")
@@ -104,6 +106,7 @@ class DB_Manager {
                 t.column(anxiety)
                 t.column(irritability)
                 t.column(notes)
+                t.column(entryDate)
             })
             
             // Creating the users table (if it doesn't already exist)
@@ -224,10 +227,10 @@ class DB_Manager {
     }
     
     // Function to add moods
-    public func addMood(hoursSleptValue: Int, depressionValue: String, anxietyValue: String, elevationValue: String, irritabilityValue: String, notesValue: String) {
+    public func addMood(hoursSleptValue: Int, depressionValue: String, anxietyValue: String, elevationValue: String, irritabilityValue: String, notesValue: String, dateValue: Date) {
         
         do {
-            try db.run(trackingPoints.insert(hoursSlept <- hoursSleptValue, depression <- depressionValue, elevation <- elevationValue, anxiety <- anxietyValue, irritability <- irritabilityValue, notes <- notesValue))
+            try db.run(trackingPoints.insert(hoursSlept <- hoursSleptValue, depression <- depressionValue, elevation <- elevationValue, anxiety <- anxietyValue, irritability <- irritabilityValue, notes <- notesValue, entryDate <- dateValue))
         }
         catch {
             print(error.localizedDescription)
@@ -257,6 +260,7 @@ class DB_Manager {
                 moodModel.elevation = mood[elevation]
                 moodModel.irritability = mood[irritability]
                 moodModel.notes = mood[notes]
+                moodModel.entryDate = mood[entryDate]
                 
                 // Append in new array
                 moodModels.append(moodModel)

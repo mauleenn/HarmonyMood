@@ -32,4 +32,5 @@ class moodTrackingModel: Identifiable {
     public var anxiety: String = ""
     public var irritability: String = ""
     public var notes: String = ""
+    public var entryDate = Date()
 }
