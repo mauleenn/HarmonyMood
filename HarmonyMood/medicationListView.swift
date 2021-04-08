@@ -43,7 +43,7 @@ struct medicationListView: View {
     
     // To go back on the home screen when the medication is added
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-    
+
     var body: some View {
         VStack {
             VStack {
@@ -97,30 +97,31 @@ struct medicationListView: View {
                 })
                 .listStyle(InsetGroupedListStyle())
                 .navigationBarTitle(Text("Medications List"))
-                .navigationBarItems(leading:
-                                        HStack {
-                                            Button(action: {
-                                                self.addMedicationButton.toggle()
-                                            }, label: {
-                                                Text("➕")
-                                                    .font(.title)
-                                            })
-                                        },
-                                    trailing:
-                                        HStack {
-                                            // Link to get to the "Welcome to HarmonyMood" Page
-                                            NavigationLink(destination: infoView()) {
-                                                Text("ℹ️")
-                                                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                                            }
-                                            
-                                            // Link to get to the "Settings" Page
-                                            NavigationLink(destination: settingsView()) {
-                                                Image(systemName: "gearshape.fill").foregroundColor(.black)
-                                                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                                            }
-                                        }
-                ) // End of NavBarItems
+                .toolbar {
+                    ToolbarItemGroup(placement: .bottomBar) {
+                        HStack {
+                            // Link to get to the "History" page
+                            NavigationLink (destination: moodHistoryView(), label: {
+                                Image(systemName: "calendar").foregroundColor(.black)
+                                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                            })
+                            Divider()
+                            
+                            // Link to get to the "Welcome to HarmonyMood" Page
+                            NavigationLink(destination: infoView()) {
+                                Image(systemName: "info.circle").foregroundColor(.black)
+                                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                            }
+                            Divider()
+                            
+                            // Link to get to the "Settings" Page
+                            NavigationLink(destination: settingsView()) {
+                                Image(systemName: "gearshape.2").foregroundColor(.black)
+                                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                            }
+                        }
+                    }
+                }
             } // End of NavView
             .sheet(isPresented: $addMedicationButton) {
                 Form {
@@ -128,15 +129,29 @@ struct medicationListView: View {
                     // Medication name
                     Section(header: Text("Information")) {
                         HStack {
-                            Text("Medication Name: ")
-                            TextField("", text: self.$name)
+                            if name.isEmpty {
+                                Text("Name: ").foregroundColor(Color(UIColor.lightGray))
+                                    .font(.system(size: 20))
+                                    .frame(height: 64)
+                            }
+                            TextField("", text: $name)
+                                .font(.system(size: 20))
+                                .frame(height: 64)
+                        }
                         }
                         
                         // Medication dosage
                         HStack {
-                            Text("Dosage: ")
-                            TextField("", text: self.$dosage)
+                            if dosage.isEmpty {
+                                Text("Dosage: ").foregroundColor(Color(UIColor.lightGray))
+                                    .font(.system(size: 20))
+                                    .frame(height: 64)
+                            }
+                            TextField("", text: $dosage)
+                                .font(.system(size: 20))
+                                .frame(height: 64)
                                 .keyboardType(.numberPad)
+                        }
                         }
                     }
                     // "Add" button
@@ -153,7 +168,7 @@ struct medicationListView: View {
                             self.dosage = ""
                         }
                         , label: {
-                            Text("Add")
+                            Text("")
                         })
                         // If any of the textfields are empty, the add button will be disabled and not work
                         .disabled(name.isEmpty || dosage.isEmpty)
@@ -166,11 +181,11 @@ struct medicationListView: View {
             
         } // End of VStack
         
-    }
+
     
     struct medicationList_Previews: PreviewProvider {
         static var previews: some View {
             medicationListView()
         }
     }
-}
+

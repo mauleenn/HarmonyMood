@@ -24,11 +24,13 @@ import SwiftUI
 import Combine
 import UserNotifications
 
+// Additional colors
 extension Color {
     static let pastelPink = Color("pastelPink")
     static let pastelBlue = Color("pastelBlue")
     static let pastelPurple = Color("pastelPurple")
     static let bgGrey = Color("bgGrey")
+    static let teal = Color("teal")
 }
 
 struct settingsView: View {
@@ -40,47 +42,60 @@ struct settingsView: View {
     @AppStorage("passcodeEnabled") var passcodeEnabled: Bool = false
     @State private var showAlert = false
     
-    @State var userModels: [userModel] = []
+    // ObservedObj for TextFieldManager() Class which
+    // only allows for a four digit passcode
+    @ObservedObject var textFieldManager = TextFieldManager()
+    
+    // Navigation bar title color is "teal"
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(named: "teal") ?? .black]
+    }
     
     var body: some View {
         
         NavigationView {
             Form {
                 Section(header: Text("Name")) {
-                    HStack{
+                    ZStack(alignment: .leading) {
                         
-                        Image(systemName: "person.fill").foregroundColor(.pastelPurple)
-                        TextField("What is your name?", text: $name)
-                            .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-                            .background(Color(UIColor.secondarySystemFill))
-                            .cornerRadius(4)
+                        if name.isEmpty {
+                            Text("What is your name?").foregroundColor(Color(UIColor.lightGray))
+                                .font(.system(size: 20))
+                                .frame(height: 64)
+                        }
+                        TextField("", text: $name)
+                            .font(.system(size: 20))
+                            .frame(height: 64)
                     }
                 }
                 
                 // Four digit passcode
                 Section(header: Text("Passcode")) {
-                    Toggle("Enable Passcode", isOn: $passcodeEnabled)
-                    
-                    HStack {
-                        TextField("****", text: $passcode)
-                            .keyboardType(.numberPad)
-                            .onReceive(Just(passcode)) {
-                                guard let value = Int($0), 0...10000 ~= value
-                                else {
-                                    self.passcode = ""
-                                    return
-                                }
-                                self.passcode = String(value)
-                            }
-                        
+                    Toggle(isOn: $passcodeEnabled) {
+                        Text("Enable Passcode?").foregroundColor(Color(UIColor.lightGray))
+                            .font(.system(size: 20))
+                            .frame(height: 64)
                     }
                     
+                    ZStack(alignment: .leading) {
+                        
+                        if textFieldManager.passcode.isEmpty {
+                            Text("Passcode:").foregroundColor(Color(UIColor.lightGray))
+                                .font(.system(size: 20))
+                                .frame(height: 64)
+                        }
+                        SecureField("", text: $textFieldManager.passcode)
+                            .keyboardType(.numberPad)
+                            .font(.system(size: 20))
+                            .frame(height: 64)
+                    }
                 }
-                
                 
                 Section(header: Text("Notifications")) {
                     Toggle(isOn: $notificationsEnabled) {
-                        Text("Enabled")
+                        Text("Enable Notifications?").foregroundColor(Color(UIColor.lightGray))
+                            .font(.system(size: 20))
+                            .frame(height: 64)
                     }
                     .onChange(of: notificationsEnabled) {
                         self.scheduleNotifications(state: $0)
@@ -95,18 +110,49 @@ struct settingsView: View {
                             DB_Manager().addSettings(nameValue: self.name, passcodeValue: Int64(self.passcode) ?? 0, notificationsValue: self.notificationsEnabled)
                         })
                         {
-                            Text("Save")
-                                .foregroundColor(.pastelPurple)
+                            ZStack {
+                                Text("Save")
+                                    .foregroundColor(.pastelPink)
+                                    .font(.system(size: 20))
+                                    .fontWeight(.semibold)
+                            }
+                            .frame(width: 330.0, height: 45.0)
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                            //.padding(.vertical)
                         }
                     }
                     .alert(isPresented: $showAlert) {
                         Alert(title: Text("Successfully saved!"))
                     }
                 }
-               
             } 
             .font(Font.system(size: 15, weight: .medium, design: .serif))
             .navigationBarTitle("Settings")
+            .toolbar {
+                ToolbarItemGroup(placement: .bottomBar) {
+                    HStack {
+                        // Link to get to the "History" page
+                        NavigationLink (destination: moodHistoryView(), label: {
+                            Image(systemName: "calendar").foregroundColor(.black)
+                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        })
+                        Divider()
+                        
+                        // Link to get to the "Medications List" Page
+                        NavigationLink(destination: medicationListView()) {
+                            Image(systemName: "pills").foregroundColor(.black)
+                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        }
+                        Divider()
+                        
+                        // Link to get to the "Welcome to HarmonyMood" Page
+                        NavigationLink(destination: infoView()) {
+                            Image(systemName: "info.circle").foregroundColor(.black)
+                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        }
+                    }
+                }
+            }
         }
     }
     
@@ -120,7 +166,6 @@ struct settingsView: View {
             }
         }
         
-        
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         let content = UNMutableNotificationContent()
         content.title = "Hey! It's time to log your mood :)"
@@ -130,18 +175,16 @@ struct settingsView: View {
         dateComponents.hour = 07
         dateComponents.minute = 20
         
-        // Testing/demo for Cycle 8
-        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
-        
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
     }
-}
-
-struct settingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        settingsView()
+    
+    
+    struct settingsView_Previews: PreviewProvider {
+        static var previews: some View {
+            
+            settingsView()
+        }
     }
 }

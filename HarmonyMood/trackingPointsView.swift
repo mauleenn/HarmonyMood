@@ -31,6 +31,7 @@ struct trackingPointsView: View {
     @State private var elevatedMood = ""
     @State private var anxietyMood = ""
     @State private var irritabilityMood = ""
+    @State private var date = Date()
     
     // Current days notes (if any, optional field)
     @State private var notes = ""
@@ -38,26 +39,34 @@ struct trackingPointsView: View {
     // Var for "Add" button
     @State private var addEntryButton = false
     
+    @State private var current: Int? = nil
+    
     // To go back on the home screen after submission
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-  
+    
     var body: some View {
+        
+        NavigationLink(destination: moodHistoryView(), tag: 1, selection: self.$current) {
+                EmptyView()
+            }
+        
         VStack {
             NavigationView {
-                    Form {
-                        // Hours slept last night
-                        Section(header: Text("Hours Slept Last Night")) {
+                Form {
+                    // Hours slept last night
+                    Section(header: Text("Hours Slept Last Night")) {
                         Stepper(value: $hoursSlept, in: 0...24, label: {
-                            Text("Hours Slept: \(self.hoursSlept)")
-                                .cornerRadius(2)
-                                .font(.system(size: 16.5))
+                            Text("Hours Slept: \(self.hoursSlept)").foregroundColor(Color(UIColor.lightGray))
+                                .font(.system(size: 20))
+                                .frame(height: 30)
                         })
-                        }
-                        
-                        // Depression 0-10
-                        Section(header: Text("Depression")) {
+                    }.foregroundColor(.teal)
+                    
+                    // Depression 0-10
+                    Section(header: Text("Depression")) {
                         TextField("Depression 0-10", text: $depressedMood)
-                            .cornerRadius(2)
+                            .font(.system(size: 20))
+                            .frame(height: 30)
                             .keyboardType(.numberPad)
                             .onReceive(Just(depressedMood)) {
                                 guard let value = Int($0), 0...10 ~= value
@@ -67,12 +76,13 @@ struct trackingPointsView: View {
                                 }
                                 self.depressedMood = String(value)
                             }
-                        }
-                        
-                        // Elevation 0-10
-                        Section(header: Text("Elevation")) {
+                    }.foregroundColor(.teal)
+                    
+                    // Elevation 0-10
+                    Section(header: Text("Elevation")) {
                         TextField("Elevation 0-10", text: $elevatedMood)
-                            .cornerRadius(2)
+                            .font(.system(size: 20))
+                            .frame(height: 30)
                             .keyboardType(.numberPad)
                             .onReceive(Just(elevatedMood)) {
                                 guard let value = Int($0), 0...10 ~= value
@@ -82,12 +92,13 @@ struct trackingPointsView: View {
                                 }
                                 self.elevatedMood = String(value)
                             }
-                        }
-                        
-                        // Anxiety 0-10
-                        Section(header: Text("Anxiety")) {
+                    }.foregroundColor(.teal)
+                    
+                    // Anxiety 0-10
+                    Section(header: Text("Anxiety")) {
                         TextField("Anxiety 0-10", text: $anxietyMood)
-                            .cornerRadius(2)
+                            .font(.system(size: 20))
+                            .frame(height: 30)
                             .keyboardType(.numberPad)
                             .onReceive(Just(anxietyMood)) {
                                 guard let value = Int($0), 0...10 ~= value
@@ -97,12 +108,13 @@ struct trackingPointsView: View {
                                 }
                                 self.anxietyMood = String(value)
                             }
-                        }
-                        
-                        // Irritability 0-10
-                        Section(header: Text("Irritability")) {
+                    }.foregroundColor(.teal)
+                    
+                    // Irritability 0-10
+                    Section(header: Text("Irritability")) {
                         TextField("Irritability 0-10", text: $irritabilityMood)
-                            .cornerRadius(2)
+                            .font(.system(size: 20))
+                            .frame(height: 30)
                             .keyboardType(.numberPad)
                             .onReceive(Just(irritabilityMood)) {
                                 guard let value = Int($0), 0...10 ~= value
@@ -112,10 +124,10 @@ struct trackingPointsView: View {
                                 }
                                 self.irritabilityMood = String(value)
                             }
-                        }
-                        
-                        // Today's note (if any, optional field)
-                        Section(header: Text("Today's Notes")) {
+                    }.foregroundColor(.teal)
+                    
+                    // Today's note (if any, optional field)
+                    Section(header: Text("Today's Notes")) {
                         TextEditor(text: $notes)
                             .accessibility(identifier: "notes")
                             .font(.system(size: 15, weight: .semibold))
@@ -127,65 +139,77 @@ struct trackingPointsView: View {
                                     .clipped()
                             )
                             .cornerRadius(2)
-                        }
-            
-                        // "Add" button
-                        Button(action: {
-                            
-                            // Call function to add row in sqlite DB
-                            DB_Manager().addMood(hoursSleptValue: self.hoursSlept, depressionValue: self.depressedMood, anxietyValue: self.anxietyMood, elevationValue: self.elevatedMood, irritabilityValue: self.irritabilityMood, notesValue: self.notes)
+                    }.foregroundColor(.teal)
                     
-                            // Values reset after user presses 'Add'
-                            self.hoursSlept = 0
-                            self.depressedMood = ""
-                            self.elevatedMood = ""
-                            self.anxietyMood = ""
-                            self.irritabilityMood = ""
-                            self.notes = ""
-                        },
-                        label: {
-                            Text("Add")
-                        })
-                        // If any of the textfields are empty, the add button will be disabled and not work
-                        .disabled($hoursSlept == nil || depressedMood.isEmpty || elevatedMood.isEmpty || anxietyMood.isEmpty || irritabilityMood.isEmpty ||  irritabilityMood.isEmpty)
-                      
-                    }
-                   // End of Form
+                    // "Add" button
+                    Button(action: {
+                        
+                        // Call function to add row in sqlite DB
+                        DB_Manager().addMood(hoursSleptValue: self.hoursSlept, depressionValue: self.depressedMood, anxietyValue: self.anxietyMood, elevationValue: self.elevatedMood, irritabilityValue: self.irritabilityMood, notesValue: self.notes, dateValue: self.date)
+                        
+                        // Values reset after user presses 'Add'
+                        self.hoursSlept = 0
+                        self.depressedMood = ""
+                        self.elevatedMood = ""
+                        self.anxietyMood = ""
+                        self.irritabilityMood = ""
+                        self.notes = ""
+                    },
+                    label: {
+                        ZStack {
+                            Text("Save")
+                                .foregroundColor(.pastelPink)
+                                .font(.system(size: 20))
+                                .fontWeight(.semibold)
+                        }
+                        .frame(width: 330.0, height: 45.0)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        //.padding(.vertical)
+                    })
+                    // If any of the textfields are empty, the add button will be disabled and not work
+                    .disabled($hoursSlept == nil || depressedMood.isEmpty || elevatedMood.isEmpty || anxietyMood.isEmpty || irritabilityMood.isEmpty ||  irritabilityMood.isEmpty)
+                    
+                }
+                // End of Form
                 
                 // Title of the page
                 .navigationBarTitle("Tracking Points", displayMode: .inline)
                 .padding()
-                .navigationBarItems(
-                                        trailing:
-                                            HStack {
-                                                
-                                                // Link to get to the "History" page
-                                                NavigationLink (destination: moodHistoryView(), label: {
-                                                    Text("📅")
-                                                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                                                })
-                                                // Link to get to the "Medications List" Page
-                                                NavigationLink(destination: medicationListView()) {
-                                                    Text("💊")
-                                                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                                                }
-                                                
-                                                // Link to get to the "Welcome to HarmonyMood" Page
-                                                NavigationLink(destination: infoView()) {
-                                                    Text("ℹ️")
-                                                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                                                }
-                                                
-                                                // Link to get to the "Settings" Page
-                                                NavigationLink(destination: settingsView()) {
-                                                    Image(systemName: "gearshape.fill").foregroundColor(.black)
-                                                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                                                }
-                                            } // End of HStack
-                                    )
                 
-                } // End of NavigationView
-    
+                .toolbar {
+                    ToolbarItemGroup(placement: .bottomBar) {
+                        HStack {
+                            // Link to get to the "History" page
+                            NavigationLink (destination: moodHistoryView(), label: {
+                                Image(systemName: "calendar").foregroundColor(.black)
+                                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                            })
+                           Divider()
+                            
+                            // Link to get to the "Medications List" Page
+                            NavigationLink(destination: medicationListView()) {
+                                Image(systemName: "pills").foregroundColor(.black)
+                                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                            }
+                            Divider()
+                            
+                            // Link to get to the "Welcome to HarmonyMood" Page
+                            NavigationLink(destination: infoView()) {
+                                Image(systemName: "info.circle").foregroundColor(.black)
+                                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                            }
+                            Divider()
+                            
+                            // Link to get to the "Settings" Page
+                            NavigationLink(destination: settingsView()) {
+                                Image(systemName: "gearshape.2").foregroundColor(.black)
+                                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                            }
+                        }
+                    }
+                }
+            } // End of NavigationView
+            
         } // End of Vstack
         
     } // End of View
@@ -193,7 +217,7 @@ struct trackingPointsView: View {
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
-                trackingPointsView()
+            trackingPointsView()
         }
     }
 }
