@@ -59,9 +59,10 @@ class DB_Manager {
         do {
             // Path of document directory
             let path: String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first ?? ""
+             
+             // creating database connection
+             db = try Connection("\(path)/harmonyMoodDB.sqlite3")
             
-            // Creating DB connection
-            db = try Connection("/Users/mauleenndlovu/Desktop/HarmonyMood/harmonyMoodDB.sqlite3")
             
             // Creating table objects
             meds = Table("medications")
@@ -125,6 +126,7 @@ class DB_Manager {
         
     } // End of init
     
+    
     // Function to add medication
     public func addMedication(nameValue: String, unitsValue: String, dosageValue: Int64) {
         do {
@@ -134,7 +136,6 @@ class DB_Manager {
             print(error.localizedDescription)
         }
     }
-    
     
     
     // Function to return array of medication models
@@ -170,6 +171,7 @@ class DB_Manager {
         return medicationsModel
     }
     
+    
     // Get single medication data
     public func getMedication(idValue: Int64) -> medicationModel {
         
@@ -198,6 +200,7 @@ class DB_Manager {
         return medicationModels
     }
     
+    
     // Function to update medication
     public func updateMedication(idValue: Int64, nameValue: String, dosageValue: Int64) {
         do {
@@ -211,6 +214,7 @@ class DB_Manager {
             print(error.localizedDescription)
         }
     }
+    
     
     // Function to delete medication
     public func deleteMedication(idValue: Int64) {
@@ -226,6 +230,7 @@ class DB_Manager {
         }
     }
     
+    
     // Function to add moods
     public func addMood(hoursSleptValue: Int, depressionValue: String, anxietyValue: String, elevationValue: String, irritabilityValue: String, notesValue: String, dateValue: Date) {
         
@@ -236,6 +241,36 @@ class DB_Manager {
             print(error.localizedDescription)
         }
     }
+    
+    
+    // Function to delete mood entry
+    public func deleteMoodEntry(idValue: Int64) {
+        do {
+            // Get medication using ID
+            let moods: Table = trackingPoints.filter(trackingID == idValue)
+            
+            // Run the delete query
+            try db.run(moods.delete())
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    // Function to update mood entry
+    public func updateMoodEntry(idValue: Int64, hoursSleptValue: Int, depressionValue: String, anxietyValue: String, elevationValue: String, irritabilityValue: String, notesValue: String) {
+        do {
+            // Get mood entry using ID
+            let moods: Table = trackingPoints.filter(trackingID == idValue)
+            
+            // Run the update query
+            try db.run(moods.update(hoursSlept <- hoursSleptValue, depression <- depressionValue, elevation <- elevationValue, anxiety <- anxietyValue, irritability <- irritabilityValue, notes <- notesValue))
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     
     // Function to get mood
     public func getMood() -> [moodTrackingModel] {
@@ -274,6 +309,7 @@ class DB_Manager {
         return moodModels
     }
     
+    
     // Function to get settings
     public func getSettings() -> [userModel] {
         
@@ -306,6 +342,7 @@ class DB_Manager {
         return userModels
     }
     
+    
     // Function to add name, passcode, and notifications to settings
     public func addSettings(nameValue: String, passcodeValue: Int64, notificationsValue: Bool) {
         do {
@@ -315,7 +352,4 @@ class DB_Manager {
             print(error.localizedDescription)
         }
     }
-    
-
-    
 }
