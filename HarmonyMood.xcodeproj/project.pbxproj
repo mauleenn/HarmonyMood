@@ -23,6 +23,7 @@
 		2B3D653326093D0900F33990 /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D653226093D0800F33990 /* settingsView.swift */; };
 		2B3E5B5925CBDD9200F123DD /* medicationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E5B5825CBDD9200F123DD /* medicationListView.swift */; };
 		2B3E5B7725CBEA9300F123DD /* infoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E5B7625CBEA9300F123DD /* infoView.swift */; };
+		2B45F0092620C09C0097C9F9 /* Cycle9US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B45F0082620C09C0097C9F9 /* Cycle9US.swift */; };
 		2B47F3EB25E425AA0045328D /* medicationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B47F3EA25E425AA0045328D /* medicationModel.swift */; };
 		2B47F3F125E426B40045328D /* DB_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B47F3F025E426B40045328D /* DB_Manager.swift */; };
 		2B95F75D25E6B7A7000FBF87 /* Cycle6US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B95F75C25E6B7A7000FBF87 /* Cycle6US.swift */; };
@@ -81,6 +82,7 @@
 		2B3D653226093D0800F33990 /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
 		2B3E5B5825CBDD9200F123DD /* medicationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = medicationListView.swift; sourceTree = "<group>"; };
 		2B3E5B7625CBEA9300F123DD /* infoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoView.swift; sourceTree = "<group>"; };
+		2B45F0082620C09C0097C9F9 /* Cycle9US.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cycle9US.swift; sourceTree = "<group>"; };
 		2B47F3EA25E425AA0045328D /* medicationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = medicationModel.swift; sourceTree = "<group>"; };
 		2B47F3F025E426B40045328D /* DB_Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB_Manager.swift; sourceTree = "<group>"; };
 		2B4DA8B325DF7E0A00C5B91E /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +206,7 @@
 		2B017C6C2537C1A4001A7918 /* HarmonyMoodUITests */ = {
 			isa = PBXGroup;
 			children = (
+				2B45F0082620C09C0097C9F9 /* Cycle9US.swift */,
 				2BF08B462614EBB0005CDE7A /* Cycle8US.swift */,
 				2BA7CD4325FEACFF003C8CA0 /* Cycle7US.swift */,
 				2B3B79A625E6C1D0005A5A8D /* Cycle1US.swift */,
@@ -564,6 +567,7 @@
 				2B3B799C25E6BE73005A5A8D /* Cycle5US.swift in Sources */,
 				2BF08B472614EBB0005CDE7A /* Cycle8US.swift in Sources */,
 				2BA7CD4425FEACFF003C8CA0 /* Cycle7US.swift in Sources */,
+				2B45F0092620C09C0097C9F9 /* Cycle9US.swift in Sources */,
 				2B3B79A825E6C1D0005A5A8D /* Cycle1US.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
