@@ -40,8 +40,7 @@ struct trackingPointsView: View {
     
     // Var for "Add" button
     @State private var addEntryButton = false
-    
-    
+        
     // To go back on the home screen after submission
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
