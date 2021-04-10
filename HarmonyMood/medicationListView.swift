@@ -188,10 +188,9 @@ struct medicationListView: View {
                 })
             } // End of .sheet
         } // End of VStack
-    }
+    } 
 }
 
-    
     struct medicationList_Previews: PreviewProvider {
         static var previews: some View {
             medicationListView()
