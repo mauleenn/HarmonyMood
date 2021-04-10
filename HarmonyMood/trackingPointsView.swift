@@ -23,6 +23,14 @@
 import SwiftUI
 import Combine
 
+// Dismiss keyboard after user presses save
+extension View {
+  func dismissKeyboard() {
+    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
+                                    to: nil, from: nil, for: nil)
+  }
+}
+
 struct trackingPointsView: View {
     
     // Private vars for tracking points (not optional)
@@ -31,6 +39,8 @@ struct trackingPointsView: View {
     @State private var elevatedMood = ""
     @State private var anxietyMood = ""
     @State private var irritabilityMood = ""
+    
+    // Date of mood entry submission
     @State private var date = Date()
     
     // Current days notes (if any, optional field)
@@ -39,17 +49,11 @@ struct trackingPointsView: View {
     // Var for "Add" button
     @State private var addEntryButton = false
     
-    @State private var current: Int? = nil
     
     // To go back on the home screen after submission
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     var body: some View {
-        
-        NavigationLink(destination: moodHistoryView(), tag: 1, selection: self.$current) {
-                EmptyView()
-            }
-        
         VStack {
             NavigationView {
                 Form {
@@ -139,9 +143,12 @@ struct trackingPointsView: View {
                                     .clipped()
                             )
                             .cornerRadius(2)
-                    }.foregroundColor(.teal)
+                    }
+                    .foregroundColor(.teal)
                     
                     // "Add" button
+                    VStack {
+                
                     Button(action: {
                         
                         // Call function to add row in sqlite DB
@@ -154,6 +161,8 @@ struct trackingPointsView: View {
                         self.anxietyMood = ""
                         self.irritabilityMood = ""
                         self.notes = ""
+                        
+                        self.dismissKeyboard()
                     },
                     label: {
                         ZStack {
@@ -164,13 +173,11 @@ struct trackingPointsView: View {
                         }
                         .frame(width: 330.0, height: 45.0)
                         .clipShape(RoundedRectangle(cornerRadius: 8))
-                        //.padding(.vertical)
                     })
                     // If any of the textfields are empty, the add button will be disabled and not work
                     .disabled($hoursSlept == nil || depressedMood.isEmpty || elevatedMood.isEmpty || anxietyMood.isEmpty || irritabilityMood.isEmpty ||  irritabilityMood.isEmpty)
-                    
-                }
-                // End of Form
+                    }
+                } // End of Form
                 
                 // Title of the page
                 .navigationBarTitle("Tracking Points", displayMode: .inline)
@@ -184,7 +191,7 @@ struct trackingPointsView: View {
                                 Image(systemName: "calendar").foregroundColor(.black)
                                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                             })
-                           Divider()
+                            Divider()
                             
                             // Link to get to the "Medications List" Page
                             NavigationLink(destination: medicationListView()) {
@@ -205,15 +212,12 @@ struct trackingPointsView: View {
                                 Image(systemName: "gearshape.2").foregroundColor(.black)
                                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                             }
-                        }
-                    }
+                        } // End of HStack
+                    } // End of Toolbar
                 }
-            } // End of NavigationView
-            
+            } // End of Nav View
         } // End of Vstack
-        
     } // End of View
-    
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
