@@ -23,29 +23,27 @@
 import XCTest
 
 class Cycle6US: XCTestCase {
-
-
-    // Cycle 6 US:1 - Testing user can navigate to "MedicationsList" page
-    // from the "Tracking Points" page (first page of the app) by
-    // pressing on the 💊 emoji.
-   func testnavigationToMedicationListView() {
+    
+    
+    // Cycle 6 US:1
+    func testnavigationToMedicationListView() {
         let app = XCUIApplication()
         app.launch()
-     
-        // By pressing this button I will get to the second view
-        let medicationsListLink = app.navigationBars["Tracking Points"].buttons["💊"]
-        medicationsListLink.tap()
+        
+        // Link to Medications List page
+        let medicationButton = app.toolbars["Toolbar"].buttons["pills"]
+        XCTAssert(medicationButton.exists)
+        medicationButton.tap()
     }
     
-    // Cycle 6 US:2 - Testing user can navigate to "Info" page
-    // from the "Tracking Points" page (first page of the app) by
-    // pressing on the 💊 emoji.
-   func testnavigationToInfoPageView() {
+    // Cycle 6 US:2
+    func testnavigationToInfoPageView() {
         let app = XCUIApplication()
         app.launch()
-     
-        // By pressing this button I will get to the second view
-        let medicationsListLink = app.navigationBars["Tracking Points"].buttons["ℹ️"]
-        medicationsListLink.tap()
+        
+        // Link to Info page
+        let infoButton = app.toolbars["Toolbar"].buttons["info.circle"]
+        XCTAssert(infoButton.exists)
+        infoButton.tap()
     }
 }

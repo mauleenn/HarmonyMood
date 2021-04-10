@@ -24,95 +24,33 @@ import XCTest
 
 class Cycle7US: XCTestCase {
 
-    /* Cycle 7 US:2 - Testing that user enters in values
-    // for mood textfields. If they don't, the 'Add' button
-    // will be disabled
-   func testEmptyTxtFieldMoodEntry() {
-        let app = XCUIApplication()
-        app.launch()
-    
-        let hoursSleptStepper = app.otherElements["Hours Slept: 0"]
-        hoursSleptStepper.tap(withNumberOfTaps: 3, numberOfTouches: 3) // Should be 3
-    
-        let elevationTxtField = app.textFields["Elevation 0-10"]
-        elevationTxtField.tap()
-        elevationTxtField.typeText("7")
-        
-        let anxietyTxtField = app.textFields["Anxiety 0-10"]
-        anxietyTxtField.tap()
-        anxietyTxtField.typeText("4")
-    
-        let irritabilityTxtField = app.textFields["Irritability 0-10"]
-        irritabilityTxtField.tap()
-        irritabilityTxtField.typeText("0")
-    
-        // Tests to check that the 'Add' button is not enabled
-        // because not all the textfields are filled.
-        let addMoodButton = app.buttons["Add"]
-        XCTAssertEqual(addMoodButton.isEnabled, false)
-    }
-     */
-    
     // Cycle 7 US:3 - Testing that user enters in values
     // for medication textfields. If they don't, the
     // 'Add' button will be disabled
-   func testEmptyTxtFieldMedicationEntry() {
+    func testEmptyTxtFieldMedicationEntry() {
         let app = XCUIApplication()
         app.launch()
-    
+        
         // By pressing this button I will get to the second view
-        let medicationsListLink = app.navigationBars["Tracking Points"].buttons["💊"]
-        XCTAssert(medicationsListLink.exists)
-        medicationsListLink.tap()
-    
+        let medicationButton = app.toolbars["Toolbar"].buttons["pills"]
+        XCTAssert(medicationButton.exists)
+        medicationButton.tap()
+        
         let medicationsListNavigationBar = app.navigationBars["Medications List"]
-    
+        
         let addButton = medicationsListNavigationBar.buttons["➕"]
         XCTAssert(addButton.exists)
         addButton.tap()
-
+        
         let medDosageTxtField = app.tables.cells["Dosage: "]
         medDosageTxtField.tap()
         medDosageTxtField.typeText("100")
-    
+        
         // Tests to check that the 'Add' button is not enabled
         // because not all the textfields are filled.
         let addMedicationButton = app.buttons["Add"]
         XCTAssertEqual(addMedicationButton.isEnabled, false)
     }
-    
-    /* Cycle 7 US:4 - Testing mood entry persistence
-   func testAddingNotes() {
-        let app = XCUIApplication()
-        app.launch()
-    
-        let hoursSleptStepper = app.otherElements["Hours Slept: 0"]
-        hoursSleptStepper.tap(withNumberOfTaps: 3, numberOfTouches: 3) // Should be 3
-        
-        let depressionTxtField = app.textFields["Depression 0-10"]
-        depressionTxtField.tap()
-        depressionTxtField.typeText("0")
-
-        let elevationTxtField = app.textFields["Elevation 0-10"]
-        elevationTxtField.tap()
-        elevationTxtField.typeText("7")
-        
-        let anxietyTxtField = app.textFields["Anxiety 0-10"]
-        anxietyTxtField.tap()
-        anxietyTxtField.typeText("4")
-
-        let irritabilityTxtField = app.textFields["Irritability 0-10"]
-        irritabilityTxtField.tap()
-        irritabilityTxtField.typeText("0")
-    
-        
-
-        let notesTxtField = app.textViews["notes"]
-        notesTxtField.tap()
-        notesTxtField.typeText("Please work")
-     
-    }
-    */
     
     // Cycle 7 US:5 - Testing that the mood history page
     // exists and the button to get to the page works and
@@ -121,32 +59,32 @@ class Cycle7US: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        // Testing to see if the button exists
-        let moodHistoryButton = app.navigationBars["Tracking Points"].buttons["📅"]
-        XCTAssertTrue(moodHistoryButton.exists)
-        moodHistoryButton.tap()
+        // Testing to see if the button exists.
+        let calendarButton = app.toolbars["Toolbar"].buttons["calendar"]
+        XCTAssert(calendarButton.exists)
+        calendarButton.tap()
         
         // Testing to see that the mood history page
-        // exists
-        let moodHistoryNavBar = app.navigationBars.staticTexts["History"]
+        // exists.
+        let moodHistoryNavBar = app.navigationBars.staticTexts["Mood History"]
         XCTAssertTrue(moodHistoryNavBar.exists)
     }
     
     // Cycle 7 US:6 - Testing that user enters in values
     // for edit medication textfields. If they don't, the
     // 'Save' button will be disabled
-   func testEmptyTxtFieldEditMedication() {
+    func testEmptyTxtFieldEditMedication() {
         let app = XCUIApplication()
         app.launch()
-    
+        
         // By pressing this button I will get to the second view
-        let medicationsListLink = app.navigationBars["Tracking Points"].buttons["💊"]
-        XCTAssert(medicationsListLink.exists)
-        medicationsListLink.tap()
-    
+        let medicationButton = app.toolbars["Toolbar"].buttons["pills"]
+        XCTAssert(medicationButton.exists)
+        medicationButton.tap()
+        
         let editMedication = app.tables.cells["Ibuprofen, 100 mg, pencil, ➖"].buttons["pencil"]
         editMedication.tap()
-    
+        
         let medNameTxtField = app.textFields["Medication Name:"]
         medNameTxtField.tap()
         let deleteKey = app.keys["delete"]
@@ -161,14 +99,14 @@ class Cycle7US: XCTestCase {
         deleteKey.tap()
         medNameTxtField.typeText("Advil")
         app/*@START_MENU_TOKEN@*/.buttons["Return"]/*[[".keyboards",".buttons[\"return\"]",".buttons[\"Return\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
-    
+        
         let medDosageTxtField = app.textFields["Dosage:"]
         medDosageTxtField.tap()
         let deleteKey2 = app.keys["Delete"]
         deleteKey2.tap()
         deleteKey2.tap()
         deleteKey2.tap()
-    
+        
         // Tests to check that the 'Save' button is not enabled
         // because not all the textfields are filled.
         let saveButton = app.buttons["Save"]

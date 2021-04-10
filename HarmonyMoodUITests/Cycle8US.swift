@@ -28,7 +28,7 @@ class Cycle8US: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        let settingsButton = app.navigationBars["Tracking Points"].buttons["gearshape.fill"]
+        let settingsButton = app.toolbars["Toolbar"].buttons["gearshape.2"]
         settingsButton.tap()
         
         XCTAssertTrue(app.navigationBars.staticTexts["Settings"].exists)
@@ -38,10 +38,10 @@ class Cycle8US: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        let settingsButton = app.navigationBars["Tracking Points"].buttons["gearshape.fill"]
+        let settingsButton = app.toolbars["Toolbar"].buttons["gearshape.2"]
         settingsButton.tap()
 
-        let nametxtField = app.tables.cells["person.fill, What is your name?"]
+        let nametxtField = app.tables.cells["What is your name?"]
         nametxtField.tap()
         nametxtField.typeText("Mauleen")
     }
@@ -50,12 +50,13 @@ class Cycle8US: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        let settingsButton = app.navigationBars["Tracking Points"].buttons["gearshape.fill"]
+        let settingsButton = app.toolbars["Toolbar"].buttons["gearshape.2"]
         settingsButton.tap()
+                
+       let passcodeToggle = app.tables.switches["Enable Passcode?"]
+        passcodeToggle.tap()
         
-        app.tables.switches["Enable Passcode"].tap()
-        
-        let passcodetxtField = app.tables.cells["****"]
+        let passcodetxtField = app.tables.cells["Passcode:"]
         passcodetxtField.tap()
         passcodetxtField.typeText("3082")
     }
@@ -65,26 +66,22 @@ class Cycle8US: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        let settingsButton = app.navigationBars["Tracking Points"].buttons["gearshape.fill"]
+        let settingsButton = app.toolbars["Toolbar"].buttons["gearshape.2"]
         settingsButton.tap()
         
-        let nametxtField = app.tables.cells["person.fill, What is your name?"]
+        let nametxtField = app.tables.cells["What is your name?"]
         nametxtField.tap()
         nametxtField.typeText("Mauleen")
         
-        let passcodeToggle = app.tables.switches["Enable Passcode"]
+        let passcodeToggle = app.tables.switches["Enable Passcode?"]
         passcodeToggle.tap()
-        
-        let passcodetxtField = app.tables.cells["****"]
+
+        let passcodetxtField = app.tables.cells["Passcode:"]
         passcodetxtField.tap()
         passcodetxtField.typeText("3082")
         
-        app.tables.switches["Enabled"].tap()
-        
-        let notificationsToggle = app.tables/*@START_MENU_TOKEN@*/.switches["Enabled"]/*[[".cells[\"Enabled\"].switches[\"Enabled\"]",".switches[\"Enabled\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        let notificationsToggle = app.tables.switches["Enable Notifications?"]
         notificationsToggle.tap()
-      
-        app.buttons["Save"].tap()
     }
 
 
