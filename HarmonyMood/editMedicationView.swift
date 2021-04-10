@@ -24,78 +24,83 @@ import SwiftUI
 
 struct editMedicationView: View {
     
-   // id receiving of user from previous view
-   @Binding var id: Int64
+    // id receiving of user from previous view
+    @Binding var id: Int64
     
-   // variables to store value from input fields
-   @State var name: String = ""
-   @State var dosage: String = ""
-
-   // to go back to previous view
-   @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    // variables to store value from input fields
+    @State var name: String = ""
+    @State var dosage: String = ""
     
-   var body: some View {
+    // to go back to previous view
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
-    NavigationView {
-       VStack {
+    var body: some View {
         
-        Text("Edit Medication")
-            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-            .padding()
-            .padding()
-        
-           // Create medication name field
-           TextField("Medication Name:", text: $name)
-               .padding(10)
-               .background(Color(.systemGray6))
-               .cornerRadius(5)
-               .disableAutocorrection(true)
-            
-          
-           // Create dosage field, numberpad
-           TextField("Dosage:", text: $dosage)
-               .padding(10)
-               .background(Color(.systemGray6))
-               .cornerRadius(5)
-               .keyboardType(.numberPad)
-               .disableAutocorrection(true)
-            
-           // Button to update medication
-           Button(action: {
-               // Call function to update row in sqlite DB
-               DB_Manager().updateMedication(idValue: self.id, nameValue: self.name, dosageValue: Int64(self.dosage) ?? 0)
-
-               // go back to home page
-               self.mode.wrappedValue.dismiss()
-           }, label: {
-               Text("Save")
-           })
-           .foregroundColor(.green)
-               .padding(.top, 10)
-               .padding(.bottom, 10)
-           
-           // If any of the textfields are empty, the add button will be disabled and not work
-           .disabled(name.isEmpty || dosage.isEmpty)
-       } // End of VStack
-       // Populate medications's data in fields when view loaded
-       .onAppear(perform: {
-           // Get data from DB
-           let medicationModels: medicationModel = DB_Manager().getMedication(idValue: self.id)
-            
-           // Populate in text fields
-           self.name = medicationModels.name
-           self.dosage = String(medicationModels.dosage)
-       })
-    } .navigationBarTitle("Edit Medication", displayMode: .inline) // End of NavigationView
-   } // End of View
+        NavigationView {
+            VStack {
+                
+                Text("Edit Medication")
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .padding()
+                    .padding()
+                
+                // Create medication name field
+                TextField("Medication Name:", text: $name)
+                    .font(.system(size: 20))
+                    .frame(height: 64)
+                    .background(Color(.systemGray6))
+                    .cornerRadius(5)
+                    .disableAutocorrection(true)
+                
+                
+                // Create dosage field, numberpad
+                TextField("Dosage:", text: $dosage)
+                    .font(.system(size: 20))
+                    .frame(height: 64)
+                    .background(Color(.systemGray6))
+                    .cornerRadius(5)
+                    .keyboardType(.numberPad)
+                    .disableAutocorrection(true)
+                
+                // Button to update medication
+                Button(action: {
+                    // Call function to update row in sqlite DB
+                    DB_Manager().updateMedication(idValue: self.id, nameValue: self.name, dosageValue: Int64(self.dosage) ?? 0)
+                    
+                    // go back to home page
+                    self.mode.wrappedValue.dismiss()
+                }, label: {
+                    Text("Save")
+                        .foregroundColor(.pastelPink)
+                        .font(.system(size: 20))
+                        .fontWeight(.semibold)
+                })
+                .foregroundColor(.green)
+                .padding(.top, 10)
+                .padding(.bottom, 10)
+                
+                // If any of the textfields are empty, the add button will be disabled and not work
+                .disabled(name.isEmpty || dosage.isEmpty)
+            } // End of VStack
+            // Populate medications's data in fields when view loaded
+            .onAppear(perform: {
+                // Get data from DB
+                let medicationModels: medicationModel = DB_Manager().getMedication(idValue: self.id)
+                
+                // Populate in text fields
+                self.name = medicationModels.name
+                self.dosage = String(medicationModels.dosage)
+            })
+        } .navigationBarTitle("Edit Medication", displayMode: .inline) // End of NavigationView
+    } // End of View
 }
 
 struct editMedicationView_Previews: PreviewProvider {
     
-   // When using @Binding, do this in preview provider
-   @State static var medID: Int64 = 0
+    // When using @Binding, do this in preview provider
+    @State static var medID: Int64 = 0
     
-   static var previews: some View {
-    editMedicationView(id: $medID)
-   }
+    static var previews: some View {
+        editMedicationView(id: $medID)
+    }
 }
