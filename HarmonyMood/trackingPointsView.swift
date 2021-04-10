@@ -23,14 +23,6 @@
 import SwiftUI
 import Combine
 
-// Dismiss keyboard after user presses save
-extension View {
-  func dismissKeyboard() {
-    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
-                                    to: nil, from: nil, for: nil)
-  }
-}
-
 struct trackingPointsView: View {
     
     // Private vars for tracking points (not optional)
@@ -64,7 +56,8 @@ struct trackingPointsView: View {
                                 .font(.system(size: 20))
                                 .frame(height: 30)
                         })
-                    }.foregroundColor(.teal)
+                    }
+                    .foregroundColor(.teal)
                     
                     // Depression 0-10
                     Section(header: Text("Depression")) {
@@ -80,7 +73,8 @@ struct trackingPointsView: View {
                                 }
                                 self.depressedMood = String(value)
                             }
-                    }.foregroundColor(.teal)
+                    }
+                    .foregroundColor(.teal)
                     
                     // Elevation 0-10
                     Section(header: Text("Elevation")) {
@@ -96,7 +90,8 @@ struct trackingPointsView: View {
                                 }
                                 self.elevatedMood = String(value)
                             }
-                    }.foregroundColor(.teal)
+                    }
+                    .foregroundColor(.teal)
                     
                     // Anxiety 0-10
                     Section(header: Text("Anxiety")) {
@@ -112,7 +107,8 @@ struct trackingPointsView: View {
                                 }
                                 self.anxietyMood = String(value)
                             }
-                    }.foregroundColor(.teal)
+                    }
+                    .foregroundColor(.teal)
                     
                     // Irritability 0-10
                     Section(header: Text("Irritability")) {
@@ -128,7 +124,8 @@ struct trackingPointsView: View {
                                 }
                                 self.irritabilityMood = String(value)
                             }
-                    }.foregroundColor(.teal)
+                    }
+                    .foregroundColor(.teal)
                     
                     // Today's note (if any, optional field)
                     Section(header: Text("Today's Notes")) {
@@ -161,8 +158,6 @@ struct trackingPointsView: View {
                         self.anxietyMood = ""
                         self.irritabilityMood = ""
                         self.notes = ""
-                        
-                        self.dismissKeyboard()
                     },
                     label: {
                         ZStack {
@@ -177,7 +172,9 @@ struct trackingPointsView: View {
                     // If any of the textfields are empty, the add button will be disabled and not work
                     .disabled($hoursSlept == nil || depressedMood.isEmpty || elevatedMood.isEmpty || anxietyMood.isEmpty || irritabilityMood.isEmpty ||  irritabilityMood.isEmpty)
                     }
-                } // End of Form
+                } // End of form
+                // Dismiss keyboard if user drags up/down.
+                .gesture(DragGesture().onChanged{_ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)})
                 
                 // Title of the page
                 .navigationBarTitle("Tracking Points", displayMode: .inline)
