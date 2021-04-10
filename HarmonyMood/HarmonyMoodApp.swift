@@ -26,6 +26,7 @@ struct HarmonyMoodApp: App {
     var body: some Scene {
         WindowGroup {
             trackingPointsView()
+                .environment(\.colorScheme, .light)
             }
     }
 }
