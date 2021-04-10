@@ -21,7 +21,6 @@
 //
 import SwiftUI
 import Combine
-import SwiftUICharts
 
 struct medicationListView: View {
     
@@ -34,9 +33,10 @@ struct medicationListView: View {
     // Id of selected medication to edit or delete
     @State var selectedMedID: Int64 = 0
     
-    @State var name: String = ""
-    @State var units: String = ""
-    @State var dosage: String = ""
+    // Private vars for tracking medications
+    @State private var name: String = ""
+    @State private var units: String = ""
+    @State private var dosage: String = ""
     
     // Button to add medication
     @State private var addMedicationButton = false
@@ -55,7 +55,7 @@ struct medicationListView: View {
             NavigationView {
                 List (self.medicationModels) { (meds) in
                     HStack {
-                        VStack (alignment: .leading) {
+                        VStack(alignment: .leading) {
                             Text(meds.name)
                             Text("\(meds.dosage) mg").font(.subheadline).foregroundColor(.gray)
                         }
@@ -68,7 +68,7 @@ struct medicationListView: View {
                             
                         },
                         label: {
-                            Image(systemName: "pencil")
+                            Image(systemName: "pencil").foregroundColor(.blueGrey)
                                 .foregroundColor(.black)
                                 .font(.system(size: 33.0))
                             
@@ -86,8 +86,9 @@ struct medicationListView: View {
                             self.medicationModels = dbManager.getMeds()
                         })
                         {
-                            Text("➖")
+                            Image(systemName: "minus").foregroundColor(.blueGrey)
                                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                                
                         }
                         .buttonStyle(PlainButtonStyle())
                     } // End of HStack
@@ -97,28 +98,40 @@ struct medicationListView: View {
                 })
                 .listStyle(InsetGroupedListStyle())
                 .navigationBarTitle(Text("Medications List"))
-                .toolbar {
-                    ToolbarItemGroup(placement: .bottomBar) {
-                        HStack {
-                            // Link to get to the "History" page
-                            NavigationLink (destination: moodHistoryView(), label: {
-                                Image(systemName: "calendar").foregroundColor(.black)
-                                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                            })
-                            Divider()
-                            
-                            // Link to get to the "Welcome to HarmonyMood" Page
-                            NavigationLink(destination: infoView()) {
-                                Image(systemName: "info.circle").foregroundColor(.black)
-                                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                            }
-                            Divider()
-                            
-                            // Link to get to the "Settings" Page
-                            NavigationLink(destination: settingsView()) {
-                                Image(systemName: "gearshape.2").foregroundColor(.black)
-                                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                            }
+                .navigationBarItems(
+                                    leading:
+                                         HStack {
+                                             Button(action: {
+                                                 self.addMedicationButton.toggle()
+                                             }, label: {
+                                                 Text("➕")
+                                                     .font(.title)
+                                             })
+                                         }
+                 ) // End of NavBarItems
+            }
+            .toolbar {
+                ToolbarItemGroup(placement: .bottomBar) {
+                    HStack {
+                        
+                        // Link to get to the "History" page
+                        NavigationLink (destination: moodHistoryView(), label: {
+                            Image(systemName: "calendar").foregroundColor(.black)
+                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        })
+                        Divider()
+                        
+                        // Link to get to the "Welcome to HarmonyMood" Page
+                        NavigationLink(destination: infoView()) {
+                            Image(systemName: "info.circle").foregroundColor(.black)
+                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        }
+                        Divider()
+                        
+                        // Link to get to the "Settings" Page
+                        NavigationLink(destination: settingsView()) {
+                            Image(systemName: "gearshape.2").foregroundColor(.black)
+                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         }
                     }
                 }
@@ -129,12 +142,7 @@ struct medicationListView: View {
                     // Medication name
                     Section(header: Text("Information")) {
                         HStack {
-                            if name.isEmpty {
-                                Text("Name: ").foregroundColor(Color(UIColor.lightGray))
-                                    .font(.system(size: 20))
-                                    .frame(height: 64)
-                            }
-                            TextField("", text: $name)
+                            TextField("Medication Name: ", text: $name).foregroundColor(Color(UIColor.lightGray))
                                 .font(.system(size: 20))
                                 .frame(height: 64)
                         }
@@ -142,18 +150,11 @@ struct medicationListView: View {
                         
                         // Medication dosage
                         HStack {
-                            if dosage.isEmpty {
-                                Text("Dosage: ").foregroundColor(Color(UIColor.lightGray))
-                                    .font(.system(size: 20))
-                                    .frame(height: 64)
-                            }
-                            TextField("", text: $dosage)
+                            TextField("Dosage: ", text: $dosage).foregroundColor(Color(UIColor.lightGray))
                                 .font(.system(size: 20))
                                 .frame(height: 64)
                                 .keyboardType(.numberPad)
                         }
-                        }
-                    }
                     // "Add" button
                     Section {
                         Button(action: {
@@ -168,19 +169,27 @@ struct medicationListView: View {
                             self.dosage = ""
                         }
                         , label: {
-                            Text("")
+                            ZStack {
+                                Text("Add")
+                                    .foregroundColor(.pastelPink)
+                                    .font(.system(size: 20))
+                                    .fontWeight(.semibold)
+                            }
+                            .frame(width: 330.0, height: 45.0)
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
                         })
                         // If any of the textfields are empty, the add button will be disabled and not work
                         .disabled(name.isEmpty || dosage.isEmpty)
                     }
-                } // End of Form
+                }// End of Form
+                .preferredColorScheme(.light)
                 .onDisappear(perform: {
                     self.medicationModels = DB_Manager().getMeds()
                 })
             } // End of .sheet
-            
         } // End of VStack
-        
+    }
+}
 
     
     struct medicationList_Previews: PreviewProvider {
@@ -188,4 +197,3 @@ struct medicationListView: View {
             medicationListView()
         }
     }
-
