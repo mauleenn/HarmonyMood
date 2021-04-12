@@ -70,6 +70,7 @@ struct settingsView: View {
                             .frame(height: 64)
                     }
                 }
+                .foregroundColor(.pastelBlue)
                 
                 // Four digit passcode
                 Section(header: Text("Passcode")) {
@@ -92,6 +93,7 @@ struct settingsView: View {
                             .frame(height: 64)
                     }
                 }
+                .foregroundColor(.pastelBlue)
                 
                 Section(header: Text("Notifications")) {
                     Toggle(isOn: $notificationsEnabled) {
@@ -103,6 +105,7 @@ struct settingsView: View {
                         self.scheduleNotifications(state: $0)
                     }
                 }
+                .foregroundColor(.pastelBlue)
                 
                 Section {
                     VStack {
@@ -127,6 +130,7 @@ struct settingsView: View {
                         Alert(title: Text("Successfully saved!"))
                     }
                 }
+                .foregroundColor(.pastelBlue)
             } 
             .font(Font.system(size: 15, weight: .medium, design: .serif))
             .navigationBarTitle("Settings")
@@ -140,7 +144,7 @@ struct settingsView: View {
                         })
                         Divider()
                         
-                        // Link to get to the "Medications List" Page
+                        // Link to get to the "Medications" Page
                         NavigationLink(destination: medicationListView()) {
                             Image(systemName: "pills").foregroundColor(.black)
                                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
