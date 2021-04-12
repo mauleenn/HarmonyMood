@@ -23,72 +23,66 @@
 import SwiftUI
 
 struct infoView: View {
-    
-    // Application version number
-    @State private var versionNumber: Double = 1.0
-    
     var body: some View {
-        NavigationView {
-            Form {
-                // Version #
-                Section(header: Text("Version").foregroundColor(.red)) {
-                    Text("1.0").font(.system(size: 13, weight: .light, design: .rounded))
-                        .font(.subheadline)
-                }
-                
-                // Version #
-                Section(header: Text("What is Harmony Mood?").foregroundColor(.red)) {
-                    Text("Harmony Mood is a platform for individuals to track their mood and improve their overall well-being. With Harmony Mood, users can better understand and better manage their moods. Harmony Mood creates a safe space for users to share and feel their feelings. Welcome to Harmony Mood, happy tracking :)").font(.system(size: 13, weight: .light, design: .rounded))
-                        .font(.subheadline)
-                }
-                
-                // Medication
-                Section(header: Text("Medication").foregroundColor(.red)) {
-                    Text("Adding a new medication is quite simple on Harmony Mood. All you need to do is to add the name and the dosage. Once your new medication is added, it will be added to the list of exisiting ones. You can also delete and modify any medication on the list.").font(.system(size: 13, weight: .light, design: .rounded))
-                        .font(.subheadline)
-                }
-                
-                // Tracking Mood
-                Section(header: Text("Tracking Mood").foregroundColor(.red)) {
-                    Text("To get started, simply start entering your daily moods. You can enter how many hours you slept last night, your depression, elevation, anxiety, and irritability on a scale from 0-10, and any notes for the day.").font(.system(size: 13, weight: .light, design: .rounded))
-                        .font(.subheadline)
-                }
-                
-                // Information
-                Section(header: Text("⚠️").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)) {
-                    Text("If you are experiencing a medical emergency, call 911 or your local emergency number immediately.").font(.system(size: 13, weight: .light, design: .rounded))
-                        .font(.subheadline)
-                }
-                
-                // Title of page
+        Form {
+            // Version #
+            Section(header: Text("Version").foregroundColor(.pastelBlue)) {
+                Text("1.0").font(.system(size: 14, weight: .light, design: .rounded))
+                    .font(.subheadline)
             }
-            .navigationBarTitle("Welcome to Harmony Mood!", displayMode: .inline)
-            .toolbar {
-                ToolbarItemGroup(placement: .bottomBar) {
-                    HStack {
-                        // Link to get to the "History" page
-                        NavigationLink (destination: moodHistoryView(), label: {
-                            Image(systemName: "calendar").foregroundColor(.black)
-                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        })
-                       Divider()
-                        
-                        // Link to get to the "Medications" Page
-                        NavigationLink(destination: medicationListView()) {
-                            Image(systemName: "pills").foregroundColor(.black)
-                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        }
-                        Divider()
-                        
-                        // Link to get to the "Settings" Page
-                        NavigationLink(destination: settingsView()) {
-                            Image(systemName: "gearshape.2").foregroundColor(.black)
-                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        }
+            
+            // Version #
+            Section(header: Text("What is Harmony Mood?").foregroundColor(.pastelBlue)) {
+                Text("Harmony Mood is a platform for individuals to track their mood and improve their overall well-being. With Harmony Mood, users can better understand and better manage their moods. Harmony Mood creates a safe space for users to share and feel their feelings. Welcome to Harmony Mood, happy tracking :)").font(.system(size: 14, weight: .light, design: .rounded))
+                    .font(.subheadline)
+            }
+            
+            // Medication
+            Section(header: Text("Medication").foregroundColor(.pastelBlue)) {
+                Text("Adding a new medication is quite simple on Harmony Mood. All you need to do is to add the name and the dosage. Once your new medication is added, it will be added to the list of exisiting ones. You can also delete and modify any medication on the list.").font(.system(size: 14, weight: .light, design: .rounded))
+                    .font(.subheadline)
+            }
+            
+            // Tracking Mood
+            Section(header: Text("Tracking Mood").foregroundColor(.pastelBlue)) {
+                Text("To get started, simply start entering your daily moods. You can enter how many hours you slept last night, your depression, elevation, anxiety, and irritability on a scale from 0-10, and any notes for the day.").font(.system(size: 14, weight: .light, design: .rounded))
+                    .font(.subheadline)
+            }
+            
+            // Information
+            Section(header: Text("⚠️").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)) {
+                Text("If you are experiencing a medical emergency, call 911 or your local emergency number immediately.").font(.system(size: 14, weight: .light, design: .rounded))
+                    .font(.subheadline)
+            }
+            
+            // Title of page
+        } // End of Form
+        .navigationBarTitle("Welcome to Harmony Mood!", displayMode: .inline)
+        .toolbar {
+            ToolbarItemGroup(placement: .bottomBar) {
+                HStack {
+                    // Link to get to the "History" page
+                    NavigationLink (destination: moodHistoryView(), label: {
+                        Image(systemName: "calendar").foregroundColor(.black)
+                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    })
+                    Divider()
+                    
+                    // Link to get to the "Medications" Page
+                    NavigationLink(destination: medicationListView()) {
+                        Image(systemName: "pills").foregroundColor(.black)
+                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    }
+                    Divider()
+                    
+                    // Link to get to the "Settings" Page
+                    NavigationLink(destination: settingsView()) {
+                        Image(systemName: "gearshape.2").foregroundColor(.black)
+                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     }
                 }
-            }
-        }
+            }// End of ToolbarItemGroup
+        } // End of toolbar
     }
 }
 
