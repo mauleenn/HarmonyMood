@@ -144,8 +144,8 @@ class DB_Manager {
         // Create empty array
         var medicationsModel: [medicationModel] = []
         
-        // Get all meds in ascending order
-        meds = meds.order(medID.asc)
+        // Get all meds in descendng order
+        meds = meds.order(medID.desc)
         
         // Exception handling
         do {
@@ -316,7 +316,7 @@ class DB_Manager {
         var userModels: [userModel] = []
         
         // List the most recent history first
-        users = users.order(userID.desc)
+        users = users.order(userID.asc)
         
         do {
             // Loop through all moods
@@ -339,6 +339,35 @@ class DB_Manager {
         }
         
         // Return array
+        return userModels
+    }
+    
+    // Get single medication data
+    public func getNameSettings(idValue: Int64) -> userModel {
+        
+        // Create an empty object
+        let userModels: userModel = userModel()
+        
+        // Exception handling
+        do {
+            // Get med using ID
+            let user: AnySequence<Row> = try db.prepare(users.filter(userID == idValue))
+            
+            // Get row
+            try user.forEach({ (rowValue) in
+                
+                // Set values in model
+                userModels.userID = try rowValue.get(userID)
+                userModels.userName = try rowValue.get(userName)
+                userModels.passcode = try rowValue.get(passcode)
+                userModels.enableNotifications = try rowValue.get(enableNotifications)
+            })
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+        
+        // Return model
         return userModels
     }
     
