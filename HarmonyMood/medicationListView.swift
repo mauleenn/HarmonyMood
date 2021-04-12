@@ -43,7 +43,7 @@ struct medicationListView: View {
     
     // To go back on the home screen when the medication is added
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-
+    
     var body: some View {
         VStack {
             VStack {
@@ -52,7 +52,6 @@ struct medicationListView: View {
                     EmptyView()
                 }
             }
-            NavigationView {
                 List (self.medicationModels) { (meds) in
                     HStack {
                         VStack(alignment: .leading) {
@@ -99,17 +98,15 @@ struct medicationListView: View {
                 .listStyle(InsetGroupedListStyle())
                 .navigationBarTitle(Text("Medications"))
                 .navigationBarItems(
-                                    leading:
-                                         HStack {
-                                             Button(action: {
+                                    trailing:
+                                        Button(action: {
                                                  self.addMedicationButton.toggle()
-                                             }, label: {
-                                                 Text("➕")
-                                                     .font(.title)
+                                             },
+                                             label: {
+                                                   Text("➕")
+                                                       .font(.title)
                                              })
-                                         }
                  ) // End of NavBarItems
-            }
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
                     HStack {
@@ -135,19 +132,19 @@ struct medicationListView: View {
                         }
                     }
                 }
-            } // End of NavView
+            } // End of toolbar
             .sheet(isPresented: $addMedicationButton) {
                 Form {
                     
                     // Medication name
-                    Section(header: Text("Add New Medication")) {
+                    Section(header: Text("Add A New Medication")) {
                         HStack {
                             TextField("Medication Name: ", text: $name).foregroundColor(Color(UIColor.lightGray))
                                 .font(.system(size: 20))
                                 .frame(height: 64)
                         }
                     }
-                    .foregroundColor(.pastelPurple)
+                    .foregroundColor(.pastelBlue)
                         
                         // Medication dosage
                         HStack {
