@@ -133,12 +133,6 @@ struct trackingPointsView: View {
                             .font(.system(size: 15, weight: .semibold))
                             .multilineTextAlignment(.leading)
                             .frame(height: 100)
-                            .background(
-                                Rectangle()
-                                    .foregroundColor(Color.gray.opacity(0.1))
-                                    .clipped()
-                            )
-                            .cornerRadius(2)
                     }
                     .foregroundColor(.teal)
                     
@@ -176,7 +170,7 @@ struct trackingPointsView: View {
                 .gesture(DragGesture().onChanged{_ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)})
                 
                 // Title of the page
-                .navigationBarTitle("Tracking Points", displayMode: .inline)
+                .navigationBarTitle("How are you feeling?", displayMode: .inline)
                 .padding()
                 
                 .toolbar {
@@ -189,7 +183,7 @@ struct trackingPointsView: View {
                             })
                             Divider()
                             
-                            // Link to get to the "Medications List" Page
+                            // Link to get to the "Medications" Page
                             NavigationLink(destination: medicationListView()) {
                                 Image(systemName: "pills").foregroundColor(.black)
                                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
