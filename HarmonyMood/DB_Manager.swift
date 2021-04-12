@@ -316,7 +316,7 @@ class DB_Manager {
         var userModels: [userModel] = []
         
         // List the most recent history first
-        users = users.order(userID.asc)
+        users = users.order(userID.desc)
         
         do {
             // Loop through all moods
@@ -342,7 +342,7 @@ class DB_Manager {
         return userModels
     }
     
-    // Get single medication data
+    // Get single name data
     public func getNameSettings(idValue: Int64) -> userModel {
         
         // Create an empty object
