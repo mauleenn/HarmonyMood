@@ -102,12 +102,12 @@ class Cycle1US: XCTestCase {
         XCTAssertEqual(irritabilityTxt, "10")
     }
     
-    // US1:2 - Tests that the Nav Bar title named "Tracking Points" exists
+    // US1:2 - Tests that the Nav Bar title named "How are you feeling?" exists
     func testNavBar() {
         let app = XCUIApplication()
         app.launch()
         
-        let trackingPointsNavBar = app.navigationBars.staticTexts["Tracking Points"]
+        let trackingPointsNavBar = app.navigationBars.staticTexts["How are you feeling?"]
         XCTAssertTrue(trackingPointsNavBar.exists)
     }
 }

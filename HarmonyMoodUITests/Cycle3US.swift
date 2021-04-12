@@ -33,7 +33,7 @@ class Cycle3US: XCTestCase {
         XCTAssert(medicationButton.exists)
         medicationButton.tap()
 
-        XCTAssertTrue(app.navigationBars.staticTexts["Medications List"].exists)
+        XCTAssertTrue(app.navigationBars.staticTexts["Medications"].exists)
     }
 
 }

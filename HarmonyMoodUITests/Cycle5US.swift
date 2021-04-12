@@ -15,7 +15,7 @@ class Cycle5US: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        // Link to Medications List page
+        // Link to Medications page
         let medicationButton = app.toolbars["Toolbar"].buttons["pills"]
         XCTAssert(medicationButton.exists)
         medicationButton.tap()
@@ -32,13 +32,13 @@ class Cycle5US: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        // Link to Medications List page
+        // Link to Medications page
         let medicationButton = app.toolbars["Toolbar"].buttons["pills"]
         XCTAssert(medicationButton.exists)
         medicationButton.tap()
         
         
-        let medicationsListNavigationBar = app.navigationBars["Medications List"]
+        let medicationsListNavigationBar = app.navigationBars["Medications"]
         
         // Test if "medicationsListNavigationBar" exists
         XCTAssert(medicationsListNavigationBar.exists)
@@ -62,13 +62,13 @@ class Cycle5US: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        // Link to Medications List page
+        // Link to Medications page
         let medicationButton = app.toolbars["Toolbar"].buttons["pills"]
         XCTAssert(medicationButton.exists)
         medicationButton.tap()
         
         
-        let medicationsListNavigationBar = app.navigationBars["Medications List"]
+        let medicationsListNavigationBar = app.navigationBars["Medications"]
         
         // Test to see if the add button exists, after we check
         // we will press on it and then go to the add medication
@@ -97,18 +97,18 @@ class Cycle5US: XCTestCase {
         XCTAssertNotEqual(addNewMedTxt, "Lamictal")
     }
     
-    // US5:2 - Testing adding a new medication on the "Medications List" page
+    // US5:2 - Testing adding a new medication on the "Medications" page
     func testAddingNewMedication() {
         let app = XCUIApplication()
         app.launch()
         
-        // Link to Medications List page
+        // Link to Medications page
         let medicationButton = app.toolbars["Toolbar"].buttons["pills"]
         XCTAssert(medicationButton.exists)
         medicationButton.tap()
         
         
-        let medicationsListNavigationBar = app.navigationBars["Medications List"]
+        let medicationsListNavigationBar = app.navigationBars["Medications"]
         
         // Test to see if the add button exists, after we check
         // we will press on it and then go to the add medication
@@ -140,7 +140,7 @@ class Cycle5US: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        // Link to Medications List page
+        // Link to Medications page
         let medicationButton = app.toolbars["Toolbar"].buttons["pills"]
         XCTAssert(medicationButton.exists)
         medicationButton.tap()

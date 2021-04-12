@@ -30,7 +30,7 @@ class Cycle6US: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        // Link to Medications List page
+        // Link to Medications page
         let medicationButton = app.toolbars["Toolbar"].buttons["pills"]
         XCTAssert(medicationButton.exists)
         medicationButton.tap()

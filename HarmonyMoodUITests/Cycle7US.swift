@@ -36,7 +36,7 @@ class Cycle7US: XCTestCase {
         XCTAssert(medicationButton.exists)
         medicationButton.tap()
         
-        let medicationsListNavigationBar = app.navigationBars["Medications List"]
+        let medicationsListNavigationBar = app.navigationBars["Medications"]
         
         let addButton = medicationsListNavigationBar.buttons["➕"]
         XCTAssert(addButton.exists)
