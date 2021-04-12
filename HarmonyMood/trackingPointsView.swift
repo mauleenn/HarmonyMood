@@ -37,15 +37,11 @@ struct trackingPointsView: View {
     
     // Current days notes (if any, optional field)
     @State private var notes = ""
-    
-    // Var for "Add" button
-    @State private var addEntryButton = false
         
     // To go back on the home screen after submission
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     var body: some View {
-        VStack {
             NavigationView {
                 Form {
                     // Hours slept last night
@@ -56,11 +52,11 @@ struct trackingPointsView: View {
                                 .frame(height: 30)
                         })
                     }
-                    .foregroundColor(.teal)
+                    .foregroundColor(.pastelBlue)
                     
                     // Depression 0-10
                     Section(header: Text("Depression")) {
-                        TextField("Depression 0-10", text: $depressedMood)
+                        TextField("Depression 0-10", text: $depressedMood).foregroundColor(Color(UIColor.lightGray))
                             .font(.system(size: 20))
                             .frame(height: 30)
                             .keyboardType(.numberPad)
@@ -73,11 +69,11 @@ struct trackingPointsView: View {
                                 self.depressedMood = String(value)
                             }
                     }
-                    .foregroundColor(.teal)
+                    .foregroundColor(.pastelBlue)
                     
                     // Elevation 0-10
                     Section(header: Text("Elevation")) {
-                        TextField("Elevation 0-10", text: $elevatedMood)
+                        TextField("Elevation 0-10", text: $elevatedMood).foregroundColor(Color(UIColor.lightGray))
                             .font(.system(size: 20))
                             .frame(height: 30)
                             .keyboardType(.numberPad)
@@ -90,11 +86,11 @@ struct trackingPointsView: View {
                                 self.elevatedMood = String(value)
                             }
                     }
-                    .foregroundColor(.teal)
+                    .foregroundColor(.pastelBlue)
                     
                     // Anxiety 0-10
                     Section(header: Text("Anxiety")) {
-                        TextField("Anxiety 0-10", text: $anxietyMood)
+                        TextField("Anxiety 0-10", text: $anxietyMood).foregroundColor(Color(UIColor.lightGray))
                             .font(.system(size: 20))
                             .frame(height: 30)
                             .keyboardType(.numberPad)
@@ -107,11 +103,11 @@ struct trackingPointsView: View {
                                 self.anxietyMood = String(value)
                             }
                     }
-                    .foregroundColor(.teal)
+                    .foregroundColor(.pastelBlue)
                     
                     // Irritability 0-10
                     Section(header: Text("Irritability")) {
-                        TextField("Irritability 0-10", text: $irritabilityMood)
+                        TextField("Irritability 0-10", text: $irritabilityMood).foregroundColor(Color(UIColor.lightGray))
                             .font(.system(size: 20))
                             .frame(height: 30)
                             .keyboardType(.numberPad)
@@ -124,21 +120,22 @@ struct trackingPointsView: View {
                                 self.irritabilityMood = String(value)
                             }
                     }
-                    .foregroundColor(.teal)
+                    .foregroundColor(.pastelBlue)
                     
                     // Today's note (if any, optional field)
+                    
                     Section(header: Text("Today's Notes")) {
-                        TextEditor(text: $notes)
+                        TextEditor(text: $notes).foregroundColor(Color(UIColor.lightGray))
+                            //.padding(.leading, keyboard.currentHeight)
                             .accessibility(identifier: "notes")
-                            .font(.system(size: 15, weight: .semibold))
+                            .font(.system(size: 20, weight: .semibold))
                             .multilineTextAlignment(.leading)
                             .frame(height: 100)
                     }
-                    .foregroundColor(.teal)
+                    .foregroundColor(.pastelBlue)
                     
                     // "Add" button
                     VStack {
-                
                     Button(action: {
                         
                         // Call function to add row in sqlite DB
@@ -170,8 +167,7 @@ struct trackingPointsView: View {
                 .gesture(DragGesture().onChanged{_ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)})
                 
                 // Title of the page
-                .navigationBarTitle("How are you feeling?", displayMode: .inline)
-                .padding()
+                .navigationBarTitle("How are you feeling?", displayMode: .large)
                 
                 .toolbar {
                     ToolbarItemGroup(placement: .bottomBar) {
@@ -203,10 +199,10 @@ struct trackingPointsView: View {
                                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                             }
                         } // End of HStack
-                    } // End of Toolbar
-                }
+                    } // End of ToolbarItemGroup
+                } // End of .toolbar
             } // End of Nav View
-        } // End of Vstack
+            .accentColor( .bluePurple)
     } // End of View
     
     struct ContentView_Previews: PreviewProvider {
