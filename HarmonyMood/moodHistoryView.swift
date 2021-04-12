@@ -19,7 +19,6 @@ struct moodHistoryView: View {
     @State private var deleteMoodEntry = false
     
     var body: some View {
-        NavigationView {
             List(self.moodModels) { (model) in
                 HStack {
                     VStack(alignment: .leading) {
@@ -82,7 +81,6 @@ struct moodHistoryView: View {
             })
             .listStyle(InsetGroupedListStyle())
             .navigationTitle(Text("Mood History"))
-        } // End of Nav View
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
                 HStack {
