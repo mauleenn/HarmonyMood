@@ -82,9 +82,9 @@ class Cycle7US: XCTestCase {
         XCTAssert(medicationButton.exists)
         medicationButton.tap()
         
-        let editMedication = app.tables.cells["Ibuprofen, 100 mg, pencil, ➖"].buttons["pencil"]
+        let editMedication = app.tables.cells["Ibuprofen, 100 mg, pencil, minus"].buttons["pencil"]
         editMedication.tap()
-        
+                
         let medNameTxtField = app.textFields["Medication Name:"]
         medNameTxtField.tap()
         let deleteKey = app.keys["delete"]
