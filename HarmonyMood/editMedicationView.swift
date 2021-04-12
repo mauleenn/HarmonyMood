@@ -24,7 +24,7 @@ import SwiftUI
 
 struct editMedicationView: View {
     
-    // id receiving of user from previous view
+    // id receiving of med from previous view
     @Binding var id: Int64
     
     // variables to store value from input fields
@@ -35,12 +35,11 @@ struct editMedicationView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     var body: some View {
-        
-        NavigationView {
             VStack {
                 
                 Text("Edit Medication")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .font(.system(size: 40, weight: .semibold))
+                    .foregroundColor(.teal)
                     .padding()
                     .padding()
                 
@@ -91,7 +90,6 @@ struct editMedicationView: View {
                 self.name = medicationModels.name
                 self.dosage = String(medicationModels.dosage)
             })
-        } .navigationBarTitle("Edit Medication", displayMode: .inline) // End of NavigationView
     } // End of View
 }
 
