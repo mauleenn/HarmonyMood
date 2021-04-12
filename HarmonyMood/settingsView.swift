@@ -33,6 +33,7 @@ extension Color {
     static let bgGrey = Color("bgGrey")
     static let blueGrey = Color("blueGrey")
     static let teal = Color("teal")
+    static let bluePurple = Color("bluePurple")
 }
 
 struct settingsView: View {
@@ -51,11 +52,10 @@ struct settingsView: View {
     // Navigation bar title color is "teal"
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(named: "teal") ?? .black]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(named: "teal") ?? .black]
     }
     
     var body: some View {
-        
-        NavigationView {
             Form {
                 Section(header: Text("Name")) {
                     ZStack(alignment: .leading) {
@@ -113,6 +113,7 @@ struct settingsView: View {
                             
                             showAlert = true
                             DB_Manager().addSettings(nameValue: self.name, passcodeValue: Int64(self.passcode) ?? 0, notificationsValue: self.notificationsEnabled)
+                            
                         })
                         {
                             ZStack {
@@ -123,7 +124,6 @@ struct settingsView: View {
                             }
                             .frame(width: 330.0, height: 45.0)
                             .clipShape(RoundedRectangle(cornerRadius: 8))
-                            //.padding(.vertical)
                         }
                     }
                     .alert(isPresented: $showAlert) {
@@ -131,9 +131,9 @@ struct settingsView: View {
                     }
                 }
                 .foregroundColor(.pastelBlue)
-            } 
+            }
+            .navigationBarTitle("Settings", displayMode: .large)
             .font(Font.system(size: 15, weight: .medium, design: .serif))
-            .navigationBarTitle("Settings")
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
                     HStack {
@@ -159,7 +159,6 @@ struct settingsView: View {
                     }
                 }
             }
-        }
     }
     
     func scheduleNotifications(state: Bool) {
