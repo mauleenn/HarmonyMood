@@ -97,7 +97,7 @@ struct medicationListView: View {
                     self.medicationModels = DB_Manager().getMeds()
                 })
                 .listStyle(InsetGroupedListStyle())
-                .navigationBarTitle(Text("Medications List"))
+                .navigationBarTitle(Text("Medications"))
                 .navigationBarItems(
                                     leading:
                                          HStack {
@@ -140,13 +140,14 @@ struct medicationListView: View {
                 Form {
                     
                     // Medication name
-                    Section(header: Text("Information")) {
+                    Section(header: Text("Add New Medication")) {
                         HStack {
                             TextField("Medication Name: ", text: $name).foregroundColor(Color(UIColor.lightGray))
                                 .font(.system(size: 20))
                                 .frame(height: 64)
                         }
-                        }
+                    }
+                    .foregroundColor(.pastelPurple)
                         
                         // Medication dosage
                         HStack {
@@ -155,6 +156,7 @@ struct medicationListView: View {
                                 .frame(height: 64)
                                 .keyboardType(.numberPad)
                         }
+                    
                     // "Add" button
                     Section {
                         Button(action: {
