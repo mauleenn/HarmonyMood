@@ -38,7 +38,7 @@ extension Color {
 
 struct settingsView: View {
     
-    @State private var name: String = ""
+    @AppStorage("name") private var name: String = ""
     @State private var passcode = ""
     
     @AppStorage("notificationsEnabled") var notificationsEnabled: Bool = false
@@ -145,7 +145,7 @@ struct settingsView: View {
                         Divider()
                         
                         // Link to get to the "Medications" Page
-                        NavigationLink(destination: medicationListView()) {
+                        NavigationLink(destination: medicationsListView()) {
                             Image(systemName: "pills").foregroundColor(.black)
                                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         }
