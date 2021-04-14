@@ -22,7 +22,7 @@
 import SwiftUI
 import Combine
 
-struct medicationListView: View {
+struct medicationsListView: View {
     
     // Array of medication models
     @State var medicationModels: [medicationModel] = []
@@ -192,6 +192,6 @@ struct medicationListView: View {
 
     struct medicationList_Previews: PreviewProvider {
         static var previews: some View {
-            medicationListView()
+            medicationsListView()
         }
     }
