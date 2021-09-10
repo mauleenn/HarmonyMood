@@ -13,4 +13,4 @@
 - notes (summary of the day)
 - medications (name and mg)
 
-**Author:** Mauleen Ndlovu, Senior at Indiana Wesleyan University in Marion, IN.
+**Author:** Mauleen Ndlovu.
