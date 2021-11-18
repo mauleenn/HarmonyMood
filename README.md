@@ -1,5 +1,3 @@
-## Senior Project in CIS-342.
-
 **Description:** A mood tracking iOS application that is made for users who would like to track their mood and improve their overall well-being.
 
 **Benefits:** 
@@ -13,4 +11,4 @@
 - notes (summary of the day)
 - medications (name and mg)
 
-**Author:** Mauleen Ndlovu, Senior at Indiana Wesleyan University in Marion, IN.
+**Author:** Mauleen Ndlovu.
