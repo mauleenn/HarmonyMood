@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:medicationsListView.swift">
+   </FileRef>
+   <FileRef
       location = "group:HarmonyMood.xcodeproj">
    </FileRef>
    <FileRef
