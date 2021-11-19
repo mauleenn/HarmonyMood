@@ -59,9 +59,9 @@ class DB_Manager {
         do {
             // Path of document directory
             let path: String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first ?? ""
-             
-             // creating database connection
-             db = try Connection("\(path)/harmonyMoodDB.sqlite3")
+            
+            // Creating DB connection
+            db = try Connection("/Users/mauleenndlovu/Desktop/HarmonyMood/harmonyMoodDB.sqlite3")
             
             
             // Creating table objects
@@ -78,7 +78,7 @@ class DB_Manager {
             trackingID = Expression<Int64>("trackingID")
             hoursSlept = Expression<Int>("hoursSlept")
             depression = Expression<String>("depression")
-            elevation = Expression<String>("dosage")
+            elevation = Expression<String>("elevation")
             anxiety = Expression<String>("anxiety")
             irritability = Expression<String>("irritability")
             notes = Expression<String>("notes")
@@ -309,6 +309,38 @@ class DB_Manager {
         return moodModels
     }
     
+    // Get single medication data
+    public func getSingleMood(idValue: Int64) -> moodTrackingModel {
+        
+        // Create an empty object
+        let moodModels: moodTrackingModel = moodTrackingModel()
+        
+        // Exception handling
+        do {
+            // Get mood using ID
+            let mood: AnySequence<Row> = try db.prepare(meds.filter(trackingID == idValue))
+            
+            // Get row
+            try mood.forEach({ (rowValue) in
+                
+                // Set values in model
+                moodModels.trackingID = try rowValue.get(trackingID)
+                moodModels.hoursSlept = try rowValue.get(hoursSlept)
+                moodModels.depression = try rowValue.get(depression)
+                moodModels.elevation = try rowValue.get(elevation)
+                moodModels.anxiety = try rowValue.get(anxiety)
+                moodModels.irritability = try rowValue.get(irritability)
+                moodModels.notes = try rowValue.get(notes)
+                moodModels.entryDate = try rowValue.get(entryDate)
+            })
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+        
+        // Return model
+        return moodModels
+    }
     
     // Function to get settings
     public func getSettings() -> [userModel] {
