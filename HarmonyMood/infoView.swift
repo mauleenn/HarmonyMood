@@ -61,6 +61,14 @@ struct infoView: View {
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
                 HStack {
+                    
+                    // Link to get to the "TrackingPoints" Page
+                    NavigationLink(destination: trackingPointsView()) {
+                        Image(systemName: "pencil.circle").foregroundColor(.black)
+                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    }
+                    Divider()
+                    
                     // Link to get to the "History" page
                     NavigationLink (destination: moodHistoryView(), label: {
                         Image(systemName: "calendar").foregroundColor(.black)
