@@ -30,10 +30,13 @@ extension Color {
     static let pastelBlue = Color("pastelBlue")
     static let pastelPurple = Color("pastelPurple")
     static let pastelGreen = Color("pastelGreen")
+    static let pastelRed = Color("pastelRed")
     static let bgGrey = Color("bgGrey")
     static let blueGrey = Color("blueGrey")
     static let teal = Color("teal")
     static let bluePurple = Color("bluePurple")
+    static let orange = Color("orange")
+    static let blueish = Color("blueish")
 }
 
 struct settingsView: View {
@@ -137,6 +140,14 @@ struct settingsView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
                     HStack {
+                        
+                        // Link to get to the "TrackingPoints" Page
+                        NavigationLink(destination: trackingPointsView()) {
+                            Image(systemName: "pencil.circle").foregroundColor(.black)
+                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        }
+                        Divider()
+                        
                         // Link to get to the "History" page
                         NavigationLink (destination: moodHistoryView(), label: {
                             Image(systemName: "calendar").foregroundColor(.black)
