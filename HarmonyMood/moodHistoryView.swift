@@ -12,6 +12,9 @@ struct moodHistoryView: View {
     // Array of mood models
     @State var moodModels: [moodTrackingModel] = []
     
+    // Check if medication is selected for edit
+    @State var selectedMood: Bool = false
+    
     // Id of selected mood entry to edit or delete
     @State var selectedMoodID: Int64 = 0
     
@@ -22,6 +25,13 @@ struct moodHistoryView: View {
             List(self.moodModels) { (model) in
                 HStack {
                     VStack(alignment: .leading) {
+                        
+                        VStack {
+                            // Navigation link to go to edit medication view
+                            NavigationLink (destination: editMoodView(id: self.$selectedMoodID), isActive: self.$selectedMood) {
+                                EmptyView()
+                            }
+                        }
                         
                         // Date
                         Text("\(model.entryDate)")
@@ -57,6 +67,21 @@ struct moodHistoryView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .padding()
                    
+                    // Call edit function
+                    Button(action: {
+                        
+                        self.selectedMoodID = model.trackingID
+                        self.selectedMood = true
+                        
+                    })
+                    {
+                        Image(systemName: "pencil").foregroundColor(.orange)
+                            .font(.system(size: 33.0))
+                        
+                        
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    
                     // Button that allows user to delete an exisiting mood entry
                     Button(action: {
                         
@@ -68,12 +93,14 @@ struct moodHistoryView: View {
                         self.moodModels = dbManager.getMood()
                     })
                     {
-                        Image(systemName: "minus.circle").foregroundColor(.pastelBlue)
+                        Image(systemName: "minus").foregroundColor(.orange)
                             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         
                         
                     }
                     .buttonStyle(PlainButtonStyle())
+                    
+                    
                 }
             } // End of List
             .onAppear(perform: {
@@ -84,6 +111,13 @@ struct moodHistoryView: View {
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
                 HStack {
+                    
+                    // Link to get to the "TrackingPoints" Page
+                    NavigationLink(destination: trackingPointsView()) {
+                        Image(systemName: "pencil.circle").foregroundColor(.black)
+                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    }
+                    Divider()
                     
                     // Link to get to the "Medications" Page
                     NavigationLink(destination: medicationsListView()) {
