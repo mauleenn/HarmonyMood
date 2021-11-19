@@ -47,16 +47,19 @@ struct trackingPointsView: View {
                     // Hours slept last night
                     Section(header: Text("Hours Slept Last Night")) {
                         Stepper(value: $hoursSlept, in: 0...24, label: {
-                            Text("Hours Slept: \(self.hoursSlept)").foregroundColor(Color(UIColor.lightGray))
+                            Text("Hours Slept: \(self.hoursSlept)")
+                                .foregroundColor(.black)
                                 .font(.system(size: 20))
                                 .frame(height: 30)
                         })
                     }
-                    .foregroundColor(.pastelBlue)
+                    .foregroundColor(.blueish)
+                    .font(.system(size: 15, weight: .bold))
                     
                     // Depression 0-10
                     Section(header: Text("Depression")) {
-                        TextField("Depression 0-10", text: $depressedMood).foregroundColor(Color(UIColor.lightGray))
+                        TextField("Depression 0-10", text: $depressedMood)
+                            .foregroundColor(.black)
                             .font(.system(size: 20))
                             .frame(height: 30)
                             .keyboardType(.numberPad)
@@ -69,11 +72,13 @@ struct trackingPointsView: View {
                                 self.depressedMood = String(value)
                             }
                     }
-                    .foregroundColor(.pastelBlue)
+                    .foregroundColor(.blueish)
+                    .font(.system(size: 15, weight: .bold))
                     
                     // Elevation 0-10
                     Section(header: Text("Elevation")) {
-                        TextField("Elevation 0-10", text: $elevatedMood).foregroundColor(Color(UIColor.lightGray))
+                        TextField("Elevation 0-10", text: $elevatedMood)
+                            .foregroundColor(.black)
                             .font(.system(size: 20))
                             .frame(height: 30)
                             .keyboardType(.numberPad)
@@ -86,11 +91,13 @@ struct trackingPointsView: View {
                                 self.elevatedMood = String(value)
                             }
                     }
-                    .foregroundColor(.pastelBlue)
+                    .foregroundColor(.blueish)
+                    .font(.system(size: 15, weight: .bold))
                     
                     // Anxiety 0-10
                     Section(header: Text("Anxiety")) {
-                        TextField("Anxiety 0-10", text: $anxietyMood).foregroundColor(Color(UIColor.lightGray))
+                        TextField("Anxiety 0-10", text: $anxietyMood)
+                            .foregroundColor(.black)
                             .font(.system(size: 20))
                             .frame(height: 30)
                             .keyboardType(.numberPad)
@@ -103,11 +110,13 @@ struct trackingPointsView: View {
                                 self.anxietyMood = String(value)
                             }
                     }
-                    .foregroundColor(.pastelBlue)
+                    .foregroundColor(.blueish)
+                    .font(.system(size: 15, weight: .bold))
                     
                     // Irritability 0-10
                     Section(header: Text("Irritability")) {
-                        TextField("Irritability 0-10", text: $irritabilityMood).foregroundColor(Color(UIColor.lightGray))
+                        TextField("Irritability 0-10", text: $irritabilityMood)
+                            .foregroundColor(.black)
                             .font(.system(size: 20))
                             .frame(height: 30)
                             .keyboardType(.numberPad)
@@ -120,16 +129,18 @@ struct trackingPointsView: View {
                                 self.irritabilityMood = String(value)
                             }
                     }
-                    .foregroundColor(.pastelBlue)
+                    .foregroundColor(.blueish)
+                    .font(.system(size: 15, weight: .bold))
                     
                     // Today's note (if any, optional field)
                     
                     Section(header: Text("Today's Notes")) {
-                        TextEditor(text: $notes).foregroundColor(Color(UIColor.lightGray))
+                        TextEditor(text: $notes)
                             //.padding(.leading, keyboard.currentHeight)
                             .accessibility(identifier: "notes")
                             .font(.system(size: 20, weight: .semibold))
                             .multilineTextAlignment(.leading)
+                            .foregroundColor(.black)
                             .frame(height: 100)
                     }
                     .foregroundColor(.pastelBlue)
