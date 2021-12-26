@@ -26,7 +26,6 @@
 		2B47F3EB25E425AA0045328D /* medicationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B47F3EA25E425AA0045328D /* medicationModel.swift */; };
 		2B47F3F125E426B40045328D /* DB_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B47F3F025E426B40045328D /* DB_Manager.swift */; };
 		2B6E7E3E2746E60F001B86AD /* medicationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6E7E3D2746E60F001B86AD /* medicationsListView.swift */; };
-		2B6E7E42274702EE001B86AD /* editMoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6E7E41274702EE001B86AD /* editMoodView.swift */; };
 		2B95F75D25E6B7A7000FBF87 /* Cycle6US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B95F75C25E6B7A7000FBF87 /* Cycle6US.swift */; };
 		2B95F75E25E6B7A7000FBF87 /* Cycle6US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B95F75C25E6B7A7000FBF87 /* Cycle6US.swift */; };
 		2B9A62AF25E541F200EEA19E /* editMedicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9A62AE25E541F200EEA19E /* editMedicationView.swift */; };
@@ -37,6 +36,7 @@
 		2BC97D2725B0A95D0057F6AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BC97D2425B0A95D0057F6AE /* GoogleService-Info.plist */; };
 		2BD587A325FC81580081A0E2 /* moodHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD587A225FC81580081A0E2 /* moodHistoryView.swift */; };
 		2BE8176325E9A6C900AE73C3 /* userModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE8176225E9A6C900AE73C3 /* userModel.swift */; };
+		2BEEAA51275D52FB00D910E8 /* editMoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEEAA50275D52FB00D910E8 /* editMoodView.swift */; };
 		2BF08B472614EBB0005CDE7A /* Cycle8US.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF08B462614EBB0005CDE7A /* Cycle8US.swift */; };
 		2BF08B682617D250005CDE7A /* TextFieldManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF08B672617D250005CDE7A /* TextFieldManager.swift */; };
 		2BFB652425E6CDA2006843D1 /* SwiftUIFormHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 2BFB652325E6CDA2006843D1 /* SwiftUIFormHelper */; };
@@ -87,7 +87,6 @@
 		2B4DA8B325DF7E0A00C5B91E /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4DA8BD25DF7ED000C5B91E /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B6E7E3D2746E60F001B86AD /* medicationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = medicationsListView.swift; sourceTree = "<group>"; };
-		2B6E7E41274702EE001B86AD /* editMoodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = editMoodView.swift; path = ../../editMoodView.swift; sourceTree = "<group>"; };
 		2B95F75C25E6B7A7000FBF87 /* Cycle6US.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cycle6US.swift; sourceTree = "<group>"; };
 		2B9A62AE25E541F200EEA19E /* editMedicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editMedicationView.swift; sourceTree = "<group>"; };
 		2BA7CD4325FEACFF003C8CA0 /* Cycle7US.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cycle7US.swift; sourceTree = "<group>"; };
@@ -95,6 +94,7 @@
 		2BC97D2425B0A95D0057F6AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2BD587A225FC81580081A0E2 /* moodHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moodHistoryView.swift; sourceTree = "<group>"; };
 		2BE8176225E9A6C900AE73C3 /* userModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userModel.swift; sourceTree = "<group>"; };
+		2BEEAA50275D52FB00D910E8 /* editMoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editMoodView.swift; sourceTree = "<group>"; };
 		2BF08B462614EBB0005CDE7A /* Cycle8US.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cycle8US.swift; sourceTree = "<group>"; };
 		2BF08B672617D250005CDE7A /* TextFieldManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldManager.swift; sourceTree = "<group>"; };
 		34BCC17DA2A6CF40D77FB62B /* Pods_HarmonyMoodTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HarmonyMoodTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,7 +254,7 @@
 				2B3E5B7625CBEA9300F123DD /* infoView.swift */,
 				2B9A62AE25E541F200EEA19E /* editMedicationView.swift */,
 				2B6E7E3D2746E60F001B86AD /* medicationsListView.swift */,
-				2B6E7E41274702EE001B86AD /* editMoodView.swift */,
+				2BEEAA50275D52FB00D910E8 /* editMoodView.swift */,
 				2B2FAB2E274754DC0066B0A2 /* chartView.swift */,
 			);
 			name = Views;
@@ -530,10 +530,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BD587A325FC81580081A0E2 /* moodHistoryView.swift in Sources */,
+				2BEEAA51275D52FB00D910E8 /* editMoodView.swift in Sources */,
 				2BA9037425CC2F3900EEB8C7 /* HarmonyMoodApp.swift in Sources */,
 				2B9A62AF25E541F200EEA19E /* editMedicationView.swift in Sources */,
 				2BF08B682617D250005CDE7A /* TextFieldManager.swift in Sources */,
-				2B6E7E42274702EE001B86AD /* editMoodView.swift in Sources */,
 				2BE8176325E9A6C900AE73C3 /* userModel.swift in Sources */,
 				2B47F3EB25E425AA0045328D /* medicationModel.swift in Sources */,
 				2B3E5B7725CBEA9300F123DD /* infoView.swift in Sources */,
