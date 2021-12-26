@@ -143,7 +143,8 @@ struct trackingPointsView: View {
                             .foregroundColor(.black)
                             .frame(height: 100)
                     }
-                    .foregroundColor(.pastelBlue)
+                    .foregroundColor(.blueish)
+                    .font(.system(size: 15, weight: .bold))
                     
                     // "Add" button
                     VStack {
